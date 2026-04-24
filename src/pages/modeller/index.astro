@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import ScrollAnimate from '../../components/ScrollAnimate.astro';
+
+const breadcrumb = [
+  { label: 'Anasayfa', url: '/' },
+  { label: 'Asansör Modelleri' }
+];
+
+const items = [
+  {
+    name: 'İnsan (Yolcu) Asansörü',
+    url: '/modeller/insan-yolcu-asansoru/',
+    description: 'Konut ve ticari binalar için konforlu, hızlı ve güvenli yolcu taşıma çözümleri.',
+    image: '/images/pexels-cottonbro-studio-8453040-scaled-1.webp'
+  },
+  {
+    name: 'Yük Asansörü',
+    url: '/modeller/yuk-asansoru/',
+    description: 'Fabrika, depo ve alışveriş merkezleri için ağır yük taşıma kapasiteli dayanıklı asansörler.',
+    image: '/images/yuk_asansoru01.webp'
+  },
+  {
+    name: 'Monşarj (Yemek) Asansörü',
+    url: '/modeller/monsarj-yemek-asansoru/',
+    description: 'Restoran, otel ve villalar için küçük ölçekli servis ve yemek taşıma asansörleri.',
+    image: '/images/monsarj.webp'
+  },
+  {
+    name: 'Sedye Asansörleri',
+    url: '/modeller/sedye-asansorleri/',
+    description: 'Hastaneler ve sağlık kuruluşları için özel ölçülerde tasarlanmış sedye taşıma asansörleri.',
+    image: '/images/sedye_asansoru.webp'
+  },
+  {
+    name: 'Panoramik Asansör',
+    url: '/modeller/panoramik-asansor/',
+    description: 'Binaların mimari estetiğini artıran, cam kabinli ve dışarıyı görme imkanı sunan şık asansörler.',
+    image: '/images/fe4a3d48.webp'
+  },
+  {
+    name: 'Araç Asansörü',
+    url: '/modeller/arac-asansoru/',
+    description: 'Otopark sorunu olan binalarda araçların katlar arası transferini sağlayan güçlü sistemler.',
+    image: '/images/arac1.webp'
+  },
+  {
+    name: 'Engelli Platformları',
+    url: '/modeller/engelli-platformlari/',
+    description: 'Erişilebilirlik standartlarına uygun, engelli ve yaşlı bireyler için dikey taşıma çözümleri.',
+    image: '/images/hidrolik-asansor-770x433-1.webp'
+  }
+];
+---
+<BaseLayout title="Asansör Modelleri" description="Tekin As Asansör modelleri: Yolcu, Yük, Monşarj, Sedye, Panoramik ve Araç asansörleri.">
+  <Header slot="header" />
+
+  <PageHero title="Asansör Modelleri" breadcrumb={breadcrumb} />
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <SectionHeading subtitle="Ürün Gruplarımız" title="Asansör Modelleri" centered={true} />
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+        {items.map((item, idx) => (
+          <ScrollAnimate animation="fadeInUp" delay={idx * 100}>
+            <div class="group bg-white rounded-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300">
+              <div class="relative h-64 overflow-hidden">
+                <img src={item.image} alt={item.name} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+              </div>
+              <div class="p-8">
+                <h3 class="text-2xl font-bold text-dark mb-4 font-poppins group-hover:text-primary transition-colors">{item.name}</h3>
+                <p class="text-gray-600 mb-6 line-clamp-3">{item.description}</p>
+                <a href={item.url} class="inline-flex items-center text-primary font-bold hover:underline">
+                  Detaylı Bilgi
+                  <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </a>
+              </div>
+            </div>
+          </ScrollAnimate>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

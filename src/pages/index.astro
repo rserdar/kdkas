@@ -1,0 +1,145 @@
+---
+import '../styles/global.css';
+---
+
+<html lang="tr">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>KDK Portal | Kayıt ve Denetim Platformu</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+		<meta name="description" content="KDK Portal - Modern Kayıt ve Denetim Yönetim Sistemi. Sertifikasyon ve denetim süreçlerinizi dijitalleştirin.">
+	</head>
+	<body class="min-h-screen">
+		<!-- Navigation -->
+		<nav class="fixed top-0 w-full z-50 glass border-b-0">
+			<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+				<div class="flex items-center gap-2">
+					<div class="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center">
+						<span class="text-white font-bold text-xl">K</span>
+					</div>
+					<span class="text-2xl font-display font-bold bg-clip-text text-transparent bg-gradient-to-r from-white to-slate-400">
+						KDK Portal
+					</span>
+				</div>
+				
+				<div class="hidden md:flex items-center gap-8">
+					<a href="#" class="nav-link">Anasayfa</a>
+					<a href="#" class="nav-link">Sertifikalar</a>
+					<a href="#" class="nav-link">Denetimler</a>
+					<a href="#" class="nav-link">Kurumsal</a>
+				</div>
+
+				<button class="btn-primary">Giriş Yap</button>
+			</div>
+		</nav>
+
+		<!-- Hero Section -->
+		<section class="relative pt-32 pb-20 overflow-hidden">
+			<div class="absolute inset-0 z-0">
+				<img src="/hero-bg.png" alt="Background" class="w-full h-full object-cover opacity-30 scale-105" />
+				<div class="absolute inset-0 bg-gradient-to-b from-surface/20 via-surface to-surface"></div>
+			</div>
+
+			<div class="max-w-7xl mx-auto px-6 relative z-10">
+				<div class="max-w-3xl animate-fade-in">
+					<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
+						<span class="relative flex h-2 w-2">
+							<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+							<span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+						</span>
+						Yeni Nesil Denetim Sistemi
+					</div>
+					
+					<h1 class="text-5xl md:text-7xl mb-6 leading-[1.1]">
+						Geleceğin <span class="text-primary">Kayıt ve Denetim</span> Standartları
+					</h1>
+					
+					<p class="text-xl text-slate-400 mb-10 max-w-2xl leading-relaxed">
+						KDK Portal ile tüm sertifikasyon, denetim ve kayıt süreçlerinizi tek bir platformdan yönetin. 
+						Veri odaklı yaklaşımımızla güvenliği ve verimliliği en üst seviyeye taşıyın.
+					</p>
+
+					<div class="flex flex-wrap gap-4">
+						<button class="btn-primary px-8">Hemen Başlayın</button>
+						<button class="px-8 py-3 rounded-full border border-border-main hover:bg-white/5 transition-colors font-semibold">
+							Bilgi Alın
+						</button>
+					</div>
+				</div>
+
+				<!-- Stats Grid -->
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 animate-fade-in delay-200">
+					{[
+						{ label: 'Aktif Şirket', value: '1.2k+' },
+						{ label: 'Sertifika', value: '5.4k+' },
+						{ label: 'Başarılı Denetim', value: '12k+' },
+						{ label: 'Yıllık Artış', value: '%40' }
+					].map(stat => (
+						<div class="card">
+							<div class="text-3xl font-display font-bold text-white mb-1">{stat.value}</div>
+							<div class="text-slate-400 text-sm">{stat.label}</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- Features -->
+		<section class="py-20">
+			<div class="max-w-7xl mx-auto px-6">
+				<div class="text-center mb-16 animate-fade-in delay-300">
+					<h2 class="text-4xl mb-4">Neden KDK Portal?</h2>
+					<p class="text-slate-400 max-w-2xl mx-auto">Modern işletmeler için tasarlanmış, esnek ve güçlü özelliklerle dolu bir ekosistem.</p>
+				</div>
+
+				<div class="grid md:grid-cols-3 gap-8">
+					<div class="card group">
+						<div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors text-primary text-2xl">
+							🛡️
+						</div>
+						<h3 class="text-xl mb-3">Güçlü Güvenlik</h3>
+						<p class="text-slate-400 leading-relaxed">
+							Tüm verileriniz en üst düzey şifreleme yöntemleri ile korunur ve periyodik olarak yedeklenir.
+						</p>
+					</div>
+
+					<div class="card group">
+						<div class="w-12 h-12 bg-secondary/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-secondary/20 transition-colors text-secondary text-2xl">
+							⚡
+						</div>
+						<h3 class="text-xl mb-3">Hızlı İşlem</h3>
+						<p class="text-slate-400 leading-relaxed">
+							Optimize edilmiş altyapımız sayesinde en karmaşık raporlamaları bile saniyeler içinde tamamlayın.
+						</p>
+					</div>
+
+					<div class="card group">
+						<div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors text-accent text-2xl">
+							📊
+						</div>
+						<h3 class="text-xl mb-3">Gelişmiş Analiz</h3>
+						<p class="text-slate-400 leading-relaxed">
+							Yapay zeka destekli analiz araçlarımızla denetim trendlerini takip edin ve riskleri önceden belirleyin.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<footer class="py-12 border-t border-border-main">
+			<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6 text-slate-500 text-sm">
+				<div>© 2026 KDK Portal. Tüm hakları saklıdır.</div>
+				<div class="flex gap-8">
+					<a href="#" class="hover:text-white transition-colors">Gizlilik Politikası</a>
+					<a href="#" class="hover:text-white transition-colors">Kullanım Şartları</a>
+					<a href="#" class="hover:text-white transition-colors">Destek</a>
+				</div>
+			</div>
+		</footer>
+	</body>
+</html>

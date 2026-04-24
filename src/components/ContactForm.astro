@@ -1,0 +1,31 @@
+---
+---
+<form name="contact" method="POST" data-netlify="true" class="space-y-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <input type="text" name="name" placeholder="Adınız Soyadınız *" required class="form-underline w-full" />
+    </div>
+    <div>
+      <input type="email" name="email" placeholder="E-posta Adresiniz *" required class="form-underline w-full" />
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div>
+      <input type="tel" name="phone" placeholder="Telefon Numaranız" class="form-underline w-full" />
+    </div>
+    <div>
+      <input type="text" name="subject" placeholder="Konu *" required class="form-underline w-full" />
+    </div>
+  </div>
+
+  <div>
+    <textarea name="message" placeholder="Mesajınız *" required rows="5" class="form-underline w-full min-h-[140px] resize-y"></textarea>
+  </div>
+
+  <div>
+    <button type="submit" class="btn-primary-custom w-full md:w-auto mt-4 px-10">
+      Mesajı Gönder
+    </button>
+  </div>
+</form>

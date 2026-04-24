@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import ScrollAnimate from '../../components/ScrollAnimate.astro';
+
+const breadcrumb = [
+  { label: 'Anasayfa', url: '/' },
+  { label: 'Hizmetlerimiz' }
+];
+
+const categories = [
+  {
+    title: 'Asansör Tipleri',
+    links: [
+      { name: 'Makine Daireli Asansörler', url: '/asansor-tipleri/makine-daireli-asansorler/' },
+      { name: 'Makine Dairesiz (MRL) Asansör', url: '/asansor-tipleri/makine-dairesiz-mrl-asansor/' },
+      { name: 'Hidrolik Asansör', url: '/asansor-tipleri/hidrolik-asansor/' }
+    ]
+  },
+  {
+    title: 'Asansör Modelleri',
+    links: [
+      { name: 'İnsan (Yolcu) Asansörü', url: '/modeller/insan-yolcu-asansoru/' },
+      { name: 'Yük Asansörü', url: '/modeller/yuk-asansoru/' },
+      { name: 'Monşarj (Yemek) Asansörü', url: '/modeller/monsarj-yemek-asansoru/' },
+      { name: 'Sedye Asansörleri', url: '/modeller/sedye-asansorleri/' },
+      { name: 'Panoramik Asansör', url: '/modeller/panoramik-asansor/' },
+      { name: 'Araç Asansörü', url: '/modeller/arac-asansoru/' },
+      { name: 'Engelli Platformları', url: '/modeller/engelli-platformlari/' }
+    ]
+  },
+  {
+    title: 'Servisler',
+    links: [
+      { name: 'Montaj Hizmetleri', url: '/servisler/montaj-hizmetleri/' },
+      { name: 'Bakım & Onarım Hizmetleri', url: '/servisler/bakim-onarim-hizmetleri/' },
+      { name: 'Revizyon Hizmetleri', url: '/servisler/revizyon-hizmetleri/' }
+    ]
+  }
+];
+---
+<BaseLayout title="Hizmetlerimiz" description="Tekin As Asansör olarak sunduğumuz asansör tipleri, modelleri ve servis hizmetleri.">
+  <Header slot="header" />
+
+  <PageHero title="Hizmetlerimiz" breadcrumb={breadcrumb} />
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <SectionHeading subtitle="Tekin As Asansör" title="Tüm Hizmetlerimiz" centered={true} />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        {categories.map((category, idx) => (
+          <ScrollAnimate animation="fadeInUp" delay={idx * 200}>
+            <div class="bg-light-bg rounded-lg p-8 h-full border border-gray-100 hover:shadow-md transition-shadow">
+              <h3 class="text-2xl font-bold text-dark mb-6 font-poppins border-b pb-4">{category.title}</h3>
+              <ul class="space-y-4">
+                {category.links.map(link => (
+                  <li>
+                    <a href={link.url} class="group flex items-center text-gray-600 hover:text-primary transition-colors">
+                      <svg class="w-5 h-5 mr-3 text-primary transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </ScrollAnimate>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

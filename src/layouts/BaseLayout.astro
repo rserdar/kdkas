@@ -1,0 +1,34 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+}
+const { title, description, ogImage } = Astro.props;
+const siteTitle = "Tekin As Asansör";
+---
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title ? `${title} – ${siteTitle}` : siteTitle}</title>
+  {description && <meta name="description" content={description} />}
+  <meta property="og:title" content={title} />
+  {description && <meta property="og:description" content={description} />}
+  {ogImage && <meta property="og:image" content={ogImage} />}
+  <!-- Preconnect Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Overpass:wght@300;400;500;600;700;800;900&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="/images/logo/favicon.png" />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+</head>
+<body class="font-overpass text-dark-2 overflow-x-hidden">
+  <slot name="header" />
+  <main>
+    <slot />
+  </main>
+  <slot name="footer" />
+</body>
+</html>

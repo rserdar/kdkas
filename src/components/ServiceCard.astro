@@ -1,0 +1,40 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  description: string;
+  href?: string;
+  delay?: number;
+}
+const { icon, title, description, href, delay = 0 } = Astro.props;
+---
+<div class="group relative overflow-hidden p-8 border border-gray-100 rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow h-full flex flex-col" data-animate="fadeInUp" data-delay={delay}>
+  <!-- Top Animated Line -->
+  <div class="absolute top-0 left-1/2 h-[3px] w-0 group-hover:w-full bg-primary -translate-x-1/2 transition-all duration-300"></div>
+
+  <div class="flex-1 flex flex-col items-center text-center transition-transform duration-300 group-hover:-translate-y-4">
+    <!-- Icon Container (SVG passed as string or icon name if using an icon pack) -->
+    <div class="w-16 h-16 rounded-full bg-light-bg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform duration-300" set:html={icon}></div>
+
+    <h3 class="text-xl font-bold text-dark mb-4 font-poppins">{title}</h3>
+
+    <p class="text-gray-600 leading-relaxed mb-6 flex-1">
+      {description}
+    </p>
+
+    <!-- Link or Button shown on hover -->
+    <div class="absolute bottom-4 left-0 right-0 opacity-0 group-hover:opacity-100 translate-y-full group-hover:translate-y-0 transition-all duration-300 flex justify-center">
+      {href ? (
+        <a href={href} class="text-primary font-medium flex items-center hover:text-primary-hover">
+          Detaylı Bilgi
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </a>
+      ) : (
+        <span class="text-primary font-medium flex items-center">
+          Daha Fazla
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+        </span>
+      )}
+    </div>
+  </div>
+</div>

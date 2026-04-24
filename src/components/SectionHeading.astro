@@ -1,0 +1,13 @@
+---
+interface Props {
+  subtitle?: string;
+  title: string;
+  centered?: boolean;
+}
+const { subtitle, title, centered = false } = Astro.props;
+---
+<div class={`mb-10 ${centered ? 'text-center' : ''}`} data-animate="fadeInUp">
+  {subtitle && <div class="text-primary font-medium tracking-widest uppercase text-sm mb-2">{subtitle}</div>}
+  <h2 class="text-3xl lg:text-4xl font-bold text-dark font-poppins mb-4">{title}</h2>
+  <div class={`h-[3px] bg-primary w-16 divider-anim ${centered ? 'mx-auto' : ''}`}></div>
+</div>

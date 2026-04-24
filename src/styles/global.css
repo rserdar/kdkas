@@ -1,59 +1,68 @@
 @import "tailwindcss";
 
+/* ── Özel CSS Değişkenleri ── */
+:root {
+  --primary:       #0052cc;
+  --primary-hover: #0061f0;
+  --dark:          #2a2a2a;
+  --dark-2:        #212529;
+  --gray:          #aaa;
+}
+
+/* ── Tailwind Tema Genişlemeleri (v4 syntax) ── */
 @theme {
-  --color-surface: #0f172a;
-  --color-surface-soft: #1e293b;
-  --color-primary: #38bdf8;
-  --color-secondary: #818cf8;
-  --color-accent: #f472b6;
-  --color-border-main: #334155;
-  
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-display: 'Outfit', 'Inter', sans-serif;
+  --color-primary:       var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-dark:          var(--dark);
+  --color-dark-2:        var(--dark-2);
+  --font-poppins:        'Poppins', sans-serif;
+  --font-overpass:       'Overpass', sans-serif;
 }
 
-@layer base {
-  body {
-    @apply bg-surface text-slate-200 font-sans antialiased;
-    background-image: 
-      radial-gradient(at 0% 0%, rgba(56, 189, 248, 0.05) 0px, transparent 50%),
-      radial-gradient(at 100% 0%, rgba(129, 140, 248, 0.05) 0px, transparent 50%);
-  }
+/* ── Scroll Animasyonları ── */
+@keyframes fadeIn     { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeInUp   { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeInDown { from { opacity:0; transform:translateY(-30px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeInLeft { from { opacity:0; transform:translateX(-30px); } to { opacity:1; transform:translateX(0); } }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display font-bold tracking-tight text-white;
-  }
+.animated { animation-duration: 0.6s; animation-fill-mode: both; }
+.animated.fadeIn     { animation-name: fadeIn; }
+.animated.fadeInUp   { animation-name: fadeInUp; }
+.animated.fadeInDown { animation-name: fadeInDown; }
+.animated.fadeInLeft { animation-name: fadeInLeft; }
+
+/* ── Hero Arkaplan Animasyonu ── */
+@keyframes bgPositionBottomToTop {
+  from { background-position: bottom; }
+  to   { background-position: top; }
+}
+.hero-bg-anim {
+  animation: bgPositionBottomToTop 13s linear 1500ms forwards;
 }
 
-@layer components {
-  .glass {
-    @apply bg-surface-soft/40 backdrop-blur-md border border-white/10;
-  }
-  
-  .btn-primary {
-    @apply px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-full 
-           hover:shadow-[0_0_20px_rgba(56,189,248,0.4)] transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95;
-  }
+/* ── Divider Animasyonu ── */
+@keyframes customLineProgressAnim {
+  from { width: 0; }
+  to   { width: 60px; }
+}
+.divider-anim { animation: customLineProgressAnim 1s ease forwards; }
 
-  .nav-link {
-    @apply text-slate-400 hover:text-white transition-colors relative after:content-[''] after:absolute after:bottom--1 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all hover:after:w-full;
-  }
-
-  .card {
-    @apply p-6 rounded-2xl glass hover:border-primary/30 hover:bg-surface-soft/60 transition-all duration-500;
-  }
+/* ── Form Stilleri ── */
+.form-underline {
+  @apply w-full bg-transparent border-0 border-b border-black/40
+         py-3 px-0 placeholder-gray-500
+         focus:outline-none focus:border-primary focus:ring-0
+         transition-colors;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+/* ── Buton Stilleri ── */
+.btn-primary-custom {
+  @apply inline-flex items-center px-6 py-3 bg-primary text-white
+         rounded font-medium hover:bg-primary-hover
+         transition-all duration-200;
 }
-
-.animate-fade-in {
-  animation: fadeIn 0.8s ease-out forwards;
+.btn-outline-custom {
+  @apply inline-flex items-center px-6 py-3 border border-dark text-dark
+         rounded hover:bg-dark hover:text-white
+         transition-all duration-200;
 }
-
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }

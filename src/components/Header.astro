@@ -1,0 +1,169 @@
+---
+---
+<header class="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm transition-all duration-300 w-full">
+  <div class="container mx-auto px-4 h-24 flex items-center justify-between">
+    <div class="logo">
+      <a href="/">
+        <img src="/images/logo/tekinas.png" alt="Tekin As Asansör" class="h-14 w-auto object-contain" />
+      </a>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <div class="hidden lg:flex items-center justify-end w-full">
+      <nav>
+        <ul class="flex items-center space-x-8 font-medium text-[15px] uppercase tracking-wide">
+          <li class="relative">
+            <a href="/" class="py-10 text-dark-2 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-px after:bg-primary after:transition-all">Anasayfa</a>
+          </li>
+          <li class="relative">
+            <a href="/hakkimizda/" class="py-10 text-dark-2 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-px after:bg-primary after:transition-all">Hakkımızda</a>
+          </li>
+          <!-- Mega Menu: Hizmetlerimiz -->
+          <li class="group relative">
+            <a href="/hizmetlerimiz/" class="py-10 text-dark-2 group-hover:text-primary transition-colors relative flex items-center after:absolute after:bottom-0 after:left-0 after:w-0 group-hover:after:w-full after:h-px after:bg-primary after:transition-all">
+              Hizmetlerimiz
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </a>
+
+            <div class="group-hover:block hidden absolute top-full left-1/2 -translate-x-1/2 w-[900px] bg-white shadow-xl border-t-2 border-primary p-8 z-50 rounded-b">
+              <div class="flex flex-row space-x-8">
+                <!-- Asansör Tipleri -->
+                <div class="flex-1">
+                  <h3 class="font-bold text-dark text-lg mb-4 border-b pb-2">Asansör Tipleri</h3>
+                  <ul class="space-y-3 normal-case font-normal text-gray-600">
+                    <li><a href="/asansor-tipleri/makine-daireli-asansorler/" class="hover:text-primary transition-colors">Makine Daireli Asansörler</a></li>
+                    <li><a href="/asansor-tipleri/makine-dairesiz-mrl-asansor/" class="hover:text-primary transition-colors">Makine Dairesiz (MRL) Asansör</a></li>
+                    <li><a href="/asansor-tipleri/hidrolik-asansor/" class="hover:text-primary transition-colors">Hidrolik Asansör</a></li>
+                  </ul>
+                </div>
+                <!-- Asansör Modelleri -->
+                <div class="flex-1">
+                  <h3 class="font-bold text-dark text-lg mb-4 border-b pb-2">Asansör Modelleri</h3>
+                  <ul class="space-y-3 normal-case font-normal text-gray-600">
+                    <li><a href="/modeller/insan-yolcu-asansoru/" class="hover:text-primary transition-colors">İnsan (Yolcu) Asansörü</a></li>
+                    <li><a href="/modeller/yuk-asansoru/" class="hover:text-primary transition-colors">Yük Asansörü</a></li>
+                    <li><a href="/modeller/monsarj-yemek-asansoru/" class="hover:text-primary transition-colors">Monşarj (Yemek) Asansörü</a></li>
+                    <li><a href="/modeller/sedye-asansorleri/" class="hover:text-primary transition-colors">Sedye Asansörleri</a></li>
+                    <li><a href="/modeller/panoramik-asansor/" class="hover:text-primary transition-colors">Panoramik Asansör</a></li>
+                    <li><a href="/modeller/arac-asansoru/" class="hover:text-primary transition-colors">Araç Asansörü</a></li>
+                    <li><a href="/modeller/engelli-platformlari/" class="hover:text-primary transition-colors">Engelli Platformları</a></li>
+                  </ul>
+                </div>
+                <!-- Servisler -->
+                <div class="flex-1">
+                  <h3 class="font-bold text-dark text-lg mb-4 border-b pb-2">Servisler</h3>
+                  <ul class="space-y-3 normal-case font-normal text-gray-600">
+                    <li><a href="/servisler/montaj-hizmetleri/" class="hover:text-primary transition-colors">Montaj Hizmetleri</a></li>
+                    <li><a href="/servisler/bakim-onarim-hizmetleri/" class="hover:text-primary transition-colors">Bakım & Onarım Hizmetleri</a></li>
+                    <li><a href="/servisler/revizyon-hizmetleri/" class="hover:text-primary transition-colors">Revizyon Hizmetleri</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="relative">
+            <a href="/iletisim/" class="py-10 text-dark-2 hover:text-primary transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 hover:after:w-full after:h-px after:bg-primary after:transition-all">İletişim</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Divider -->
+      <div class="h-6 w-px bg-gray-200 mx-6"></div>
+
+      <!-- Search Button (Icon only for now) -->
+      <button class="text-dark-2 hover:text-primary">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button id="mobile-menu-btn" class="lg:hidden text-dark-2 p-2 focus:outline-none">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Drawer -->
+<div id="mobile-drawer" class="fixed inset-y-0 right-0 w-80 bg-white z-[60] transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl flex flex-col">
+  <div class="flex items-center justify-between p-6 border-b">
+    <img src="/images/logo/tekinas.png" alt="Tekin As" class="h-8" />
+    <button id="close-drawer-btn" class="text-dark-2 hover:text-primary p-2">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    </button>
+  </div>
+  <div class="flex-1 overflow-y-auto p-6">
+    <ul class="space-y-4 font-medium uppercase text-sm">
+      <li><a href="/" class="block py-2 text-dark hover:text-primary border-b border-gray-100">Anasayfa</a></li>
+      <li><a href="/hakkimizda/" class="block py-2 text-dark hover:text-primary border-b border-gray-100">Hakkımızda</a></li>
+      <li>
+        <details class="group">
+          <summary class="flex items-center justify-between py-2 text-dark cursor-pointer border-b border-gray-100">
+            Hizmetlerimiz
+            <svg class="w-4 h-4 transform group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </summary>
+          <div class="pl-4 py-2 space-y-4 bg-gray-50 mt-2">
+            <div>
+              <div class="font-bold text-xs text-gray-400 mb-2">Asansör Tipleri</div>
+              <ul class="space-y-2 normal-case font-normal text-sm">
+                <li><a href="/asansor-tipleri/makine-daireli-asansorler/" class="block text-gray-600">Makine Daireli</a></li>
+                <li><a href="/asansor-tipleri/makine-dairesiz-mrl-asansor/" class="block text-gray-600">Makine Dairesiz (MRL)</a></li>
+                <li><a href="/asansor-tipleri/hidrolik-asansor/" class="block text-gray-600">Hidrolik</a></li>
+              </ul>
+            </div>
+            <div>
+              <div class="font-bold text-xs text-gray-400 mb-2">Modeller</div>
+              <ul class="space-y-2 normal-case font-normal text-sm">
+                <li><a href="/modeller/insan-yolcu-asansoru/" class="block text-gray-600">İnsan Asansörü</a></li>
+                <li><a href="/modeller/yuk-asansoru/" class="block text-gray-600">Yük Asansörü</a></li>
+                <li><a href="/modeller/monsarj-yemek-asansoru/" class="block text-gray-600">Monşarj (Yemek)</a></li>
+              </ul>
+            </div>
+            <div>
+              <div class="font-bold text-xs text-gray-400 mb-2">Servisler</div>
+              <ul class="space-y-2 normal-case font-normal text-sm">
+                <li><a href="/servisler/montaj-hizmetleri/" class="block text-gray-600">Montaj</a></li>
+                <li><a href="/servisler/bakim-onarim-hizmetleri/" class="block text-gray-600">Bakım & Onarım</a></li>
+                <li><a href="/servisler/revizyon-hizmetleri/" class="block text-gray-600">Revizyon</a></li>
+              </ul>
+            </div>
+          </div>
+        </details>
+      </li>
+      <li><a href="/iletisim/" class="block py-2 text-dark hover:text-primary border-b border-gray-100">İletişim</a></li>
+    </ul>
+  </div>
+</div>
+<!-- Overlay -->
+<div id="drawer-overlay" class="fixed inset-0 bg-black/50 z-50 hidden transition-opacity opacity-0"></div>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const closeBtn = document.getElementById('close-drawer-btn');
+  const drawer = document.getElementById('mobile-drawer');
+  const overlay = document.getElementById('drawer-overlay');
+
+  function openDrawer() {
+    drawer?.classList.remove('translate-x-full');
+    overlay?.classList.remove('hidden');
+    // small delay to allow display block to apply before opacity transition
+    setTimeout(() => {
+      overlay?.classList.remove('opacity-0');
+      overlay?.classList.add('opacity-100');
+    }, 10);
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    drawer?.classList.add('translate-x-full');
+    overlay?.classList.remove('opacity-100');
+    overlay?.classList.add('opacity-0');
+    setTimeout(() => {
+      overlay?.classList.add('hidden');
+    }, 300);
+    document.body.style.overflow = '';
+  }
+
+  btn?.addEventListener('click', openDrawer);
+  closeBtn?.addEventListener('click', closeDrawer);
+  overlay?.addEventListener('click', closeDrawer);
+</script>

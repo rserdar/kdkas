@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import ScrollAnimate from '../../components/ScrollAnimate.astro';
+
+const breadcrumb = [
+  { label: 'Anasayfa', url: '/' },
+  { label: 'Hakkımızda' }
+];
+---
+<BaseLayout title="Hakkımızda" description="Tekin As Asansör Hakkında: Kaliteli Asansör Kabin Üretimi ve Her Zaman Müşteri Memnuniyeti.">
+  <Header slot="header" />
+
+  <PageHero title="Hakkımızda" breadcrumb={breadcrumb} />
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap -mx-4 items-center">
+        <!-- Content -->
+        <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+          <SectionHeading subtitle="Tekin As Asansör" title="Sizin İçin Varız" />
+
+          <ScrollAnimate animation="fadeInUp" delay={200}>
+            <div class="space-y-6 text-gray-600 text-lg">
+              <p>
+                <strong>"Kaliteli Asansör Kabin Üretimi"</strong> ve <strong>"Her Zaman Müşteri Memnuniyeti"</strong> politikalarını ilke edinen <em>Tekin As Asansör Kabin</em>; ilk günkü heyecanıyla yoluna devam etmektedir.
+              </p>
+              <p>
+                Yenilikçi tasarımlarıyla müşteri gereksinimlerine ve asansör trafiğine uygun asansör kabini tasarımını, tasarım sürecinden üretim aşamasına kadar kaliteli ve güvenilir üretim şartlarını sağlamıştır.
+              </p>
+              <p>
+                Tekin As Asansör, <strong>ISO 9001</strong> Kalite Yönetim Sistemi sertifikasına sahiptir ve asansör kabin üretimi ve asansör aksamları alanında CE işareti ile standartlara uygun, güvenilir imalat yapmaktadır.
+              </p>
+            </div>
+
+            <!-- Features list -->
+            <ul class="mt-8 space-y-4">
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-primary mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span class="text-dark font-medium text-lg">Yenilikçi ve modern tasarımlar</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-primary mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span class="text-dark font-medium text-lg">ISO 9001 ve CE kalite sertifikaları</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-primary mr-3 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span class="text-dark font-medium text-lg">%100 müşteri memnuniyeti garantisi</span>
+              </li>
+            </ul>
+          </ScrollAnimate>
+        </div>
+
+        <!-- Image -->
+        <div class="w-full lg:w-1/2 px-4">
+          <ScrollAnimate animation="fadeInLeft" delay={300}>
+            <div class="relative rounded-lg overflow-hidden shadow-2xl">
+              <img src="/images/hero/arch-plan.jpg" alt="Tekin As Asansör Üretim" class="w-full h-auto object-cover" />
+              <!-- Decor -->
+              <div class="absolute inset-0 bg-primary mix-blend-multiply opacity-20"></div>
+            </div>
+          </ScrollAnimate>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission & Vision -->
+  <section class="py-24 bg-light-bg">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="bg-white p-10 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-primary">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
+          <h3 class="text-2xl font-bold text-dark font-poppins mb-4">Misyonumuz</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Asansör sektöründe en güvenli, estetik ve yenilikçi çözümleri üreterek, insanların yaşam kalitesini artırmak. Müşterilerimizin beklentilerini, uluslararası standartlara uygun, kaliteli ürün ve hizmetlerle karşılamak.
+          </p>
+        </div>
+
+        <div class="bg-white p-10 rounded-lg shadow-sm hover:shadow-md transition-shadow border-t-4 border-primary">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+          </div>
+          <h3 class="text-2xl font-bold text-dark font-poppins mb-4">Vizyonumuz</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Sektöründeki teknolojik gelişmeleri yakından takip eden, üretim kapasitesini ve kalite standartlarını sürekli yükselten, Türkiye'nin ve dünyanın önde gelen asansör markalarından biri olmak.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>

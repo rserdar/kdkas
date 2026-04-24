@@ -1,0 +1,52 @@
+---
+---
+<section class="relative min-h-[80vh] md:min-h-screen flex items-center justify-center overflow-hidden">
+  <!-- Background Image with Animation -->
+  <div
+    class="absolute inset-0 bg-cover bg-no-repeat hero-bg-anim -z-20"
+    style="background-image: url('/images/hero/main.webp');"
+  ></div>
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/60 -z-10"></div>
+
+  <!-- Content -->
+  <div class="container mx-auto px-4 text-center z-10 relative mt-24">
+    <div class="inline-block" data-animate="fadeInDown" data-delay="0">
+      <h2 class="text-white text-lg tracking-[0.2em] font-medium uppercase mb-4">Tekin As Asansör</h2>
+    </div>
+
+    <div data-animate="fadeInUp" data-delay="300">
+      <h1 class="text-4xl lg:text-6xl font-bold text-white leading-tight max-w-4xl mx-auto mb-8 font-poppins">
+        Asansör sistemlerinde<br />profesyonel çözümler
+      </h1>
+    </div>
+
+    <div data-animate="fadeInUp" data-delay="600">
+      <a href="/iletisim/" class="btn-primary-custom mt-4 text-lg">
+        Bize Ulaşın
+      </a>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Add simple intersection observer for hero elements since ScrollAnimate might not be loaded yet or we want it inline
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        const target = el.target as HTMLElement;
+        setTimeout(() => {
+          target.classList.add('animated', target.dataset.animate!);
+          target.style.opacity = '1';
+        }, parseInt(target.dataset.delay || '0'));
+        observer.unobserve(target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section [data-animate]').forEach((el) => {
+    (el as HTMLElement).style.opacity = '0';
+    observer.observe(el);
+  });
+</script>

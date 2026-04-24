@@ -1,0 +1,33 @@
+---
+interface Props {
+  animation?: 'fadeIn' | 'fadeInUp' | 'fadeInDown' | 'fadeInLeft' | 'fadeInRight';
+  delay?: number;
+  class?: string;
+}
+const { animation = 'fadeInUp', delay = 0, class: className = '' } = Astro.props;
+---
+<div
+  data-animate={animation}
+  data-delay={delay}
+  class={`opacity-0 ${className}`}
+>
+  <slot />
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        const target = el.target as HTMLElement;
+        setTimeout(() => {
+          target.classList.add('animated', target.dataset.animate!);
+          target.style.opacity = '1';
+        }, parseInt(target.dataset.delay || '0'));
+        observer.unobserve(target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  // Ensure we only observe elements that haven't been animated yet
+  document.querySelectorAll('[data-animate]:not(.animated)').forEach(el => observer.observe(el));
+</script>

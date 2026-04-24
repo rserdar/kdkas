@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  breadcrumb: {
+    label: string;
+    url?: string;
+  }[];
+}
+const { title, breadcrumb } = Astro.props;
+---
+<section class="relative pt-36 pb-20 bg-dark text-white overflow-hidden bg-[url('/images/hero/arch-plan.jpg')] bg-cover bg-center bg-blend-overlay bg-black/70">
+  <div class="container mx-auto px-4 text-center relative z-10">
+    <h1 class="text-4xl lg:text-5xl font-bold font-poppins mb-6 animated fadeInUp">{title}</h1>
+
+    <div class="flex items-center justify-center space-x-2 text-sm text-gray-300 font-medium tracking-wide animated fadeInUp" style="--delay: 200ms; animation-delay: 200ms;">
+      {breadcrumb.map((item, index) => (
+        <>
+          {index > 0 && <span class="mx-2 text-gray-500">/</span>}
+          {item.url ? (
+            <a href={item.url} class="hover:text-primary transition-colors">{item.label}</a>
+          ) : (
+            <span class="text-white">{item.label}</span>
+          )}
+        </>
+      ))}
+    </div>
+  </div>
+</section>

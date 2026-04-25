@@ -6,15 +6,19 @@
     "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "dev": "node ./scripts/astro-with-wasi.mjs dev",
+    "build": "node ./scripts/astro-with-wasi.mjs build",
+    "preview": "node ./scripts/astro-with-wasi.mjs preview",
+    "astro": "node ./scripts/astro-with-wasi.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
+    "@tailwindcss/oxide-wasm32-wasi": "^4.2.4",
     "@tailwindcss/vite": "^4.2.4",
     "astro": "^6.1.9",
     "tailwindcss": "^4.2.4"
+  },
+  "overrides": {
+    "vite": "^7"
   }
 }

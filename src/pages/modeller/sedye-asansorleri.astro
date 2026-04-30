@@ -1,12 +1,77 @@
 ---
-import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { Image } from 'astro:assets';
+import sedyeImg from '../../assets/images/asansor-modelleri/sedye-asansoru.webp';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+const breadcrumb = [
+  { label: 'Anasayfa', url: '/' },
+  { label: 'Asansör Modelleri', url: '/modeller' },
+  { label: 'Sedye Asansörleri' }
+];
 ---
-<SubpageLayout title="Sedye Asansörleri" category="Asansör Modelleri" categoryUrl="/modeller/">
-  <p>Hastane, poliklinik ve bakım evlerinde hastaların sedye veya tekerlekli sandalye ile taşınmasını sağlamak için özel olarak tasarlanmış asansörlerdir.</p>
-  <p>Kabine bir sedyenin ve refakatçilerin rahatlıkla sığabileceği genişlik ve derinliğe sahiptir. Sarsıntısız ve yumuşak hareket kabiliyeti hayati önem taşır.</p>
-  <ul>
-    <li>Standartlara uygun 1600 kg, 2000 kg, 2500 kg kapasite seçenekleri</li>
-    <li>Anti-bakteriyel kabin kaplamaları ve zemin malzemeleri</li>
-    <li>Elektrik kesintisinde acil kurtarma ve jeneratör uyumu</li>
-  </ul>
-</SubpageLayout>
+
+<BaseLayout title="Sedye Asansörleri" description="Hastane ve sağlık kuruluşları için özel ölçülerde tasarlanmış, geniş kabinli sedye asansörleri. KDK Asansör montaj ve periyodik bakım hizmetleri, Balıkesir.">
+  <SchemaOrg slot="head" breadcrumb={breadcrumb} />
+  <PageHero title="Sedye Asansörleri" breadcrumb={breadcrumb} />
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap -mx-4 items-center">
+        <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0" data-animate="fadeInLeft">
+          <SectionHeading 
+            subtitle="Asansör Modelleri" 
+            title="Sedye Asansörleri"
+           
+          />
+          <div class="prose prose-lg text-gray-600 max-w-none space-y-6">
+            <p>
+              Sağlık tesislerinde kullanılan hasta asansörleri, sedye taşımak amaçlı olarak tasarlanmış olup 1600 kg, 2000 kg ve 2500 kg taşıma kapasiteleri vardır. Hız 0,63 m/s den 2,5 m/s ye kadar olabilir.
+            </p>
+            <p>
+              Elektrik tahrikli hasta asansörleri, çift hızlı (1 m/s ye kadar ) veya kademesiz hız ayarlı (3,15 m/s ye kadar ) olabilmektedir.
+            </p>
+            <p>
+              Hidrolik tahriklilerde ise azami hız 1 m/s dir. Hastanenin yatak sayısı dikkate alınarak, asansör sayısı, kapasitesi ve hızı yapılan trafik hesabı sonucu tespit edilmektedir. Asansör kumanda sistemleri olarak mikro işlemcili; basit kumandalı, tek yön toplamalı, yönlere hassas toplama ve dağıtmalı ve ikili grup (dubleks)dan 6’lı gruba kadar grup kumandalı sistemler kullanılmaktadır.
+            </p>
+            <p>
+              Kapılar manüel veya otomatik yana toplanan/merkezden açılan tip veya elektrostatik boyalı ve setine/desenli paslanmaz çelik sac kaplı olabilir.
+            </p>
+            <p>
+              Kabinler, TSE standartlarına uygun ebatlarda laminant veya paslanmaz çelik kaplı olarak yapılmakta ve darbe kuşakları ile teçhiz edilmektedir. Bu sayede kabine giriş ve çıkışlardaki çarpma sırasında hastaya ve kabine verilebilecek zararlar ortadan kaldırılmaktadır. Kabin tabanı anti bakteriyel PVC evsaflı malzeme ile kaplıdır.
+            </p>
+            <p>
+              Kabin aydınlatması, sedyede bulunan ve hastayı rahatsız etmeyecek ışık şiddetindeki aydınlatma ile ve müşteri talepleri doğrultusunda dekoratif şekilde yapılmaktadır. Sedye asansörler elektrik kesilmelerine karşı önlem, ayarlanmış ışık akısı, anti bakteriyel tedbirler, paslanmaz aksam gibi ilave özel donamınlar eklenmiş asansörlerdir.
+            </p>
+            <p>
+              Sedye asansörleri, yarı otomatik, tam otomatik ya da hidrolik olarak tercih edilebilir.
+            </p>
+            <div class="mt-8 p-4 bg-red-50 border-l-4 border-red-500 text-red-800 italic text-sm">
+              <strong>Dikkat!</strong> Sedye asansörünüzü mutlaka, KDK Asansör tarafından periyodik ve genel asansör bakımı yaptırılmalıdır. İnsan hayatı her şeyden önemli ve değerlidir.
+            </div>
+          </div>
+          <div class="mt-10">
+            <a href="/iletisim/" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded font-bold hover:bg-primary-hover transition-colors shadow-lg">
+              Bilgi Alın
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 px-4" data-animate="fadeInRight">
+          <div class="relative group overflow-hidden rounded-2xl shadow-2xl border-8 border-gray-100">
+            <Image 
+              src={sedyeImg} 
+              alt="Sedye Asansörleri" 
+              class="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+              <p class="text-white font-medium text-lg italic">Güvenli ve Konforlu Hasta Transferi</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

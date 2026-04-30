@@ -1,0 +1,48 @@
+---
+---
+<div class="porto-grid-container border-t border-gray-100 overflow-hidden">
+  <div class="flex flex-wrap">
+    <slot />
+  </div>
+</div>
+
+<style is:global>
+  /* Desktop (3-column) */
+  @media (min-width: 1024px) {
+    .porto-grid-container .porto-sicon-box-link {
+      width: 33.3333%;
+    }
+    .porto-grid-container .porto-sicon-box-link:nth-child(3n) > div {
+      border-right: none;
+    }
+    .porto-grid-container .porto-sicon-box-link:nth-last-child(-n+3) > div {
+      border-bottom: none;
+    }
+  }
+
+  /* Tablet (2-column) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .porto-grid-container .porto-sicon-box-link {
+      width: 50%;
+    }
+    .porto-grid-container .porto-sicon-box-link:nth-child(2n) > div {
+      border-right: none;
+    }
+    .porto-grid-container .porto-sicon-box-link:nth-last-child(-n+2) > div {
+      border-bottom: none;
+    }
+  }
+
+  /* Mobile (single column) */
+  @media (max-width: 767px) {
+    .porto-grid-container .porto-sicon-box-link {
+      width: 100%;
+    }
+    .porto-grid-container .porto-sicon-box-link > div {
+      border-right: none;
+    }
+    .porto-grid-container .porto-sicon-box-link:last-child > div {
+      border-bottom: none;
+    }
+  }
+</style>

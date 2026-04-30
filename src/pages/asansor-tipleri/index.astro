@@ -1,68 +1,67 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
 import PageHero from '../../components/PageHero.astro';
+import ServiceTypeCard from '../../components/ServiceTypeCard.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
-import ScrollAnimate from '../../components/ScrollAnimate.astro';
+
+// Import images
+import makineDaireliImg from '../../assets/images/asansor-tipleri/makine-daireli.webp';
+import makineDairesizImg from '../../assets/images/asansor-tipleri/makine-dairesiz.webp';
+import hidrolikImg from '../../assets/images/asansor-tipleri/hidrolik.webp';
+import SchemaOrg from '../../components/SchemaOrg.astro';
 
 const breadcrumb = [
   { label: 'Anasayfa', url: '/' },
+  { label: 'Hizmetlerimiz', url: '/hizmetlerimiz' },
   { label: 'Asansör Tipleri' }
 ];
 
-const items = [
+const serviceTypes = [
   {
-    name: 'Makine Daireli Asansörler',
-    url: '/asansor-tipleri/makine-daireli-asansorler/',
-    description: 'Geleneksel makine dairesi gerektiren, yüksek performanslı ve güvenilir asansör sistemleri.',
-    image: '/images/makinadairesiz-scaled-1.webp'
+    title: 'Makine Daireli Asansörler',
+    image: makineDaireliImg,
+    href: '/asansor-tipleri/makine-daireli-asansorler'
   },
   {
-    name: 'Makine Dairesiz (MRL) Asansör',
-    url: '/asansor-tipleri/makine-dairesiz-mrl-asansor/',
-    description: 'Ayrı bir makine dairesi gerektirmeyen, kuyu içinde çalışan modern ve enerji verimli çözümler.',
-    image: '/images/makinadairesiz-scaled-1.webp'
+    title: 'Makine Dairesiz (MRL) Asansör',
+    image: makineDairesizImg,
+    href: '/asansor-tipleri/makine-dairesiz-mrl-asansor'
   },
   {
-    name: 'Hidrolik Asansör',
-    url: '/asansor-tipleri/hidrolik-asansor/',
-    description: 'Daha az katlı binalar için ideal, sessiz ve konforlu hidrolik tahrik sistemli asansörler.',
-    image: '/images/hidrolik-asansor-770x433-1.webp'
+    title: 'Hidrolik Asansör',
+    image: hidrolikImg,
+    href: '/asansor-tipleri/hidrolik-asansor'
   }
 ];
 ---
-<BaseLayout title="Asansör Tipleri" description="Tekin As Asansör olarak sunduğumuz asansör tipleri: Makine Daireli, MRL ve Hidrolik asansör sistemleri.">
-  <Header slot="header" />
 
+<BaseLayout title="Asansör Tipleri" description="Balıkesir ve Edremit'te makine daireli, makine dairesiz (MRL) ve hidrolik asansör sistemleri. Projenize uygun tipi keşfedin.">
+  <SchemaOrg slot="head" breadcrumb={breadcrumb} />
   <PageHero title="Asansör Tipleri" breadcrumb={breadcrumb} />
 
   <section class="py-24 bg-white">
     <div class="container mx-auto px-4">
-      <SectionHeading subtitle="Ürün Gruplarımız" title="Asansör Tipleri" centered={true} />
+      <div class="text-center mb-16">
+        <SectionHeading 
+          subtitle="KDK Asansör" 
+          title="Asansör Tipleri"
+          centered={true}
+        />
+        <p class="text-gray-600 max-w-2xl mx-auto mt-6 text-lg" data-animate="fadeInUp" data-delay="200">
+          Balıkesir, Edremit ve çevresindeki projeler için bakım, onarım, montaj ve modernizasyon süreçlerine uygun asansör tiplerini burada bulabilirsiniz. Her yapının kullanım senaryosuna göre güvenli, verimli ve uzun ömürlü çözümler sunuyoruz.
+        </p>
+      </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-        {items.map((item, idx) => (
-          <ScrollAnimate animation="fadeInUp" delay={idx * 200}>
-            <div class="group bg-white rounded-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300">
-              <div class="relative h-64 overflow-hidden">
-                <img src={item.image} alt={item.name} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
-              </div>
-              <div class="p-8">
-                <h3 class="text-2xl font-bold text-dark mb-4 font-poppins group-hover:text-primary transition-colors">{item.name}</h3>
-                <p class="text-gray-600 mb-6 line-clamp-3">{item.description}</p>
-                <a href={item.url} class="inline-flex items-center text-primary font-bold hover:underline">
-                  Detaylı Bilgi
-                  <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                </a>
-              </div>
-            </div>
-          </ScrollAnimate>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {serviceTypes.map((service, index) => (
+          <ServiceTypeCard
+            title={service.title}
+            image={service.image}
+            href={service.href}
+            delay={300 + (index * 100)}
+          />
         ))}
       </div>
     </div>
   </section>
-
-  <Footer slot="footer" />
 </BaseLayout>

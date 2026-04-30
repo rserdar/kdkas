@@ -5,13 +5,19 @@ import Footer from '../../components/Footer.astro';
 import PageHero from '../../components/PageHero.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
 import ScrollAnimate from '../../components/ScrollAnimate.astro';
+import { Image } from 'astro:assets';
+
+// Import image
+import hakkimizdaImg from '../../assets/images/about/kdk-hakkimizda.webp';
+import SchemaOrg from '../../components/SchemaOrg.astro';
 
 const breadcrumb = [
   { label: 'Anasayfa', url: '/' },
   { label: 'Hakkımızda' }
 ];
 ---
-<BaseLayout title="Hakkımızda" description="Tekin As Asansör Hakkında: Kaliteli Asansör Kabin Üretimi ve Her Zaman Müşteri Memnuniyeti.">
+<BaseLayout title="Hakkımızda" description="KDK Asansör hakkında; Balıkesir, Edremit ve çevresinde güven veren asansör sistemleri, bakım ve revizyon hizmetleri.">
+  <SchemaOrg slot="head" breadcrumb={breadcrumb} />
   <Header slot="header" />
 
   <PageHero title="Hakkımızda" breadcrumb={breadcrumb} />
@@ -21,18 +27,18 @@ const breadcrumb = [
       <div class="flex flex-wrap -mx-4 items-center">
         <!-- Content -->
         <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
-          <SectionHeading subtitle="Tekin As Asansör" title="Sizin İçin Varız" />
+          <SectionHeading subtitle="KDK Asansör" title="Güvenilir çözüm ortağınız" />
 
           <ScrollAnimate animation="fadeInUp" delay={200}>
             <div class="space-y-6 text-gray-600 text-lg">
               <p>
-                <strong>"Kaliteli Asansör Kabin Üretimi"</strong> ve <strong>"Her Zaman Müşteri Memnuniyeti"</strong> politikalarını ilke edinen <em>Tekin As Asansör Kabin</em>; ilk günkü heyecanıyla yoluna devam etmektedir.
+                <strong>Kaliteli asansör sistemleri</strong> ve <strong>müşteri memnuniyeti odaklı hizmet</strong> anlayışını benimseyen <em>KDK Asansör</em>, ilk günkü heyecanıyla yoluna kararlılıkla devam etmektedir.
               </p>
               <p>
-                Yenilikçi tasarımlarıyla müşteri gereksinimlerine ve asansör trafiğine uygun asansör kabini tasarımını, tasarım sürecinden üretim aşamasına kadar kaliteli ve güvenilir üretim şartlarını sağlamıştır.
+                Müşteri gereksinimlerine ve yapı trafiğine uygun çözümler geliştirirken; tasarım, uygulama ve saha koordinasyonunun her aşamasında kalite ve güvenilirliği esas alır.
               </p>
               <p>
-                Tekin As Asansör, <strong>ISO 9001</strong> Kalite Yönetim Sistemi sertifikasına sahiptir ve asansör kabin üretimi ve asansör aksamları alanında CE işareti ile standartlara uygun, güvenilir imalat yapmaktadır.
+                KDK Asansör; Balıkesir, Edremit ve çevresinde asansör sistemleri, montaj, bakım ve revizyon alanlarında güvenilir, erişilebilir ve sürdürülebilir hizmet sunan bir firmadır.
               </p>
             </div>
 
@@ -58,9 +64,7 @@ const breadcrumb = [
         <div class="w-full lg:w-1/2 px-4">
           <ScrollAnimate animation="fadeInLeft" delay={300}>
             <div class="relative rounded-lg overflow-hidden shadow-2xl">
-              <img src="/images/hero/arch-plan.jpg" alt="Tekin As Asansör Üretim" class="w-full h-auto object-cover" />
-              <!-- Decor -->
-              <div class="absolute inset-0 bg-primary mix-blend-multiply opacity-20"></div>
+              <Image src={hakkimizdaImg} alt="KDK Asansör ekibi" class="w-full h-auto object-cover" />
             </div>
           </ScrollAnimate>
         </div>
@@ -78,7 +82,7 @@ const breadcrumb = [
           </div>
           <h3 class="text-2xl font-bold text-dark font-poppins mb-4">Misyonumuz</h3>
           <p class="text-gray-600 leading-relaxed">
-            Asansör sektöründe en güvenli, estetik ve yenilikçi çözümleri üreterek, insanların yaşam kalitesini artırmak. Müşterilerimizin beklentilerini, uluslararası standartlara uygun, kaliteli ürün ve hizmetlerle karşılamak.
+            Asansör sektöründe güvenli, estetik ve yenilikçi çözümler üreterek yaşam kalitesini artırmak; müşterilerimizin beklentilerini uluslararası standartlara uygun hizmetlerle karşılamak.
           </p>
         </div>
 
@@ -88,7 +92,7 @@ const breadcrumb = [
           </div>
           <h3 class="text-2xl font-bold text-dark font-poppins mb-4">Vizyonumuz</h3>
           <p class="text-gray-600 leading-relaxed">
-            Sektöründeki teknolojik gelişmeleri yakından takip eden, üretim kapasitesini ve kalite standartlarını sürekli yükselten, Türkiye'nin ve dünyanın önde gelen asansör markalarından biri olmak.
+            Teknolojik gelişmeleri yakından takip eden, hizmet kalitesini sürekli yükselten ve bölgesinde referans gösterilen asansör markalarından biri olmak.
           </p>
         </div>
       </div>

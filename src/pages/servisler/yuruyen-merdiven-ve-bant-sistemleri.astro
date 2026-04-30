@@ -1,0 +1,147 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { Image } from 'astro:assets';
+import escalatorImg from '../../assets/images/servisler/yuruyen-merdiven.webp';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+const breadcrumb = [
+  { label: 'Anasayfa', url: '/' },
+  { label: 'Servisler', url: '/servisler' },
+  { label: 'Yürüyen Merdiven ve Bant Sistemleri' }
+];
+---
+
+<BaseLayout title="Yürüyen Merdiven ve Bant Sistemleri" description="AVM, hastane, havalimanı ve iş merkezleri için iç ve dış mekan yürüyen merdiven ve bant sistemleri. EN-115-1 sertifikalı güvenli çözümler. KDK Asansör.">
+  <SchemaOrg slot="head" breadcrumb={breadcrumb} />
+  <PageHero title="Yürüyen Merdiven ve Bant Sistemleri" breadcrumb={breadcrumb} />
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap -mx-4">
+        <!-- Content Side -->
+        <div class="w-full lg:w-2/3 px-4 mb-12 lg:mb-0" data-animate="fadeInLeft">
+          <SectionHeading 
+            subtitle="Sistemler" 
+            title="Yürüyen Merdiven ve Bant Sistemleri"
+           
+          />
+          <div class="prose prose-lg text-gray-600 max-w-none space-y-6">
+            <p>
+              Yürüyen merdivenler, insanların güvenli transferi için tasarlanmış makinelerdir. Yük taşınması uygun değildir.
+            </p>
+            <p>
+              Yürüyen merdivenler ve bant sistemleri; toplu taşıma istasyonları, havaalanları, hastaneler, iş merkezleri, alt ve üst geçitler, alışveriş merkezleri ve oteller gibi birçok yapıda kullanılmakta olup, dikey taşımacılıkta da hayatımızın vazgeçilmez kolaylıklarından biri olmuştur.
+            </p>
+            <p>
+              Yürüyen merdiven sistemi temelde iki farklı tipte tasarlanır.
+            </p>
+
+            <div class="bg-gray-50 p-8 rounded-xl border-l-4 border-primary">
+              <h3 class="text-xl font-bold text-dark mb-4">1. Dış Mekan Yürüyen Merdiven Sistemleri</h3>
+              <p>
+                Dış mekan yürüyen merdiven sistemleri iç mekan yürüyen merdivenlere göre dış mekanın şartlarına göre tasarlanır. Hizmet verilecek bölgenin iklimsel ve coğrafi durumu (hava sıcaklığı, yağmur, kar, buzlanma, korozyonun yoğunluğu, toz vb.) dikkate alınarak projelendirilir. Bu sebeple bu tipteki sistemlerin bir çok parçası dış mekan şartlarına uygun malzemelerden üretilir ve tasarlanır. Örneğin; korozyona dayanıklı galvanize iskelet, makine dairesi, tarak, el bandı ısıtma sistemleri, dış mekan basamak zinciri, paslanmaz korkuluk ve benzeri gibi. Bu gerekliliklerinden dolayı dış mekan merdivenlerin aynı ölçülerdeki iç mekan merdivenlere göre yatırım maliyetleri yüksektir.
+              </p>
+            </div>
+
+            <div class="bg-gray-50 p-8 rounded-xl border-l-4 border-primary">
+              <h3 class="text-xl font-bold text-dark mb-4">2. İç Mekan Yürüyen Merdiven Sistemleri</h3>
+              <p>
+                İç mekan yürüyen merdivenler dış mekan sistemlerinden farklı olarak kapalı ve korunaklı yapılarda hizmet verdiği için dış mekan sitemlerinde kullanılan özellikte komponentlere sahip olmak zorunda değildir.
+              </p>
+            </div>
+
+            <h3 class="text-2xl font-bold text-dark pt-4">Tasarım</h3>
+            <p>
+              Bir yürüyen merdiven sisteminin iç mekan dış mekan kararından sonra tasarımını etkileyecek bir çok kriter bulunmaktadır.
+            </p>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 list-none p-0">
+              <li class="flex items-start">
+                <span class="w-2 h-2 mt-2 mr-3 bg-primary rounded-full shrink-0"></span>
+                <span>Çalışma yüksekliği</span>
+              </li>
+              <li class="flex items-start">
+                <span class="w-2 h-2 mt-2 mr-3 bg-primary rounded-full shrink-0"></span>
+                <span>Çalışma açısı</span>
+              </li>
+              <li class="flex items-start">
+                <span class="w-2 h-2 mt-2 mr-3 bg-primary rounded-full shrink-0"></span>
+                <span>İhtiyaç duyulan hizmet kapasitesi motor gücü/basamak genişliği/hızı</span>
+              </li>
+              <li class="flex items-start">
+                <span class="w-2 h-2 mt-2 mr-3 bg-primary rounded-full shrink-0"></span>
+                <span>Kaplama cinsi (paslanmaz levha, statik boya levha, cam ve isteğe bağlı özel tasarımlar)</span>
+              </li>
+              <li class="flex items-start">
+                <span class="w-2 h-2 mt-2 mr-3 bg-primary rounded-full shrink-0"></span>
+                <span>Korkuluk türü (paslanmaz levha cam)</span>
+              </li>
+              <li class="flex items-start">
+                <span class="w-2 h-2 mt-2 mr-3 bg-primary rounded-full shrink-0"></span>
+                <span>Trafik hizmet konumu (tek yön tek ünite, çift yön paralel, çift yön paralel ayrık, çift yön çapraz düzen, paralel üçlü esnek sistem)</span>
+              </li>
+            </ul>
+
+            <h3 class="text-2xl font-bold text-dark pt-4">Güvenlik</h3>
+            <p>
+              Yürüyen merdivenlerin güvenliğini tescil eden en önemli sertifikasyon EN-115-1 uluslararası güvenlik sertifikasyonudur. Bu sertifikasyona sahip ve elbette bakımları düzenli ve yetkin firmalarca eksiksiz yapılan merdivenler güvenlidir.
+            </p>
+            
+            <div class="bg-dark text-white p-8 rounded-xl">
+              <h4 class="text-lg font-bold mb-4 border-b border-white/20 pb-2">Yolcu Güvenliğini Sağlayan Özellikler</h4>
+              <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 list-none p-0 text-sm opacity-90">
+                <li>• Basamak kırılma/düşme koruma sistemi</li>
+                <li>• El bandı hız takip sistemi.</li>
+                <li>• El bandı sıkışma takip sistemi</li>
+                <li>• Basamak çarpma koruma sistemi</li>
+                <li>• Makine dairesi açılma koruma sistemi</li>
+                <li>• Hız takip sistemi</li>
+                <li>• Elektromekanik fren kontrol sistemi</li>
+                <li>• Basamak ve tahrik zinciri izleme sistemleri</li>
+                <li>• Kenar sacı sıkışma önleyici fırça sistemi</li>
+                <li>• Kenar sacı darbe koruma sitemi</li>
+                <li>• Elektrostatik yükleme önleyici sistem</li>
+                <li>• Kaçak akım önleyici sistemler.</li>
+                <li>• Acil durum butonu</li>
+                <li>• El bandı tırmanış önleyici bar</li>
+                <li>• Yolcu uzuv sıkışma önleyici barlar.</li>
+              </ul>
+            </div>
+
+            <h3 class="text-2xl font-bold text-dark pt-4">Yürüyen Yollar</h3>
+            <p>
+              Yürüyen yollar; genel olarak yük taşımacılığının ön planda tutulduğu tesislerde kullanılır. Yürüyen merdivenin sağladığı gerekliliklerin tümünü sağlar ve yürüyen merdivenin sağlayamadığı bazı kolaylıklar da sağlar. Örneğin, yürüyen merdivenlerde bebek, alış-veriş arabası, bavul-çanta gibi yüklerin taşınması kullanıcı sağlığı açısından güvensizdir ve yasaktır. Hatta birçok yürüyen merdivenin önlerinde bunların kullanımını önlemek adına engeller görebilirsiniz. Yürüyen yollar ise bu malzemelerin taşınması önceliği ile tasarlandığı için kullanımı yasal ve güvenlidir.
+            </p>
+            <p>
+              Yürüyen yolların tasarımı gereği, yürüyen merdivende basamak olarak adlandırılan ayak basılan kısımlarda palet kullanılır. Bu paletler etek altında kılavuzlanarak, kullanıcı güvenliğini daha da arttırır. Ayrıca, paletler kendisini taşıyan zincire bağlanması sebebi ile aşınma son derece az olur. Aşınmanın olmadığı yerde de, sessiz ve uzun ömürlü bir kullanım ortaya çıkar.
+            </p>
+          </div>
+        </div>
+
+        <!-- Sidebar / Image Side -->
+        <div class="w-full lg:w-1/3 px-4" data-animate="fadeInRight">
+          <div class="sticky top-32 space-y-8">
+            <div class="relative group overflow-hidden rounded-2xl shadow-xl">
+              <Image 
+                src={escalatorImg} 
+                alt="Yürüyen Merdiven Sistemleri" 
+                class="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            
+            <div class="bg-primary p-8 rounded-2xl text-white shadow-xl">
+              <h3 class="text-xl font-bold mb-4">Profesyonel Çözümler</h3>
+              <p class="text-white/80 mb-6">
+                KDK Asansör olarak Balıkesir, Edremit ve çevresinde yürüyen merdiven ve bant sistemleri için dünya standartlarında mühendislik çözümleri sunuyoruz.
+              </p>
+              <a href="/iletisim/" class="block w-full py-3 bg-white text-primary text-center rounded font-bold hover:bg-gray-100 transition-colors">
+                Teklif İsteyin
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

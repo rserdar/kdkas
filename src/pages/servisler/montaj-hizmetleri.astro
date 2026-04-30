@@ -1,12 +1,69 @@
 ---
-import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { Image } from 'astro:assets';
+import installImg from '../../assets/images/servisler/elevator-installation.png';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+const breadcrumb = [
+  { label: 'Anasayfa', url: '/' },
+  { label: 'Servisler', url: '/servisler' },
+  { label: 'Montaj Hizmetleri' }
+];
 ---
-<SubpageLayout title="Montaj Hizmetleri" category="Servisler" categoryUrl="/servisler/">
-  <p>Tekin As Asansör olarak, yeni binalarınız veya mevcut yapılarınız için standartlara tam uyumlu, güvenli ve estetik asansör montaj çözümleri sunuyoruz.</p>
-  <p>Montaj sürecimiz, uzman mühendislerimizin ön keşif ve proje tasarımı ile başlar. Seçilen asansör tipi ve modeline uygun olarak, deneyimli teknik ekiplerimiz tarafından titizlikle uygulanır.</p>
-  <ul>
-    <li>Proje ve mühendislik hizmetleri</li>
-    <li>İş güvenliği standartlarına uygun montaj süreci</li>
-    <li>Montaj sonrası test, devreye alma ve yeşil etiket (uygunluk) alım işlemleri</li>
-  </ul>
-</SubpageLayout>
+
+<BaseLayout title="Asansör Montaj Hizmetleri" description="KDK Asansör; Balıkesir ve Edremit'te yeni binalara standartlara uygun, güvenli ve projeye özel asansör montajı gerçekleştirir. Uzman ekip, zamanında teslimat.">
+  <SchemaOrg slot="head" breadcrumb={breadcrumb} />
+  <PageHero title="Montaj Hizmetleri" breadcrumb={breadcrumb} />
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap -mx-4 items-center">
+        <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0" data-animate="fadeInLeft">
+          <SectionHeading 
+            subtitle="Servislerimiz" 
+            title="Asansör Montaj Hizmetleri"
+           
+          />
+          <div class="prose prose-lg text-gray-600 max-w-none space-y-6">
+            <p>
+              Asansör, bir yapının hem işlevsel hem de estetik açıdan en görünür unsurlarından biridir. Bu nedenle kabin tasarımından çağrı sistemlerine kadar tüm detayları, güncel standartlara uygun ve yapınızla uyumlu şekilde planlıyoruz.
+            </p>
+            <p>
+              Asansörde, kullanılan malzemelerin kalite düzeyi ne kadar yüksek olursa olsun montajı özenli bir şekilde dikkatli yapılmadığı takdirde kısa bir süre sonra görevlerini aksatmaya başlar ve sık sık arızalar ortaya çıkar. Temelde asansör montajındaki hatalarından kaynaklanan arızaların tespiti ve onarımı maddi olarak yük getirdiği gibi, manevi olarak da sorumlu kişileri yıpratmaktadır.
+            </p>
+            <p>
+              Bu tür sorunları sonradan gidermeye çalışmak çoğu zaman yeni maliyetler doğurur. Oysa iyi etüt edilmiş, doğru projelendirilmiş ve özenle monte edilmiş bir asansör, düzenli bakımla birlikte uzun yıllar sorunsuz şekilde hizmet verebilir.
+            </p>
+            <p>
+              Bu gerçeğin farkında olan firmamız, asansör montajı aşamasında işe en üst düzeyde özen gösterir. Şirketimiz, yapılacak asansörün belirlenen süreyi iyi değerlendirip ve montajın her evresinde gerekli kontrol ve denetimi yaparak ilerleyen dönemde karşılaşılabilecek aksaklıklara engel olur. Şantiye nerede olursa olsun, asansör montajı gereken sıklıklarda yetkili mühendislerimiz tarafından kontrol edilir; varsa işi aksatan sebepler incelenir ve bu sebeplerin zamanında bertaraf edilmesi için gereken her türlü tedbirler alınır.
+            </p>
+            <p>
+              Bu titiz yaklaşım sayesinde sadece zamanında teslim edilen bir sistem değil, aynı zamanda güven veren ve uzun ömürlü bir kullanım deneyimi sunan bir çözüm ortaya çıkar.
+            </p>
+            <p>
+              Konusunda uzman ekibiyle başarılı projelere imza atan KDK Asansör, Balıkesir, Edremit ve çevresinde farklı kapasite ve kullanım senaryolarına uygun asansör sistemleri için güvenilir montaj hizmeti sunmaktadır.
+            </p>
+          </div>
+          <div class="mt-10">
+            <a href="/iletisim/" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded font-bold hover:bg-primary-hover transition-colors shadow-lg">
+              Montaj Teklifi Alın
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 px-4" data-animate="fadeInRight">
+          <div class="relative group overflow-hidden rounded-2xl shadow-2xl border-8 border-white">
+            <Image 
+              src={installImg} 
+              alt="Asansör Montaj Hizmeti" 
+              class="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

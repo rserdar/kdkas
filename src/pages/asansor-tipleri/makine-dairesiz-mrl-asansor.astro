@@ -1,13 +1,101 @@
 ---
-import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { Image } from 'astro:assets';
+import makineDairesizImg from '../../assets/images/asansor-tipleri/makine-dairesiz.webp';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+const breadcrumb = [
+  { label: 'Anasayfa', url: '/' },
+  { label: 'Asansör Tipleri', url: '/asansor-tipleri' },
+  { label: 'Makine Dairesiz (MRL) Asansör' }
+];
 ---
-<SubpageLayout title="Makine Dairesiz (MRL) Asansör" category="Asansör Tipleri" categoryUrl="/asansor-tipleri/">
-  <p>Makine dairesiz (Machine Room-Less veya MRL) asansörler, tahrik makinesinin asansör kuyusu içine monte edildiği, ayrı bir makine dairesine ihtiyaç duymayan modern asansör sistemleridir.</p>
-  <p>Bina çatısında veya bodrum katında makine dairesi için ayrılması gereken alandan tasarruf sağlar. Dişlisiz (gearless) makine motor teknolojisi ile yüksek enerji verimliliği sunar.</p>
-  <ul>
-    <li>Bina hacminden tasarruf sağlar</li>
-    <li>Sessiz ve titreşimsiz çalışma</li>
-    <li>Geleneksel sistemlere göre %40'a varan enerji tasarrufu</li>
-    <li>Çevre dostu (yağ kullanımı gerektirmez)</li>
-  </ul>
-</SubpageLayout>
+
+<BaseLayout title="Makine Dairesiz (MRL) Asansör" description="Makine dairesiz MRL asansörler; %40 enerji tasarrufu, alan verimliliği ve sessiz seyiriyle modern binalara uygun çağdaş çözümlerdir. KDK Asansör, Balıkesir.">
+  <SchemaOrg slot="head" breadcrumb={breadcrumb} />
+  <PageHero title="Makine Dairesiz (MRL) Asansör" breadcrumb={breadcrumb} />
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap -mx-4 items-center">
+        <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0" data-animate="fadeInLeft">
+          <SectionHeading 
+            subtitle="Asansör Tipleri" 
+            title="Makine Dairesiz (MRL) Asansör"
+           
+          />
+          <div class="prose prose-lg text-gray-600 max-w-none space-y-6">
+            <p>
+              Makine dairesiz (MRL) asansörler; alan tasarrufu, enerji verimliliği ve modern bina tasarımlarına uyumu sayesinde yoğun kullanımlı yapılarda öne çıkan çağdaş çözümler arasında yer alır.
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Makine dairesine gerek duymaması bina alanını arttırmakta ve sistemin enerji etkinliği, işletme maliyetini düşürerek ek bir değer kazandırmaktadır.</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Makine dairesiz asansörlerimiz 24 kata kadar olan binalarda, 2000 kg kapasiteye ve 1.6 m/sn hıza kadar uygulanabilmektedir.</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Geleneksel motorlara göre %40'a varan enerji tasarrufu sağlarken, dişli kutusunun bulunmaması sayesinde aşınmayı azaltır. Yağsız yapı ise çevresel riski ve yangın tehlikesini en aza indirir.</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>V3F kontrolü ise son derece sessiz ve konforlu bir seyir sağlarken, düşük motor devri de sistemin güvenliğini en üst düzeye çıkartmaktadır.</span>
+              </li>
+            </ul>
+            <p class="font-bold text-dark mt-8">Makine dairesiz sistemlerin diğer avantajları;</p>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <li class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                <span>Bina hacminde tasarruf</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                <span>Eşsiz duruş hassasiyeti</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                <span>Kolay entegrasyon</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                <span>Sessiz ve konforlu seyir</span>
+              </li>
+              <li class="flex items-center space-x-2">
+                <div class="w-2 h-2 bg-primary rounded-full"></div>
+                <span>Daha az enerji kullanımı</span>
+              </li>
+            </ul>
+            <p>
+              Balıkesir, Edremit ve çevresinde özellikle yeni nesil konutlar, oteller, sağlık yapıları ve ticari projeler için MRL sistemlerde yerinde keşif, uygulama ve bakım desteği sunuyoruz.
+            </p>
+            <div class="mt-8 p-4 bg-red-50 border-l-4 border-red-500 text-red-700 italic text-sm">
+              Dikkat! Makine dairesiz asansörünüzü mutlaka, KDK Asansör tarafından periyodik ve genel asansör bakımı yaptırılmalıdır. İnsan hayatı her şeyden önemli ve değerlidir.
+            </div>
+          </div>
+          <div class="mt-10">
+            <a href="/iletisim/" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded font-bold hover:bg-primary-hover transition-colors shadow-lg">
+              Teklif Alın
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 px-4" data-animate="fadeInRight">
+          <div class="relative group overflow-hidden rounded-xl shadow-2xl">
+            <Image 
+              src={makineDairesizImg} 
+              alt="Makine Dairesiz Asansör" 
+              class="w-full h-auto transition-transform duration-500 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

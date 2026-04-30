@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  title: string;
+  image: string | ImageMetadata;
+  href: string;
+  delay?: number;
+}
+const { title, image, href, delay = 0 } = Astro.props;
+---
+<a 
+  href={href} 
+  class="group block relative overflow-hidden bg-white rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 h-full flex flex-col"
+  data-animate="fadeInUp"
+  data-delay={delay}
+>
+  <div class="aspect-[16/10] overflow-hidden">
+    <Image 
+      src={image} 
+      alt={title} 
+      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+    />
+  </div>
+  <div class="p-8 text-center flex-1 flex flex-col justify-between">
+    <h3 class="text-xl font-bold text-dark group-hover:text-primary transition-colors font-poppins">{title}</h3>
+    <div class="mt-4 inline-flex items-center justify-center text-primary font-semibold group-hover:translate-x-1 transition-transform">
+      İncele
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      </svg>
+    </div>
+  </div>
+  <!-- Top Animated Line -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-1 bg-primary group-hover:w-full transition-all duration-300"></div>
+</a>

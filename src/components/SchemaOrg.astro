@@ -1,0 +1,66 @@
+---
+interface BreadcrumbItem {
+  label: string;
+  url?: string;
+}
+
+interface Props {
+  type?: 'home' | 'page';
+  breadcrumb?: BreadcrumbItem[];
+  title?: string;
+  description?: string;
+}
+
+const { type = 'page', breadcrumb, title, description } = Astro.props;
+const siteUrl = 'https://www.kdkasansor.com';
+const pageUrl = Astro.url.href;
+
+const localBusiness = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': siteUrl,
+  name: 'KDK Asansör',
+  description: 'Balıkesir, Edremit ve çevresinde asansör montaj, bakım, onarım ve revizyon hizmetleri.',
+  url: siteUrl,
+  telephone: '+905372234382',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Balıkesir',
+    addressRegion: 'Balıkesir',
+    addressCountry: 'TR',
+  },
+  areaServed: ['Balıkesir', 'Edremit'],
+  priceRange: '₺₺',
+  image: `${siteUrl}/hero-bg.png`,
+  sameAs: [],
+};
+
+const webPage = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': pageUrl,
+  url: pageUrl,
+  name: title,
+  description: description,
+  isPartOf: { '@id': siteUrl },
+};
+
+const breadcrumbSchema = breadcrumb && breadcrumb.length > 1 ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumb.map((item, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name: item.label,
+    ...(item.url ? { item: `${siteUrl}${item.url}` } : {}),
+  })),
+} : null;
+---
+
+{type === 'home' && (
+  <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />
+)}
+<script type="application/ld+json" set:html={JSON.stringify(webPage)} />
+{breadcrumbSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+)}

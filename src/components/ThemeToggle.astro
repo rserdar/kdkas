@@ -1,0 +1,117 @@
+---
+import { Icon } from 'astro-icon/components';
+
+export interface Props {
+  direction?: 'down' | 'up';
+}
+
+const { direction = 'down' } = Astro.props;
+
+const positioningClass = direction === 'up' ? 'bottom-full mb-3' : 'top-[105%]';
+const borderClass = direction === 'up' ? 'border-b-[3px] rounded-t-xl' : 'border-t-[3px] rounded-b-md';
+
+const labels = { light: 'Açık', dark: 'Koyu', system: 'Sistem' };
+---
+
+<div class="relative theme-switcher-wrapper h-full flex items-center" data-labels={JSON.stringify(labels)} data-default-label="Tema">
+  <button type="button" class="theme-toggle-button w-full flex justify-center items-center gap-2 cursor-pointer group px-2 py-1.5 rounded-md hover:bg-gray-100 transition-colors" aria-label="Tema değiştir">
+    <Icon name="mdi:theme-light-dark" class="w-5 h-5 text-dark-2 group-hover:text-primary transition-colors" />
+    <span class="current-theme-label text-[11px] font-bold text-dark-2 group-hover:text-primary transition-colors uppercase hidden xl:block">Tema</span>
+  </button>
+
+  <div class={`theme-dropdown absolute ${positioningClass} right-0 w-44 z-[60] hidden`}>
+    <div class={`bg-white shadow-2xl ${borderClass} border-primary py-2`}>
+      <button data-theme-value="light" class="theme-item w-full flex items-center px-5 py-2.5 text-[13px] font-semibold text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
+        <Icon name="mdi:white-balance-sunny" class="w-[18px] h-[18px] mr-3" />
+        Açık
+      </button>
+      <button data-theme-value="dark" class="theme-item w-full flex items-center px-5 py-2.5 text-[13px] font-semibold text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
+        <Icon name="mdi:weather-night" class="w-[18px] h-[18px] mr-3" />
+        Koyu
+      </button>
+      <button data-theme-value="system" class="theme-item w-full flex items-center px-5 py-2.5 text-[13px] font-semibold text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
+        <Icon name="mdi:laptop" class="w-[18px] h-[18px] mr-3" />
+        Sistem
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initThemeToggle() {
+    const wrappers = document.querySelectorAll('.theme-switcher-wrapper');
+    if (wrappers.length === 0 || (window as any).themeToggleInitialized) return;
+    (window as any).themeToggleInitialized = true;
+
+    function applyTheme(theme: string) {
+      if (theme === 'dark') {
+        document.documentElement.classList.add('dark');
+      } else if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? document.documentElement.classList.add('dark')
+          : document.documentElement.classList.remove('dark');
+      }
+    }
+
+    function updateVisuals(theme: string) {
+      document.querySelectorAll('.theme-switcher-wrapper').forEach(wrapper => {
+        const labelsJson = wrapper.getAttribute('data-labels');
+        const defaultLabel = wrapper.getAttribute('data-default-label') || 'Tema';
+        const themeLabels = labelsJson ? JSON.parse(labelsJson) : {};
+        const label = wrapper.querySelector('.current-theme-label');
+        if (label) label.textContent = themeLabels[theme] || defaultLabel;
+        wrapper.querySelectorAll('.theme-item').forEach(item => {
+          item.classList.toggle('active-theme-item', item.getAttribute('data-theme-value') === theme);
+        });
+      });
+    }
+
+    const saved = localStorage.getItem('theme') || 'system';
+    applyTheme(saved);
+    updateVisuals(saved);
+
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const wrapper = target.closest('.theme-switcher-wrapper');
+      const isButton = target.closest('.theme-toggle-button');
+      const themeItem = target.closest('.theme-item');
+
+      if (isButton && wrapper) {
+        e.stopPropagation();
+        const dropdown = wrapper.querySelector('.theme-dropdown');
+        document.querySelectorAll('.theme-dropdown').forEach(d => { if (d !== dropdown) d.classList.add('hidden'); });
+        dropdown?.classList.toggle('hidden');
+        return;
+      }
+
+      if (themeItem) {
+        const theme = themeItem.getAttribute('data-theme-value');
+        if (theme) {
+          localStorage.setItem('theme', theme);
+          applyTheme(theme);
+          updateVisuals(theme);
+        }
+        document.querySelectorAll('.theme-dropdown').forEach(d => d.classList.add('hidden'));
+        return;
+      }
+
+      document.querySelectorAll('.theme-dropdown').forEach(d => d.classList.add('hidden'));
+    });
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      if (localStorage.getItem('theme') === 'system') applyTheme('system');
+    });
+  }
+
+  document.addEventListener('astro:page-load', initThemeToggle);
+  document.addEventListener('DOMContentLoaded', initThemeToggle);
+</script>
+
+<style>
+  .active-theme-item {
+    color: var(--primary);
+    background-color: rgba(204, 17, 17, 0.05);
+  }
+</style>

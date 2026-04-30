@@ -7,34 +7,46 @@ interface Props {
   delay?: number;
 }
 const { icon, title, description, href, delay = 0 } = Astro.props;
+const Tag = href ? 'a' : 'div';
 ---
-<div class="group relative overflow-hidden p-8 border border-gray-100 rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow h-full flex flex-col" data-animate="fadeInUp" data-delay={delay}>
-  <!-- Top Animated Line -->
-  <div class="absolute top-0 left-1/2 h-[3px] w-0 group-hover:w-full bg-primary -translate-x-1/2 transition-all duration-300"></div>
 
-  <div class="flex-1 flex flex-col items-center text-center transition-transform duration-300 group-hover:-translate-y-4">
-    <!-- Icon Container (SVG passed as string or icon name if using an icon pack) -->
-    <div class="w-16 h-16 rounded-full bg-light-bg flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform duration-300" set:html={icon}></div>
+<Tag
+  href={href}
+  class="group relative flex flex-col bg-white rounded-2xl border border-slate-100 shadow-sm
+         hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden"
+  data-animate="fadeInUp"
+  data-delay={delay}
+>
+  <!-- Kırmızı üst çizgi -->
+  <div class="h-[3px] w-full bg-gradient-to-r from-primary/40 via-primary to-primary/40
+              scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
 
-    <h3 class="text-xl font-bold text-dark mb-4 font-poppins">{title}</h3>
+  <div class="flex flex-col flex-1 p-7">
+    <!-- İkon -->
+    <div class="mb-6 w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary
+                group-hover:bg-primary group-hover:text-white transition-all duration-300 shrink-0"
+         set:html={icon}>
+    </div>
 
-    <p class="text-gray-600 leading-relaxed mb-6 flex-1">
+    <!-- Başlık -->
+    <h3 class="text-xl font-bold text-dark font-poppins mb-3 group-hover:text-primary transition-colors duration-200">
+      {title}
+    </h3>
+
+    <!-- Açıklama -->
+    <p class="text-gray-500 leading-relaxed text-[15px] flex-1">
       {description}
     </p>
 
-    <!-- Link or Button shown on hover -->
-    <div class="absolute bottom-4 left-0 right-0 opacity-0 group-hover:opacity-100 translate-y-full group-hover:translate-y-0 transition-all duration-300 flex justify-center">
-      {href ? (
-        <a href={href} class="text-primary font-medium flex items-center hover:text-primary-hover">
-          Detaylı Bilgi
-          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-        </a>
-      ) : (
-        <span class="text-primary font-medium flex items-center">
-          Daha Fazla
-          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-        </span>
-      )}
-    </div>
+    <!-- Link -->
+    {href && (
+      <div class="mt-6 pt-5 border-t border-slate-100 flex items-center gap-2 text-sm font-semibold text-slate-400 group-hover:text-primary transition-colors duration-200">
+        Detaylı Bilgi
+        <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
+             fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </div>
+    )}
   </div>
-</div>
+</Tag>

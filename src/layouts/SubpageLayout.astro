@@ -5,14 +5,16 @@ import Footer from '../components/Footer.astro';
 import PageHero from '../components/PageHero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import ScrollAnimate from '../components/ScrollAnimate.astro';
+import { Image } from 'astro:assets';
+import defaultImg from '../assets/images/hero/arch-plan-1.jpg';
 
 interface Props {
   title: string;
   category: string;
   categoryUrl: string;
-  image?: string;
+  image?: any;
 }
-const { title, category, categoryUrl, image = '/images/hero/arch-plan.jpg' } = Astro.props;
+const { title, category, categoryUrl, image = defaultImg } = Astro.props;
 
 const breadcrumb = [
   { label: 'Anasayfa', url: '/' },
@@ -43,7 +45,7 @@ const breadcrumb = [
         <div class="w-full lg:w-1/3 px-4">
           <ScrollAnimate animation="fadeInLeft" delay={300}>
             <div class="sticky top-32 rounded-lg overflow-hidden shadow-xl border border-gray-100">
-              <img src={image} alt={title} class="w-full h-auto object-cover" />
+              <Image src={image} alt={title} class="w-full h-auto object-cover" />
               <div class="p-6 bg-light-bg">
                 <h4 class="font-bold text-xl mb-4 font-poppins">Destek Gerekli Mi?</h4>
                 <p class="text-sm text-gray-600 mb-6">Projeleriniz için uzman ekibimizle iletişime geçin, size en uygun çözümü bulalım.</p>

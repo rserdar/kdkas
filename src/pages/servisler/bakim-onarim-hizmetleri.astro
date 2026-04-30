@@ -1,12 +1,72 @@
 ---
-import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { Image } from 'astro:assets';
+import repairImg from '../../assets/images/servisler/elevator-repair.png';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+const breadcrumb = [
+  { label: 'Anasayfa', url: '/' },
+  { label: 'Servisler', url: '/servisler' },
+  { label: 'Bakım & Onarım Hizmetleri' }
+];
 ---
-<SubpageLayout title="Bakım & Onarım Hizmetleri" category="Servisler" categoryUrl="/servisler/">
-  <p>Asansörlerinizin kesintisiz, güvenli ve uzun ömürlü çalışması için düzenli periyodik bakım şarttır. Aylık bakımlar, olası arızaların önüne geçerek parça ömrünü uzatır ve yolcu güvenliğini sağlar.</p>
-  <p>Tekin As Asansör olarak, bünyemizdeki asansörlerin yanı sıra diğer marka ve model asansörler için de profesyonel bakım hizmeti sunmaktayız.</p>
-  <ul>
-    <li>Aylık periyodik bakım hizmeti</li>
-    <li>7/24 acil servis ve arıza müdahalesi</li>
-    <li>Orijinal yedek parça temini ve değişimi</li>
-  </ul>
-</SubpageLayout>
+
+<BaseLayout title="Asansör Bakım ve Onarım Hizmetleri" description="KDK Asansör; Balıkesir, Edremit ve çevresinde periyodik asansör bakımı, arıza onarımı ve 7/24 acil müdahale hizmeti sunar. TSE belgeli, güvenilir servis.">
+  <SchemaOrg slot="head" breadcrumb={breadcrumb} />
+  <PageHero title="Bakım & Onarım Hizmetleri" breadcrumb={breadcrumb} />
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap -mx-4 items-center">
+        <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0" data-animate="fadeInLeft">
+          <SectionHeading 
+            subtitle="Servislerimiz" 
+            title="Bakım ve Onarım Hizmetleri"
+           
+          />
+          <div class="prose prose-lg text-gray-600 max-w-none space-y-6">
+            <p>
+              Asansörlerinizin güvenli, verimli ve uzun ömürlü çalışması için planlı bakım anlaşmaları kapsamında düzenli hizmet veriyoruz.
+            </p>
+            <p>
+              Asansörler kullanım esnasında çeşitli etkenlere maruz kalmaktadırlar. Kullanım hataları, malzeme aşınması gibi olağan sebeplerden arıza yapabileceği gibi yetersiz bakımdan kaynaklanabilen arızalar nedeniyle de hizmet veremez duruma gelir ve buna bağlı olarak büyük çapta tadilatlar büyük masraflar gerektirebilir.
+            </p>
+            <p>
+              Mevcut asansör yönetmeliğinde de belirtildiği gibi asansörlerde sürekli periyodik bakım yapılması zorunludur. Bakım hizmetini yüklenen firmanın “TSE hizmet yeterlilik belgesi ve sanayi ticaret bakanlığı satış sonrası hizmet yeterlilik” belgesi alması gerekmektedir. KDK Asansör bakım hizmetini, tesisin özelliklerine göre belirlenen periyotlarda uzman kadrosuyla yürütmektedir.
+            </p>
+            <p>
+              Asansörleriniz kullanım hataları, malzeme aşınması veya yetersiz bakımdan kaynaklanan sebeplerden dolayı arıza yapabilir. Bu gibi istenmeyen durumlarda firmamız periyodik bakım anlaşması olan veya olmayan tüm binalara günün her saati Acil Müdahale hizmeti vermektedir.
+            </p>
+            <p>
+              Asansörünüzde sık sık arızalar meydana geliyor ve sürekli artan maliyetlerden şikayet ediyorsanız, KDK Asansör ile sürekli bakım anlaşması yaparak bu sorunlardan kurtulabilirsiniz.
+            </p>
+            <p>
+              Asansör bakımının yeterince önemsenmemesi, ne yazık ki ciddi güvenlik riskleri doğurabilmektedir. KDK Asansör, tespit edilen arızaları hızlı ve güvenilir şekilde gidererek sisteminizi yeniden güvenle çalışır hale getirir.
+            </p>
+            <p>
+              Balıkesir, Edremit ve çevresinde sunduğumuz bakım ve onarım hizmetleriyle; konutlar, iş yerleri ve toplu kullanım alanları için düzenli teknik destek sağlıyoruz.
+            </p>
+          </div>
+          <div class="mt-10">
+            <a href="/iletisim/" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded font-bold hover:bg-primary-hover transition-colors shadow-lg">
+              7/24 Teknik Servis Kaydı
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 px-4" data-animate="fadeInRight">
+          <div class="relative group overflow-hidden rounded-2xl shadow-2xl border-8 border-white">
+            <Image 
+              src={repairImg} 
+              alt="Asansör Bakım ve Onarım" 
+              class="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

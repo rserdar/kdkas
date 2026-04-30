@@ -1,9 +1,11 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@variant dark (&:where(.dark, .dark *));
 
 /* ── Özel CSS Değişkenleri ── */
 :root {
-  --primary:       #0052cc;
-  --primary-hover: #0061f0;
+  --primary:       #cc1111;
+  --primary-hover: #a80f0f;
   --dark:          #2a2a2a;
   --dark-2:        #212529;
   --gray:          #aaa;
@@ -36,12 +38,14 @@ body {
 @keyframes fadeInUp   { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
 @keyframes fadeInDown { from { opacity:0; transform:translateY(-30px); } to { opacity:1; transform:translateY(0); } }
 @keyframes fadeInLeft { from { opacity:0; transform:translateX(-30px); } to { opacity:1; transform:translateX(0); } }
+@keyframes fadeInRight { from { opacity:0; transform:translateX(30px); } to { opacity:1; transform:translateX(0); } }
 
 .animated { animation-duration: 0.6s; animation-fill-mode: both; }
 .animated.fadeIn     { animation-name: fadeIn; }
 .animated.fadeInUp   { animation-name: fadeInUp; }
 .animated.fadeInDown { animation-name: fadeInDown; }
 .animated.fadeInLeft { animation-name: fadeInLeft; }
+.animated.fadeInRight { animation-name: fadeInRight; }
 
 /* ── Hero Arkaplan Animasyonu ── */
 @keyframes bgPositionBottomToTop {

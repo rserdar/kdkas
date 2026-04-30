@@ -1,12 +1,100 @@
 ---
-import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { Image } from 'astro:assets';
+import insanImg from '../../assets/images/asansor-modelleri/insan-asansoru.webp';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+const breadcrumb = [
+  { label: 'Anasayfa', url: '/' },
+  { label: 'Asansör Modelleri', url: '/modeller' },
+  { label: 'İnsan (Yolcu) Asansörü' }
+];
 ---
-<SubpageLayout title="İnsan (Yolcu) Asansörü" category="Asansör Modelleri" categoryUrl="/modeller/">
-  <p>Konutlar, ofisler, oteller ve alışveriş merkezleri gibi insan trafiğinin yoğun olduğu binalarda kullanılan standart asansör modelleridir.</p>
-  <p>Tasarımında konfor, hız ve güvenlik ön planda tutulur. Kapasiteleri genellikle 4 kişiden (320 kg) başlayıp 21 kişiye (1600 kg) kadar çıkabilmektedir.</p>
-  <ul>
-    <li>Konforlu ve sarsıntısız seyir</li>
-    <li>Estetik kabin tasarımları (Paslanmaz çelik, laminant, cam vb.)</li>
-    <li>Geniş iç hacim ve engelli erişimine uygun modeller</li>
-  </ul>
-</SubpageLayout>
+
+<BaseLayout title="İnsan (Yolcu) Asansörü" description="240 kg'dan 1600 kg'a, 3'ten 21 kişiye kadar kapasiteli insan asansörleri. Konut, otel, hastane ve iş merkezi projeleri için KDK Asansör çözümleri, Balıkesir.">
+  <SchemaOrg slot="head" breadcrumb={breadcrumb} />
+  <PageHero title="İnsan (Yolcu) Asansörü" breadcrumb={breadcrumb} />
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap -mx-4 items-center">
+        <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0" data-animate="fadeInLeft">
+          <SectionHeading 
+            subtitle="Asansör Modelleri" 
+            title="İnsan (Yolcu) Asansörü"
+           
+          />
+          <div class="prose prose-lg text-gray-600 max-w-none space-y-6">
+            <p>
+              İnsan (yolcu) asansörleri, günlük kullanımda konforu, güvenliği ve akıcı sirkülasyonu bir arada sunmak üzere tasarlanan en temel yapı içi ulaşım çözümlerinden biridir.
+            </p>
+            <p>
+              İnsan asansörleri; konutlarda 240 kg'dan 1000 kg'a kadar insan taşımak için kullanılan ve konut dışı yerlerde (otel, hastane, iş merkezi) 630 kg'dan 1600 kg'a kadar insan ve/veya yük taşımak amaçlı olarak tasarlanan asansörlerdir. 3 ila 21 kişilik kapasiteye kadar yapılabilen insan asansörlerinin anma hızları da binanın yüksekliğine göre değişken bir şekilde 0,40 m/sn ile 2.5 m/sn hızları arasında değişebilir.
+            </p>
+            <p>
+              İnsan asansörleri, binaların projelendirme aşamasında yapılan trafik hesaplarına ve avan projelere uygun olarak üretilip yerine monte edilir. Projelendirmeden imalat ve montajın son aşamasına kadar tüm süreç, uzman ekiplerimiz tarafından titizlikle kontrol edilir.
+            </p>
+            <p class="font-bold text-dark">Asansör talebinize ve asansör kuyusuna uygun olarak;</p>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Tam otomatik teleskopik veya merkezden açılan kat kapısı seçenekleri</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Tam otomatik teleskopik veya merkezden açılan kabin kapısı seçenekleri</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Çift hız veya VVVF frekans kontrollü kademesiz hız seçenekleri</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Tam elektronik mikroişlemci kontrollü normal kumandalı veya sellektif toplamalı, simpleks veya grup kumanda seçenekleri</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Opsiyonel olarak acil kata getirme sistemi</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Kabin dekoratifleri; paslanmaz ile orijinal tasarımlı laminantın mükemmel uyumu olan lüks fosformik veya desenli paslanmaz çelik kaplamalı duvar seçeneklerine sahiptir.</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Linolyum, mermer, seramik veya granit taban seçeneklerine sahiptir.</span>
+              </li>
+            </ul>
+            <p>
+              Tüm bunların yanı sıra; özel paslanmaz desenler, vitray uygulamalar, cam panelli kapılar ve panoramik kabinler gibi mimari projeye değer katan kişiselleştirilmiş seçenekler de sunuyoruz.
+            </p>
+            <p>
+              Balıkesir, Edremit ve çevresindeki apartmanlar, oteller, iş merkezleri ve özel projeler için yolcu asansörlerinde yerinde keşif, projelendirme, montaj ve bakım desteği sağlıyoruz.
+            </p>
+            <div class="mt-8 p-4 bg-red-50 border-l-4 border-red-500 text-red-700 italic text-sm">
+              Dikkat! İnsan asansörünüzü mutlaka, KDK Asansör tarafından periyodik ve genel asansör bakımı yaptırılmalıdır. İnsan hayatı her şeyden önemli ve değerlidir.
+            </div>
+          </div>
+          <div class="mt-10">
+            <a href="/iletisim/" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded font-bold hover:bg-primary-hover transition-colors shadow-lg">
+              Teklif Alın
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 px-4" data-animate="fadeInRight">
+          <div class="relative group overflow-hidden rounded-xl shadow-2xl">
+            <Image 
+              src={insanImg} 
+              alt="İnsan Asansörü" 
+              class="w-full h-auto transition-transform duration-500 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

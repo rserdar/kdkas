@@ -1,13 +1,69 @@
 ---
-import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { Image } from 'astro:assets';
+import makineDaireliImg from '../../assets/images/asansor-tipleri/makine-daireli.webp';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+const breadcrumb = [
+  { label: 'Anasayfa', url: '/' },
+  { label: 'Asansör Tipleri', url: '/asansor-tipleri' },
+  { label: 'Makine Daireli Asansörler' }
+];
 ---
-<SubpageLayout title="Makine Daireli Asansörler" category="Asansör Tipleri" categoryUrl="/asansor-tipleri/">
-  <p>Makine daireli asansörler, tahrik makinesinin asansör kuyusunun üzerinde veya yanında bulunan ayrı bir makine dairesinde yer aldığı geleneksel asansör sistemleridir.</p>
-  <p>Yüksek hız ve yüksek taşıma kapasitesi gerektiren binalarda, uzun seyir mesafesine sahip gökdelenlerde ve yoğun trafiği olan yapılarda sıklıkla tercih edilmektedir.</p>
-  <ul>
-    <li>Yüksek seyir hızı (2.5 m/s ve üzeri hızlara ulaşabilme)</li>
-    <li>Ağır yük taşıma kapasitesi</li>
-    <li>Kolay bakım ve onarım imkanı (Makine dairesinde geniş çalışma alanı)</li>
-    <li>Uzun ömürlü ve dayanıklı yapı</li>
-  </ul>
-</SubpageLayout>
+
+<BaseLayout title="Makine Daireli Asansörler" description="Makine daireli asansörler; yüksek performans, kolay bakım erişimi ve uzun ömürlü çalışmasıyla öne çıkan dayanıklı asansör sistemleridir. KDK Asansör montaj ve servis.">
+  <SchemaOrg slot="head" breadcrumb={breadcrumb} />
+  <PageHero title="Makine Daireli Asansörler" breadcrumb={breadcrumb} />
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap -mx-4 items-center">
+        <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0" data-animate="fadeInLeft">
+          <SectionHeading 
+            subtitle="Asansör Tipleri" 
+            title="Makine Daireli Asansörler"
+           
+          />
+          <div class="prose prose-lg text-gray-600 max-w-none space-y-6">
+            <p>
+              Makine daireli asansörler, tahrik makinesinin kuyu üstünde yer alan ayrı bir makine odasında konumlandığı; dayanıklılığı, bakım erişimi ve yüksek performansıyla öne çıkan sistemlerdir.
+            </p>
+            <p>
+              Makine dairesindeki tahrik motorunun kumanda panosundan aldığı komut vasıtasıyla harekete geçip, kabini istenilen yöne hareket ettirmesi yoluyla çalışır. Kabin, karşı ağırlıkla müşterek çalışır. Aralarındaki çelik halatın tahrik kasnağı ile sürtünmesinden kaynaklanan bir hareket vasıtasıyla yukarı aşağı hareket ederler. Kabin ve karşı ağırlık birbirleri ile yaklaşık eşit ağırlıktadırlar. Bu sebeple enerjiden tasarruf edilmektedir. Bu tür tahrik makineleri, sürtünme tahrikli olarak adlandırılır.
+            </p>
+            <p>
+              Makine daireli asansörlerin dişlili ve dişlisiz olmak üzere iki şekilde uygulaması yapılır. Makine daireli, dişlisiz asansör uygulaması ise taşıma kapasitesi fazla olan ve yüksek binalarda tercih edilir.
+            </p>
+            <p>
+              Asansör makine dairesi, asansör kuyusu ile birlikte asansöre ait mekânın bir parçasıdır. Makine dairesi, asansör hızı ve beyan yükü olarak adlandırılan asansör yüküne göre belirlenmesi gereken bir alandır. Bu alanın dış etkenlerden korunmuş rutubetsiz, yeterli aydınlıkta (En az 200 lux ve stroboskopik yanılgıdan etkilenmeyecek şekilde aydınlatılmış), iyi havalandırılan, ortam sıcaklığı +5~+40 derece arasında korunabilen, ses ve titreşimleri önleyecek şekilde düzenlenmiş olması gerekir.
+            </p>
+            <p>
+              Asansör makine dairesindeki makine kısmının bulunduğu döşeme, asansör çalışmalarında oluşabilecek darbe ve kuvvetlere dayanabilecek mukavemette olmalıdır. Asansör makine dairesinde teçhizatlar arasındaki geçiş yolları ve makine dairesi girişleri standartlara ve yönetmeliğe uygun yapılmalıdır. Asansör makine dairelerine yetkili personelin dışında başkalarının girmesi önlenmelidir.
+            </p>
+            <p>
+              KDK Asansör olarak Balıkesir, Edremit ve çevresindeki konut, iş merkezi ve ticari projeler için makine daireli sistemlerde keşif, projelendirme, montaj ve periyodik servis desteği sağlıyoruz.
+            </p>
+          </div>
+          <div class="mt-10">
+            <a href="/iletisim/" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded font-bold hover:bg-primary-hover transition-colors shadow-lg">
+              Teklif Alın
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 px-4" data-animate="fadeInRight">
+          <div class="relative group overflow-hidden rounded-xl shadow-2xl">
+            <Image 
+              src={makineDaireliImg} 
+              alt="Makine Daireli Asansör" 
+              class="w-full h-auto transition-transform duration-500 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

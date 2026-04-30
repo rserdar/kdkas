@@ -1,12 +1,89 @@
 ---
-import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { Image } from 'astro:assets';
+import yuk1Img from '../../assets/images/asansor-modelleri/yuk-asansoru-1.webp';
+import yuk2Img from '../../assets/images/asansor-modelleri/yuk-asansoru-2.webp';
+import yuk3Img from '../../assets/images/asansor-modelleri/yuk-asansoru-3.webp';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+const breadcrumb = [
+  { label: 'Anasayfa', url: '/' },
+  { label: 'Asansör Modelleri', url: '/modeller' },
+  { label: 'Yük Asansörü' }
+];
 ---
-<SubpageLayout title="Yük Asansörü" category="Asansör Modelleri" categoryUrl="/modeller/">
-  <p>Fabrikalar, depolar, alışveriş merkezleri ve hastaneler gibi ağır yüklerin taşınması gereken alanlarda kullanılan, taşıma kapasitesi yüksek asansörlerdir.</p>
-  <p>630 kg'dan başlayıp 10.000 kg ve üzeri kapasitelere kadar üretilebilmektedir. Kabin içi genellikle darbelere dayanıklı malzemelerden imal edilir.</p>
-  <ul>
-    <li>Ekstra güçlendirilmiş kabin tabanı ve duvarları</li>
-    <li>Geniş kapı açıklığı (Çift kanatlı veya sürgülü kapılar)</li>
-    <li>Ağır çalışma şartlarına uygun dayanıklı yapı</li>
-  </ul>
-</SubpageLayout>
+
+<BaseLayout title="Yük Asansörü" description="Fabrika, depo ve alışveriş merkezleri için yüksek kapasiteli, dayanıklı yük asansörü sistemleri. KDK Asansör montaj, bakım ve servis hizmetleri, Balıkesir.">
+  <SchemaOrg slot="head" breadcrumb={breadcrumb} />
+  <PageHero title="Yük Asansörü" breadcrumb={breadcrumb} />
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap -mx-4 items-center">
+        <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0" data-animate="fadeInLeft">
+          <SectionHeading 
+            subtitle="Asansör Modelleri" 
+            title="Yük Asansörü"
+           
+          />
+          <div class="prose prose-lg text-gray-600 max-w-none space-y-6">
+            <p>
+              Yük asansörleri; ağır ve hacimli yüklerin güvenli, kontrollü ve verimli biçimde taşınması için tasarlanan dayanıklı endüstriyel çözümlerdir.
+            </p>
+            <p>
+              Depo, alışveriş merkezleri, fabrikalar gibi, yük taşıma işlerinin yoğun olduğu yerlerde kullanılmak üzere, 630 Kg, 1000 Kg, 1600 Kg, 2000 Kg veya 2000 Kg dan daha fazlasını taşıyabilecek kapasitede tasarlanır. 1/1 ile 1/2 özel tahrik düzeni ile redaktörlü veya hidroliktir.
+            </p>
+            <p>
+              Yük asansörlerinde, en ağır koşullarda kullanım sağlanmaktadır. Yine insan asansörleri de olduğu gibi, yük asansörlerinde de opsiyonel özellikler seçilir. Seyir mesafesinin çok olmadığı orta yükseklikte binalarda hidrolik çözümlerimiz ile hem konforlu bir seyir yaşayabilir hem de işletme maliyeti açısından oldukça önemli bir tasarruf sağlayabilirsiniz.
+            </p>
+            <p>
+              Yük asansörü kapıları ve kabin boyutları (kuyu boyutlarının uygun olması koşuluyla) istenilen yükseklikte ve genişlikte yapılıp, kapılar tam otomatik veya yarı otomatik olarak üretilmektedir. Yük ve araç asansörleri imalatında zeminin özellikle kaymaz malzemeden seçilmesine dikkat edilmektedir. Asansör kabininizin yüksek kapasiteli tekerlek yüklerine destek sağlayabilmesi için taban kısımlarını ilave özel malzemeler ile güçlendirme yapılmaktadır.
+            </p>
+            <p>
+              Yük asansörlerinin makaslı yük asansörü, halatlı yük asansörü, pistonlu yük asansörü, rampalı yük asansörü şeklinde farklı türleri mevcuttur.
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span><strong>Makaslı yük asansörleri</strong>, seyir mesafesi az, kaldırma kapasitesinin fazla olduğu durumlarda kullanılır.</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span><strong>Halatlı yük asansörleri</strong>, seyir mesafesinin on metre ile otuz metre arasında olduğu yüksekliklerde kullanılır. Ortalama 10000 kg kadar yük taşıyabilirler.</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span><strong>Pistonlu yük asansörlerinde</strong>, seyir mesafesinin 1 m ile 20 m arasında olduğu yüksekliklerde kullanılır ve 5000 kg a kadar yük taşıyabilirler.</span>
+              </li>
+            </ul>
+            <p>
+              Balıkesir, Edremit ve çevresindeki depo, fabrika, mağaza ve üretim tesisleri için yük asansörlerinde keşif, kapasite planlaması, montaj ve düzenli bakım desteği sunuyoruz.
+            </p>
+            <div class="mt-8 p-4 bg-orange-50 border-l-4 border-orange-500 text-orange-800 italic text-sm">
+              <strong>Dikkat!</strong> İnsan asansörlerine göre yük asansörleri daha çok yıpranmaktadır. Yük asansör bakımlarımızda yıpranmayı en aza indirilebilmek için teknik kadromuz belirli periyotlarla, çalışan parçaların ayarlarını hassas ve doğru bir şekilde yapmaktadır. Bu yüzden bakımlarınızı düzenli bir şekilde yapmak asansörünüzü daha verimli ve güvenli kullanabilmeniz için çok önemlidir.
+            </div>
+          </div>
+          <div class="mt-10">
+            <a href="/iletisim/" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded font-bold hover:bg-primary-hover transition-colors shadow-lg">
+              Teklif Alın
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 px-4" data-animate="fadeInRight">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-4">
+              <Image src={yuk1Img} alt="Yük Asansörü 1" class="rounded-lg shadow-lg w-full h-64 object-cover" />
+              <Image src={yuk2Img} alt="Yük Asansörü 2" class="rounded-lg shadow-lg w-full h-48 object-cover" />
+            </div>
+            <div class="pt-8">
+              <Image src={yuk3Img} alt="Yük Asansörü 3" class="rounded-lg shadow-lg w-full h-96 object-cover" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

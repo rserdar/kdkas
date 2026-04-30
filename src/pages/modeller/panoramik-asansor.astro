@@ -1,12 +1,80 @@
 ---
-import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { Image } from 'astro:assets';
+import panoramikImg from '../../assets/images/asansor-modelleri/panoramik-asansor.webp';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+const breadcrumb = [
+  { label: 'Anasayfa', url: '/' },
+  { label: 'Asansör Modelleri', url: '/modeller' },
+  { label: 'Panoramik Asansör' }
+];
 ---
-<SubpageLayout title="Panoramik Asansör" category="Asansör Modelleri" categoryUrl="/modeller/">
-  <p>Oteller, alışveriş merkezleri, iş merkezleri ve plazalarda estetik bir görünüm sağlamak amacıyla tercih edilen, bir veya birkaç cephesi camdan oluşan asansörlerdir.</p>
-  <p>Yolculara binaların veya dış mekanın manzarasını izleme imkanı sunarken, aynı zamanda binanın mimari çekiciliğini artırır.</p>
-  <ul>
-    <li>Kırılmaz lamine güvenlik camları (Temperli cam)</li>
-    <li>Bina mimarisine uygun özel tasarımlar (Yuvarlak, kare, çokgen)</li>
-    <li>Estetik ve şeffaf görünüm ile ferah yolculuk deneyimi</li>
-  </ul>
-</SubpageLayout>
+
+<BaseLayout title="Panoramik Asansör" description="Cam kabinli panoramik asansörler; binanın mimari estetiğini tamamlayan, dışarıyı hissettiren şık ve modern taşıma sistemleridir. KDK Asansör, Balıkesir.">
+  <SchemaOrg slot="head" breadcrumb={breadcrumb} />
+  <PageHero title="Panoramik Asansör" breadcrumb={breadcrumb} />
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap -mx-4 items-center">
+        <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0" data-animate="fadeInLeft">
+          <SectionHeading 
+            subtitle="Asansör Modelleri" 
+            title="Panoramik Asansör"
+           
+          />
+          <div class="prose prose-lg text-gray-600 max-w-none space-y-6">
+            <p>
+              Panoramik asansörler, modern mimarinin estetik beklentilerine yanıt verirken kullanıcı deneyimini de güçlendiren; yapıya prestij ve ferahlık kazandıran özel sistemlerdir.
+            </p>
+            <p>
+              Panoramik asansörlerin en belirgin özelliği, kabinin cam ile çerçevelenmiş olmasıdır. Bu sayede kullanıcısına görsel bir keyif ve ferahlık vermektedir. Asansörü kullanan kişilerin, seyir halindeyken kabin dışını görebilir olması, kapalı asansörlere göre çok daha rahatlatıcı ve asansör korkusu olanlar için huzur vericidir.
+            </p>
+            <p>
+              Panoramik asansörde kullanılan camlar, kullanıcılarının güvenliğini koruyacak şekilde kırılmaz ya da kırıldığı zaman dağılmaz özellikte üretilmektedir.
+            </p>
+            <p>
+              Hidrolik ve elektrik tahrik sistemleri sayesinde panoramik asansörlerde çok geniş kapsamlı yerleştirme çözümleri üretilebilmektedir. Teknik olarak panoramik asansörler 4 kişiden 21 kişi taşıma kapasitesine ve 0,63 m/s hızdan 2,5 m/s hıza kadar tasarlanıp üretilebilirler.
+            </p>
+            <p>
+              Panoramik asansörler her bina için ayrı ayrı tasarlanır. Binanın mimarisine uygun olarak dairesel, kare, üçgen ve benzer şekilde tasarlanmaları mümkündür.
+            </p>
+            <p>
+              Panoramik asansörlerin diğer bir özelliği ise, bina içine montajı olduğu gibi, bina dışına da montajı yapılabilir. Bu nedenle yapı içerisinde kullanım alanı avantajı sağlar.
+            </p>
+            <p>
+              Alışveriş merkezleri panoramik asansörlerin en fazla tercih edildiği yapılar arasında yer alır. Bununla birlikte otellerde, eğlence merkezlerinde, yüksek ofis bloklarında, metro ve tren garlarında da geniş kullanım alanına sahiptir.
+            </p>
+            <p>
+              KDK Asansör olarak Balıkesir, Edremit ve çevresindeki otel, AVM, rezidans ve özel projeler için panoramik asansörlerde tasarım, uygulama ve servis desteği sağlıyoruz.
+            </p>
+            <div class="mt-8 p-4 bg-red-50 border-l-4 border-red-500 text-red-800 italic text-sm">
+              <strong>Dikkat!</strong> Panoramik asansörünüzü mutlaka, KDK Asansör tarafından periyodik ve genel asansör bakımı yaptırılmalıdır. İnsan hayatı her şeyden önemli ve değerlidir.
+            </div>
+          </div>
+          <div class="mt-10">
+            <a href="/iletisim/" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded font-bold hover:bg-primary-hover transition-colors shadow-lg">
+              Estetik Çözümler İçin Arayın
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 px-4" data-animate="fadeInRight">
+          <div class="relative group overflow-hidden rounded-2xl shadow-2xl border-8 border-gray-100">
+            <Image 
+              src={panoramikImg} 
+              alt="Panoramik Asansör" 
+              class="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+              <p class="text-white font-medium text-lg italic">Mimari Estetik ve Görsel Keyif</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

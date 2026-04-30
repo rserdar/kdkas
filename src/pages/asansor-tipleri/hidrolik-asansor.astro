@@ -1,13 +1,75 @@
 ---
-import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { Image } from 'astro:assets';
+import hidrolikImg from '../../assets/images/asansor-tipleri/hidrolik.webp';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+const breadcrumb = [
+  { label: 'Anasayfa', url: '/' },
+  { label: 'Asansör Tipleri', url: '/asansor-tipleri' },
+  { label: 'Hidrolik Asansör' }
+];
 ---
-<SubpageLayout title="Hidrolik Asansör" category="Asansör Tipleri" categoryUrl="/asansor-tipleri/">
-  <p>Hidrolik asansörler, kabinin bir hidrolik piston yardımıyla itilerek hareket ettirildiği sistemlerdir. Makine dairesi kuyu üzerinde değil, genellikle zemin katta veya kuyu yakınında bulunur.</p>
-  <p>Genellikle az katlı binalarda (2-6 kat), yük taşıma kapasitesinin yüksek olması gereken sanayi tesislerinde, otoparklarda ve villalarda tercih edilir.</p>
-  <ul>
-    <li>Yüksek taşıma kapasitesi</li>
-    <li>Bina çatısına yük bindirmez</li>
-    <li>Elektrik kesintilerinde güvenli tahliye imkanı</li>
-    <li>Sessiz ve pürüzsüz kalkış/duruş konforu</li>
-  </ul>
-</SubpageLayout>
+
+<BaseLayout title="Hidrolik Asansör" description="Hidrolik asansörler; villa, butik işletme ve düşük katlı yapılar için ideal, güvenli ve ekonomik taşıma sistemleridir. KDK Asansör Balıkesir montaj ve servis.">
+  <SchemaOrg slot="head" breadcrumb={breadcrumb} />
+  <PageHero title="Hidrolik Asansör" breadcrumb={breadcrumb} />
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap -mx-4 items-center">
+        <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0" data-animate="fadeInLeft">
+          <SectionHeading 
+            subtitle="Asansör Tipleri" 
+            title="Hidrolik Asansör"
+           
+          />
+          <div class="prose prose-lg text-gray-600 max-w-none space-y-6">
+            <p>
+              Hidrolik asansörler, elektrikle tahrik edilen pompanın hidrolik sıvıyı hareket ettirmesiyle kabini doğrudan ya da dolaylı olarak kaldıran; özellikle düşük ve orta katlı yapılarda etkili sonuç veren sistemlerdir.
+            </p>
+            <p>
+              Bu asansörlerde aşağı yön hareketi kabinin kendi ağırlığı ile gerçekleşmektedir. Hidrolik asansörlerde makine dairesi genel olarak, ilk durak seviyesinde bulunur. Burada bir yağ kazanı ve bunun üzerinde hidrolik makinesi (düzeneği), kumanda panosu ve hidrolik sıvısının içinden geçtiği hortumlar bulunmaktadır.
+            </p>
+            <p>
+              Asansör kuyusu içinde; kabin, varsa karşı ağırlık, silindir piston sistemi, askı tertibatı ve tamponlar bulunmaktadır. Hidrolik asansörler elektriğin tahrik ettiği pompanın yağı itmesiyle pistonların kabini kaldırması esasına göre çalışır. Pompalanan yağ, hidrolik makinesinden belirli şartları yerine getirerek geçip borular vasıtasıyla silindiri harekete geçirirler. Silindir kabine doğrudan veya dolaylı olarak bağlanmış olabilir. Silindirin ittiği kabin alınan kumanda ile gerekli kata taşınır.
+            </p>
+            <p>
+              Hidrolik asansörler; konutlarda, villalarda, tadilat gören yapılarda, bina statiğine ek yük getirilmesinin istenmediği uygulamalarda, fabrikalarda ve alışveriş merkezlerinde sıkça tercih edilir.
+            </p>
+            <p>
+              Asansörler genel olarak yapılan sözleşmeler gereği aylık periyotlarla gerekli bakımlardan geçmelidir. Esas olarak oteller, bakım evleri, bürolar ve apartmanlar gibi yeni inşa edilmiş veya mevcut alçak binalar için uygundur ve orta düzeyde yolcu akışı için idealdir.
+            </p>
+            <p>
+              Hidrolik asansörler; kaldırma kapasitesine, uygulanacağı yapının yüksekliğine ve kullanım amacına göre tasarlanır. En uygun sistemi belirlemek için kabinin tahrik yöntemi, trafik yoğunluğu ve mimari gereksinimler birlikte değerlendirilir.
+            </p>
+            <p>
+              KDK Asansör olarak Balıkesir, Edremit ve çevresinde villa, butik işletme, fabrika ve özel projeler için hidrolik asansör çözümlerini keşiften bakım sürecine kadar bütüncül biçimde sunuyoruz.
+            </p>
+            <div class="mt-8 p-4 bg-red-50 border-l-4 border-red-500 text-red-700 italic text-sm">
+              Dikkat! Hidrolik asansörünüzü mutlaka, KDK Asansör tarafından periyodik ve genel asansör bakımı yaptırılmalıdır. İnsan hayatı her şeyden önemli ve değerlidir.
+            </div>
+          </div>
+          <div class="mt-10">
+            <a href="/iletisim/" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded font-bold hover:bg-primary-hover transition-colors shadow-lg">
+              Teklif Alın
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 px-4" data-animate="fadeInRight">
+          <div class="relative group overflow-hidden rounded-xl shadow-2xl">
+            <Image 
+              src={hidrolikImg} 
+              alt="Hidrolik Asansör" 
+              class="w-full h-auto transition-transform duration-500 group-hover:scale-110"
+            />
+            <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

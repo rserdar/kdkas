@@ -4,72 +4,75 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import PageHero from '../../components/PageHero.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
-import ScrollAnimate from '../../components/ScrollAnimate.astro';
+import PortoGrid from '../../components/PortoGrid.astro';
+import PortoInfoBox from '../../components/PortoInfoBox.astro';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+// Asansör Modelleri görselleri
+import insanImg      from '../../assets/images/asansor-modelleri/insan-asansoru.webp';
+import yukImg        from '../../assets/images/asansor-modelleri/yuk-asansoru-1.webp';
+import monsarjImg    from '../../assets/images/asansor-modelleri/monsarj-yemek-asansoru.webp';
+import sedyeImg      from '../../assets/images/asansor-modelleri/sedye-asansoru.webp';
+import panoramikImg  from '../../assets/images/asansor-modelleri/panoramik-asansor.webp';
+import aracImg       from '../../assets/images/asansor-modelleri/arac1.webp';
+import engelliImg    from '../../assets/images/asansor-modelleri/97d1662a.webp';
+
+// Servis görselleri
+import installImg    from '../../assets/images/servisler/elevator-installation.png';
+import repairImg     from '../../assets/images/servisler/elevator-repair.png';
+import modernImg     from '../../assets/images/servisler/modernasation.png';
+import escalatorImg  from '../../assets/images/servisler/yuruyen-merdiven.webp';
 
 const breadcrumb = [
   { label: 'Anasayfa', url: '/' },
   { label: 'Hizmetlerimiz' }
 ];
 
-const categories = [
-  {
-    title: 'Asansör Tipleri',
-    links: [
-      { name: 'Makine Daireli Asansörler', url: '/asansor-tipleri/makine-daireli-asansorler/' },
-      { name: 'Makine Dairesiz (MRL) Asansör', url: '/asansor-tipleri/makine-dairesiz-mrl-asansor/' },
-      { name: 'Hidrolik Asansör', url: '/asansor-tipleri/hidrolik-asansor/' }
-    ]
-  },
-  {
-    title: 'Asansör Modelleri',
-    links: [
-      { name: 'İnsan (Yolcu) Asansörü', url: '/modeller/insan-yolcu-asansoru/' },
-      { name: 'Yük Asansörü', url: '/modeller/yuk-asansoru/' },
-      { name: 'Monşarj (Yemek) Asansörü', url: '/modeller/monsarj-yemek-asansoru/' },
-      { name: 'Sedye Asansörleri', url: '/modeller/sedye-asansorleri/' },
-      { name: 'Panoramik Asansör', url: '/modeller/panoramik-asansor/' },
-      { name: 'Araç Asansörü', url: '/modeller/arac-asansoru/' },
-      { name: 'Engelli Platformları', url: '/modeller/engelli-platformlari/' }
-    ]
-  },
-  {
-    title: 'Servisler',
-    links: [
-      { name: 'Montaj Hizmetleri', url: '/servisler/montaj-hizmetleri/' },
-      { name: 'Bakım & Onarım Hizmetleri', url: '/servisler/bakim-onarim-hizmetleri/' },
-      { name: 'Revizyon Hizmetleri', url: '/servisler/revizyon-hizmetleri/' }
-    ]
-  }
+const services = [
+  // Asansör Modelleri (7)
+  { title: 'İnsan (Yolcu) Asansörü',   subtitle: 'Konforu ve güvenliği ön planda tutan yolcu sistemleri.',       href: '/modeller/insan-yolcu-asansoru/',                visualType: 'ellipse-image', visualSource: insanImg },
+  { title: 'Yük Asansörü',             subtitle: 'Endüstriyel taşımacılık için sağlam ve güvenli yapı.',          href: '/modeller/yuk-asansoru/',                        visualType: 'ellipse-image', visualSource: yukImg },
+  { title: 'Monşarj (Yemek) Asansörü', subtitle: 'Restoran ve oteller için pratik servis çözümü.',               href: '/modeller/monsarj-yemek-asansoru/',              visualType: 'ellipse-image', visualSource: monsarjImg },
+  { title: 'Sedye Asansörleri',        subtitle: 'Hastane ve klinikler için geniş kabin çözümleri.',             href: '/modeller/sedye-asansorleri/',                   visualType: 'ellipse-image', visualSource: sedyeImg },
+  { title: 'Panoramik Asansör',        subtitle: 'Mimari estetiği yüksek şeffaf kabin sistemleri.',              href: '/modeller/panoramik-asansor/',                   visualType: 'ellipse-image', visualSource: panoramikImg },
+  { title: 'Araç Asansörü',            subtitle: 'Araç park sistemleri ve garajlar için güçlü platform çözümü.',  href: '/modeller/arac-asansoru/',                       visualType: 'ellipse-image', visualSource: aracImg },
+  { title: 'Engelli Platformları',     subtitle: 'Erişilebilirlik standartlarına uygun kaldırma sistemleri.',     href: '/modeller/engelli-platformlari/',                visualType: 'ellipse-image', visualSource: engelliImg },
+  // Servisler (4)
+  { title: 'Montaj Hizmetleri',        subtitle: 'Projeye özel, standartlara uygun profesyonel montaj.',         href: '/servisler/montaj-hizmetleri/',                  visualType: 'ellipse-image', visualSource: installImg },
+  { title: 'Bakım & Onarım',           subtitle: 'Periyodik bakım ve hızlı arıza müdahalesi.',                   href: '/servisler/bakim-onarim-hizmetleri/',            visualType: 'ellipse-image', visualSource: repairImg },
+  { title: 'Revizyon Hizmetleri',      subtitle: 'Eski sistemleri modern standartlara taşıyoruz.',               href: '/servisler/revizyon-hizmetleri/',                visualType: 'ellipse-image', visualSource: modernImg },
+  { title: 'Yürüyen Merdiven & Bant',  subtitle: 'AVM, havalimanı ve iş merkezleri için EN-115-1 sertifikalı.', href: '/servisler/yuruyen-merdiven-ve-bant-sistemleri/', visualType: 'ellipse-image', visualSource: escalatorImg },
+  // CTA kutusu (grid simetrisi için – 12 = 4×3)
+  { title: 'Projenizi Planla',         subtitle: 'Yapınıza en uygun sistemi birlikte belirleyelim.',              href: '/iletisim/',                                     visualType: 'icon',          visualSource: 'mdi:arrow-right-circle-outline' },
 ];
 ---
-<BaseLayout title="Hizmetlerimiz" description="Tekin As Asansör olarak sunduğumuz asansör tipleri, modelleri ve servis hizmetleri.">
+
+<BaseLayout title="Hizmetlerimiz" description="KDK Asansör olarak sunduğumuz asansör modelleri ve servis hizmetleri. Balıkesir, Edremit ve çevresinde montaj, bakım, onarım ve revizyon.">
+  <SchemaOrg slot="head" breadcrumb={breadcrumb} />
   <Header slot="header" />
 
   <PageHero title="Hizmetlerimiz" breadcrumb={breadcrumb} />
 
   <section class="py-24 bg-white">
     <div class="container mx-auto px-4">
-      <SectionHeading subtitle="Tekin As Asansör" title="Tüm Hizmetlerimiz" centered={true} />
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-        {categories.map((category, idx) => (
-          <ScrollAnimate animation="fadeInUp" delay={idx * 200}>
-            <div class="bg-light-bg rounded-lg p-8 h-full border border-gray-100 hover:shadow-md transition-shadow">
-              <h3 class="text-2xl font-bold text-dark mb-6 font-poppins border-b pb-4">{category.title}</h3>
-              <ul class="space-y-4">
-                {category.links.map(link => (
-                  <li>
-                    <a href={link.url} class="group flex items-center text-gray-600 hover:text-primary transition-colors">
-                      <svg class="w-5 h-5 mr-3 text-primary transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </ScrollAnimate>
-        ))}
+      <div class="text-center mb-12">
+        <SectionHeading subtitle="KDK Asansör" title="Tüm Hizmetlerimiz" centered={true} />
+        <p class="mx-auto mt-6 max-w-3xl text-lg leading-8 text-gray-600">
+          Balıkesir, Edremit ve çevresindeki projeler için asansör modelleri ve teknik servis çözümlerimizi tek çatı altında sunuyoruz.
+        </p>
       </div>
+
+      <PortoGrid>
+        {services.map((service) => (
+          <PortoInfoBox
+            title={service.title}
+            subtitle={service.subtitle}
+            href={service.href}
+            visualType={service.visualType as any}
+            visualSource={service.visualSource}
+          />
+        ))}
+      </PortoGrid>
     </div>
   </section>
 

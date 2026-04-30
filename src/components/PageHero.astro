@@ -1,4 +1,6 @@
 ---
+import bgImg from '../assets/images/hero/arch-plan-1.jpg';
+
 interface Props {
   title: string;
   breadcrumb: {
@@ -8,9 +10,12 @@ interface Props {
 }
 const { title, breadcrumb } = Astro.props;
 ---
-<section class="relative pt-36 pb-20 bg-dark text-white overflow-hidden bg-[url('/images/hero/arch-plan.jpg')] bg-cover bg-center bg-blend-overlay bg-black/70">
+<section class="relative pt-36 pb-20 bg-dark text-white overflow-hidden bg-cover bg-center bg-blend-overlay bg-black/70" style={`background-image: url('${bgImg.src}');`}>
   <div class="container mx-auto px-4 text-center relative z-10">
     <h1 class="text-4xl lg:text-5xl font-bold font-poppins mb-6 animated fadeInUp">{title}</h1>
+    <p class="mx-auto mb-5 max-w-3xl text-sm leading-7 text-gray-200 animated fadeInUp" style="--delay: 120ms; animation-delay: 120ms;">
+      KDK Asansör, Balıkesir, Edremit ve çevresinde asansör bakım, onarım, montaj ve revizyon hizmetleri sunar.
+    </p>
 
     <div class="flex items-center justify-center space-x-2 text-sm text-gray-300 font-medium tracking-wide animated fadeInUp" style="--delay: 200ms; animation-delay: 200ms;">
       {breadcrumb.map((item, index) => (

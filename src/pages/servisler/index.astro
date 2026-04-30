@@ -5,6 +5,11 @@ import Footer from '../../components/Footer.astro';
 import PageHero from '../../components/PageHero.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
 import ScrollAnimate from '../../components/ScrollAnimate.astro';
+import { Image } from 'astro:assets';
+import installImg from '../../assets/images/servisler/elevator-installation.png';
+import repairImg from '../../assets/images/servisler/elevator-repair.png';
+import modernImg from '../../assets/images/servisler/modernasation.png';
+import SchemaOrg from '../../components/SchemaOrg.astro';
 
 const breadcrumb = [
   { label: 'Anasayfa', url: '/' },
@@ -16,23 +21,24 @@ const items = [
     name: 'Montaj Hizmetleri',
     url: '/servisler/montaj-hizmetleri/',
     description: 'Yeni binalarınız için standartlara uygun, güvenli ve estetik asansör montaj çözümleri.',
-    image: '/images/elevator-installation.png'
+    image: installImg
   },
   {
     name: 'Bakım & Onarım Hizmetleri',
     url: '/servisler/bakim-onarim-hizmetleri/',
     description: 'Asansörlerinizin kesintisiz ve güvenli çalışması için periyodik bakım ve 7/24 arıza müdahale hizmeti.',
-    image: '/images/elevator-repair.png'
+    image: repairImg
   },
   {
     name: 'Revizyon Hizmetleri',
     url: '/servisler/revizyon-hizmetleri/',
     description: 'Eski asansörlerinizi güncel standartlara uygun, enerji verimli ve modern sistemlerle yeniliyoruz.',
-    image: '/images/modernasation.png'
+    image: modernImg
   }
 ];
 ---
-<BaseLayout title="Servisler" description="Tekin As Asansör servis hizmetleri: Montaj, Bakım, Onarım ve Revizyon çözümleri.">
+<BaseLayout title="Servisler" description="KDK Asansör servis hizmetleri: Montaj, Bakım, Onarım ve Revizyon çözümleri.">
+  <SchemaOrg slot="head" breadcrumb={breadcrumb} />
   <Header slot="header" />
 
   <PageHero title="Servisler" breadcrumb={breadcrumb} />
@@ -40,13 +46,16 @@ const items = [
   <section class="py-24 bg-white">
     <div class="container mx-auto px-4">
       <SectionHeading subtitle="Uzman Hizmetlerimiz" title="Servisler" centered={true} />
+      <p class="mx-auto mt-6 max-w-3xl text-center text-lg leading-8 text-gray-600">
+        Balıkesir, Edremit ve çevresinde periyodik bakım, hızlı müdahale, montaj ve modernizasyon süreçlerini tek merkezden yönetiyoruz.
+      </p>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
         {items.map((item, idx) => (
           <ScrollAnimate animation="fadeInUp" delay={idx * 200}>
             <div class="group bg-white rounded-lg overflow-hidden border border-gray-100 hover:shadow-xl transition-all duration-300">
               <div class="relative h-64 overflow-hidden">
-                <img src={item.image} alt={item.name} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                <Image src={item.image} alt={item.name} class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
               </div>
               <div class="p-8">

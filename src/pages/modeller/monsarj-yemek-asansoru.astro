@@ -1,12 +1,93 @@
 ---
-import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { Image } from 'astro:assets';
+import monsarjImg from '../../assets/images/asansor-modelleri/monsarj-yemek-asansoru.webp';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+const breadcrumb = [
+  { label: 'Anasayfa', url: '/' },
+  { label: 'Asansör Modelleri', url: '/modeller' },
+  { label: 'Monşarj (Yemek) Asansörü' }
+];
 ---
-<SubpageLayout title="Monşarj (Yemek) Asansörü" category="Asansör Modelleri" categoryUrl="/modeller/">
-  <p>Restoranlar, oteller, hastaneler, kütüphaneler ve villalarda yemek, tepsi, kitap veya küçük yükleri taşımak amacıyla kullanılan küçük boyutlu asansörlerdir.</p>
-  <p>İnsan taşımasına uygun değildir. Genellikle 50 kg ile 300 kg arası taşıma kapasitesine sahiptir.</p>
-  <ul>
-    <li>Hijyenik ortamlar için 304 kalite paslanmaz çelik kabin</li>
-    <li>Giyotin tip kapılarla yer tasarrufu</li>
-    <li>Hızlı ve sessiz çalışma</li>
-  </ul>
-</SubpageLayout>
+
+<BaseLayout title="Monşarj (Yemek) Asansörü" description="Restoran, otel ve villa projeleri için kompakt ve sessiz monşarj (servis/yemek) asansörleri. KDK Asansör tasarım, montaj ve bakım çözümleri, Balıkesir.">
+  <SchemaOrg slot="head" breadcrumb={breadcrumb} />
+  <PageHero title="Monşarj (Yemek) Asansörü" breadcrumb={breadcrumb} />
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap -mx-4 items-center">
+        <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0" data-animate="fadeInLeft">
+          <SectionHeading 
+            subtitle="Asansör Modelleri" 
+            title="Monşarj (Yemek) Asansörü"
+           
+          />
+          <div class="prose prose-lg text-gray-600 max-w-none space-y-6">
+            <p>
+              Monşarj asansörleri; otel, restoran, villa ve benzeri yapılarda mutfak ile servis alanları arasında tabak, tepsi, bardak ve benzeri yüklerin hijyenik şekilde taşınması için geliştirilen pratik çözümlerdir.
+            </p>
+            <p>
+              Servis asansörleri, genelde giyotin tipte kapılıdırlar. Giyotin kapılar, basit bir hareketle açılıp kapanması sayesinde kullanıcıya büyük kolaylık sağladığı gibi, yarı otomatik kapılar gibi açıldıklarında yer de işgal etmezler.
+            </p>
+            <p>
+              Hijyenik şartlara dikkat edilmesi gereken servis asansörlerinde paslanmaz çelik kabin içi kaplamaları, anti bakteriyel taban malzemeleri seçilir.
+            </p>
+            <p>
+              Yapınıza en uygun servis asansörünü belirlemek için ihtiyaç analizi yapıyor; kullanım yoğunluğu, taşıma kapasitesi ve hijyen beklentilerine göre doğru sistemi planlıyoruz.
+            </p>
+            <p>
+              Balıkesir, Edremit ve çevresindeki restoran, otel, kafe ve özel konut projeleri için monşarj sistemlerinde keşif, uygulama ve bakım desteği sunuyoruz.
+            </p>
+            <ul class="space-y-4">
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Tek hızlı tahrik sistemi</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Işıklı ve sesli kullanma panelleri</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Galvaniz profilden oluşan kuyu taşıyıcı iskeleti (Modüler)</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Sessiz, arızasız, ekonomik çözümler</span>
+              </li>
+              <li class="flex items-start">
+                <svg class="h-6 w-6 text-primary mt-1 mr-3 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>
+                <span>Makine dairesi yeri; altta veya üstte</span>
+              </li>
+            </ul>
+            <div class="mt-8 p-4 bg-blue-50 border-l-4 border-blue-500 text-blue-800 italic text-sm">
+              <strong>Dikkat!</strong> Servis asansörünüzü mutlaka, KDK Asansör tarafından periyodik ve genel asansör bakımı yaptırılmalıdır.
+            </div>
+          </div>
+          <div class="mt-10">
+            <a href="/iletisim/" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded font-bold hover:bg-primary-hover transition-colors shadow-lg">
+              Teklif Alın
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 px-4" data-animate="fadeInRight">
+          <div class="relative group overflow-hidden rounded-2xl shadow-2xl border-8 border-gray-100">
+            <Image 
+              src={monsarjImg} 
+              alt="Monşarj (Yemek) Asansörü" 
+              class="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-8">
+              <p class="text-white font-medium text-lg italic">Hijyenik ve Pratik Çözümler</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

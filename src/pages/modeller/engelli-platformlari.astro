@@ -1,12 +1,92 @@
 ---
-import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { Image } from 'astro:assets';
+import engelli1Img from '../../assets/images/asansor-modelleri/6fd98c07.webp';
+import engelli2Img from '../../assets/images/asansor-modelleri/97d1662a.webp';
+import engelli3Img from '../../assets/images/asansor-modelleri/fe4a3d48.webp';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+const breadcrumb = [
+  { label: 'Anasayfa', url: '/' },
+  { label: 'Asansör Modelleri', url: '/modeller' },
+  { label: 'Engelli Platformları' }
+];
 ---
-<SubpageLayout title="Engelli Platformları" category="Asansör Modelleri" categoryUrl="/modeller/">
-  <p>Fiziksel engelli bireylerin merdiven ve kot farkı olan alanlarda erişimini sağlamak için üretilen mekanizmalardır.</p>
-  <p>Kuyu gerektirmeyen, doğrudan merdiven kenarına veya mevcut boşluklara monte edilebilen açık veya kapalı tip platformlardır.</p>
-  <ul>
-    <li>Düşük hızda (maks. 0.15 m/s) güvenli çalışma</li>
-    <li>Sürekli basılı tutularak çalışan kontrol panelleri</li>
-    <li>Tekerlekli sandalyeye uygun genişlik ve rampa</li>
-  </ul>
-</SubpageLayout>
+
+<BaseLayout title="Engelli Platformları" description="Engelli ve yaşlı bireyler için erişilebilirlik standartlarına uygun dikey taşıma platformları. Güvenli, sessiz ve konforlu çözümler. KDK Asansör, Balıkesir.">
+  <SchemaOrg slot="head" breadcrumb={breadcrumb} />
+  <PageHero title="Engelli Platformları" breadcrumb={breadcrumb} />
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap -mx-4 items-center">
+        <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0" data-animate="fadeInLeft">
+          <SectionHeading 
+            subtitle="Asansör Modelleri" 
+            title="Engelli Platformları"
+           
+          />
+          <div class="prose prose-lg text-gray-600 max-w-none space-y-6">
+            <p>
+              Engelli platformları, engelli kişilerin merdivenleri veya benzeri yükseltileri kolayca aşabilmeleri için, merdiven şeklinde ya da platform şeklinde üretilmektedir. İç ve dış mekan tasarımı mümkün olan bu platformlar modern mimariye uygun sistemlerdir.
+            </p>
+            <p>
+              Üst geçitler, metro, okul, hastane, camii, kültür merkezi, özel konut, otel, alışveriş merkezi, kamu kurumları, asansör için hazırlanmış bir kuyusu bulunmayan sonradan asansör yapılması gereken yapılarda, binalara giriş ve çıkışın erişilebilirliğe uygun planlanmadığı alanlarda, merdiven tipi engelli asansörü ya da dikey tip engelli asansörü, herkesin kolaylıkla bir yerden bir yere erişimine olanak sağlar.
+            </p>
+            <p>
+              Genellikle 2 duraktan 8 durağa kadar olan yerlerde güvenlikle kullanılan engelli platformları, uygulanıldığı yapıya estetik ve zengin bir görünüm sağlar. İç mekân ve dış mekânda rahatlıkla uygulanabilen engelli platformları, elektrostatik boyalı sac, krom kaplama, 4+4 lamine cam veya panel kaplamasıyla nem, yağmur, kar ve rutubetten etkilenmez.
+            </p>
+            <p>
+              Kuyu dibi gerektirmeyen ve modüler tasarımı sayesinde minimum inşaat maliyeti ile ekonomik bir sistemdir. Engelli platformları, kontrol paneli ve düğmeleri, tekerlekli sandalye kullanıcıları ve görme engelli dahil olmak üzere herhangi bir yolcu kategorisi tarafından kullanılmak üzere tasarlanmıştır.
+            </p>
+            <p>
+              Hidrolik ve sonsuz vidalı olarak imal edilmektedir. Sonsuz vida ve hidrolik olması sebebiyle sessiz ve uzun süreli kullanıma uygundur.
+            </p>
+            
+            <div class="mt-8 bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+              <h4 class="text-blue-900 font-bold mb-2">İlgili Standartlar</h4>
+              <p class="text-blue-800 text-sm mb-0">
+                2006/42/EC Makine Direktifi ve EN 81-41:2010 Avrupa standartlarına tam uyumludur.
+              </p>
+            </div>
+          </div>
+          <div class="mt-10">
+            <a href="/iletisim/" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded font-bold hover:bg-primary-hover transition-colors shadow-lg">
+              Erişilebilirlik Çözümleri İçin Arayın
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 px-4" data-animate="fadeInRight">
+          <div class="grid grid-cols-1 gap-6">
+            <div class="relative group overflow-hidden rounded-2xl shadow-xl border-4 border-white">
+              <Image 
+                src={engelli1Img} 
+                alt="Engelli Platformu Uygulaması 1" 
+                class="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            <div class="grid grid-cols-2 gap-6">
+              <div class="relative group overflow-hidden rounded-2xl shadow-xl border-4 border-white">
+                <Image 
+                  src={engelli2Img} 
+                  alt="Engelli Platformu Uygulaması 2" 
+                  class="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+              <div class="relative group overflow-hidden rounded-2xl shadow-xl border-4 border-white">
+                <Image 
+                  src={engelli3Img} 
+                  alt="Engelli Platformu Uygulaması 3" 
+                  class="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

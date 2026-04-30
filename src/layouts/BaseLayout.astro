@@ -1,35 +1,79 @@
 ---
 import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ScrollToTop from '../components/ScrollToTop.astro';
+import SchemaOrg from '../components/SchemaOrg.astro';
+
 interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  schemaType?: 'home' | 'page';
 }
-const { title, description, ogImage } = Astro.props;
-const siteTitle = "Tekin As Asansör";
+const { title, description, ogImage, schemaType = 'page' } = Astro.props;
+const siteTitle = "KDK Asansör";
+const canonicalURL = Astro.url.href;
+const resolvedOgImage = ogImage || "/hero-bg.png";
+const fullTitle = title ? `${title} – ${siteTitle}` : siteTitle;
 ---
 <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>{title ? `${title} – ${siteTitle}` : siteTitle}</title>
+  <title>{fullTitle}</title>
   {description && <meta name="description" content={description} />}
-  <meta property="og:title" content={title} />
+
+  <!-- Canonical -->
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={fullTitle} />
   {description && <meta property="og:description" content={description} />}
-  {ogImage && <meta property="og:image" content={ogImage} />}
+  <meta property="og:image" content={resolvedOgImage} />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={siteTitle} />
+  <meta property="og:locale" content="tr_TR" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={fullTitle} />
+  {description && <meta name="twitter:description" content={description} />}
+  <meta name="twitter:image" content={resolvedOgImage} />
+
   <!-- Preconnect Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Overpass:wght@300;400;500;600;700;800;900&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="/images/logo/favicon.png" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="sitemap" href="/sitemap-index.xml" />
+
+  <!-- Theme detection (prevents flash) -->
+  <script is:inline>
+    (function() {
+      const t = localStorage.getItem('theme');
+      if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
+  <!-- Structured Data -->
+  <SchemaOrg type={schemaType} title={fullTitle} description={description} />
+  <slot name="head" />
 </head>
 <body class="font-overpass text-dark-2 overflow-x-hidden">
-  <slot name="header" />
+  <slot name="header">
+    <Header />
+  </slot>
   <main>
     <slot />
   </main>
-  <slot name="footer" />
+  <slot name="footer">
+    <Footer />
+  </slot>
+  <ScrollToTop />
 </body>
 </html>

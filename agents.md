@@ -1,6 +1,6 @@
 # KDK — WordPress → Astro + Tailwind Dönüşüm Planı
 
-**Proje:** Tekin As Asansör (`www.tekinasasansor.com`)  
+**Proje:** KDK Asansör (`www.kdkasansor.com`)  
 **Kaynak:** `KDK/Legacy/Content/` (WordPress HTML dump)  
 **Tema Referansı:** `KDK/Legacy/Theme/` (Porto theme demo dosyaları)  
 **Hedef:** `KDK/src/` — %100 Astro + Tailwind v4 projesi  
@@ -104,8 +104,7 @@ KDK/
 │   ├── favicon.svg
 │   ├── images/               ← Legacy/Content/wp-content/uploads/ içeriği buraya
 │   │   ├── logo/
-│   │   │   ├── tekinas.png        (header logo, 230x58)
-│   │   │   ├── tekinas2.png       (footer logo, 1638x614)
+│   │   │   ├── kdk-logo.webp      (header/footer logo)
 │   │   │   ├── favicon.png
 │   │   │   └── apple-touch-icon.png
 │   │   ├── hero/
@@ -144,7 +143,7 @@ interface Props {
   ogImage?: string;
 }
 const { title, description, ogImage } = Astro.props;
-const siteTitle = "Tekin As Asansör";
+const siteTitle = "KDK Asansör";
 ---
 <!DOCTYPE html>
 <html lang="tr">
@@ -176,7 +175,7 @@ const siteTitle = "Tekin As Asansör";
 
 **Gereksinimler (Legacy'den:**
 - Fixed (sticky) header — scroll sonrası görünür
-- Logo: `/images/logo/tekinas.png` (230px genişlik) — home linki
+- Logo: `/images/logo/kdk-logo.webp` — home linki
 - Ana Menü (desktop): `ul.main-menu` — underline hover animasyon
 - Mega Menu dropdown: "Hizmetlerimiz" altında 3 grup (Asansör Tipleri, Modeller, Servisler)
 - Arama butonu (ikonlu, açılır overlay)
@@ -236,8 +235,8 @@ Hizmetlerimiz
 
 **Alt Bar:**
 - Yatay ayraç (opacity-10)
-- Ortada footer logo (`/images/logo/tekinas2.png`, max-w-[300px])
-- Copyright: "Tekin As Asansör. © 2024. All Rights Reserved"
+- Ortada footer logo (`/images/logo/kdk-logo.webp`, max-w-[300px])
+- Copyright: "KDK Asansör Ali Şentürk. © 2024. All Rights Reserved"
 
 **Arkaplan:** Koyu (`bg-[#212529]` veya `bg-zinc-800`), metin beyaz (`text-white`)
 
@@ -250,7 +249,7 @@ Hizmetlerimiz
 - Arkaplan görseli: CSS background-position animasyonu (aşağıdan yukarıya, 13s linear)
 - Koyu overlay (`bg-black/60`)
 - Ortada metin bloğu (ortalanmış, fade animasyonlu):
-  - **Küçük başlık:** "Tekin As Asansör" (`text-white text-lg tracking-widest`)
+  - **Küçük başlık:** "KDK Asansör" (`text-white text-lg tracking-widest`)
   - **Ana başlık:** "Asansör sistemlerinde profesyonel çözümler" (`text-4xl lg:text-6xl font-bold text-white`)
 
 **CSS Animasyon (global.css):**
@@ -379,7 +378,7 @@ const { animation = 'fadeInUp', delay = 0 } = Astro.props;
 
 **Bölüm 1: Hero**
 - Tam ekran, arkaplan görseli + animasyon
-- "Tekin As Asansör" + "Asansör sistemlerinde profesyonel çözümler"
+- "KDK Asansör" + "Asansör sistemlerinde profesyonel çözümler"
 
 **Bölüm 2: Şirket Tanıtım (2 Kolon)**
 - Sol (1/2): 
@@ -465,7 +464,7 @@ Her alt sayfa ortak yapı:
 ### 5.5 İletişim (`/iletisim/`)
 
 **Bölüm 1: PageHero**
-- "İLETİŞİM" + "Kaliteli Hizmetin Adresi — Tekin As Asansör"
+- "İLETİŞİM" + "Kaliteli Hizmetin Adresi — KDK Asansör"
 
 **Bölüm 2: İletişim Bilgileri (3 Kolon)**
 - **Telefon:** 0232 616 69 10 (sabit), 0532 205 24 78, 0534 643 22 25
@@ -561,8 +560,7 @@ Her alt sayfa ortak yapı:
 ### Kritik Görseller
 | Kaynak Dosya | Hedef | Kullanım |
 |---|---|---|
-| `uploads/2024/08/tekinas.png` | `public/images/logo/tekinas.png` | Header logo |
-| `uploads/2024/08/tekinas2.png` | `public/images/logo/tekinas2.png` | Footer logo |
+| `src/assets/images/logo/kdk-logo.webp` | `src/assets/images/logo/kdk-logo.webp` | Header ve footer logo |
 | `uploads/2024/08/pexels-cottonbro-studio-8453040-scaled-1.webp` | `public/images/hero/main.webp` | Ana sayfa hero |
 | `uploads/2022/05/arch-plan-1.jpg` | `public/images/hero/arch-plan.jpg` | Hero dekoratif |
 | `themes/porto/images/logo/favicon.png` | `public/images/logo/favicon.png` | Favicon |
@@ -642,7 +640,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://www.tekinasasansor.com',
+  site: 'https://www.kdkasansor.com',
   integrations: [sitemap()],
   vite: {
     plugins: [tailwindcss()]
@@ -766,7 +764,7 @@ Her sayfa için içeriği şu HTML dosyalarından al:
 ```ts
 // src/data/contact.ts
 export const contact = {
-  company: "Tekin As Asansör",
+  company: "KDK Asansör Ali Şentürk",
   address: {
     street: "Yeni Mah. Cengiz Topel Cad. No:54/B",
     district: "Aliağa",

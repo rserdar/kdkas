@@ -1,12 +1,118 @@
 ---
-import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { Image } from 'astro:assets';
+import arac1Img from '../../assets/images/asansor-modelleri/arac1.webp';
+import arac2Img from '../../assets/images/asansor-modelleri/arac2.webp';
+import arac3Img from '../../assets/images/asansor-modelleri/arac3.webp';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+const breadcrumb = [
+  { label: 'Anasayfa', url: '/' },
+  { label: 'Asansör Modelleri', url: '/modeller' },
+  { label: 'Araç Asansörü' }
+];
+
+const features = [
+  "Araçların; konut, işletme ve otoparklarda katlar arası transferi için kullanılan, hidrolik yağ basıncı ile çalışan sistemlerdir.",
+  "Hidrolik ünitenin uyguladığı yüksek yağ basıncı ile hidrolik silindir ve zincir, platformun hareketini sağlar.",
+  "Hidrolik ünite yalnızca yukarı yönde çalışır. Aşağı yönde platform kendi ağırlığıyla iner. Böylelikle enerji tasarrufu sağlanır.",
+  "Araç platformları 2 ve 4 kolonlu olarak imal edilmektedir.",
+  "Elektrik kesintisi veya olası bir arızada platformu manuel olarak aşağı indirmek mümkündür.",
+  "Platformlarda, hortum patlamasına karşı emniyeti sağlayan hortum patlama valfı kullanılmaktadır.",
+  "Aşırı yüklemelerde basınç emniyet valfı ve aşırı akım koruma rölesi, platformu durdurarak motorun ve sistemin zarar görmesini engellemektedir.",
+  "Platform hızı taşıma kapasitesine bağlı olarak 0,05 – 0,15 m/s aralığında belirlenebilmektedir.",
+  "Araç platformları, zeminde çukur gerektirmeyecek şekilde tasarlanabilmektedir."
+];
 ---
-<SubpageLayout title="Araç Asansörü" category="Asansör Modelleri" categoryUrl="/modeller/">
-  <p>Otopark alanı yetersiz olan binalarda, araç plazalarında ve çok katlı otoparklarda araçların katlar arası taşınmasını sağlayan yüksek kapasiteli asansörlerdir.</p>
-  <p>Bina içinde rampa yapımına gerek kalmadığından önemli ölçüde alan tasarrufu sağlar.</p>
-  <ul>
-    <li>3000 kg'dan 6000 kg'a kadar taşıma kapasitesi</li>
-    <li>Araçların kolay giriş-çıkışını sağlayan geniş kabin ve kapı ebatları</li>
-    <li>Trafik ışıklı yönlendirme sistemleri</li>
-  </ul>
-</SubpageLayout>
+
+<BaseLayout title="Araç Asansörü" description="Konut, işletme ve otoparklar için katlar arası araç transferini sağlayan hidrolik araç asansörleri. 2 ve 4 kolonlu platform seçenekleri. KDK Asansör, Balıkesir.">
+  <SchemaOrg slot="head" breadcrumb={breadcrumb} />
+  <PageHero title="Araç Asansörü" breadcrumb={breadcrumb} />
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap -mx-4 items-center">
+        <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0" data-animate="fadeInLeft">
+          <SectionHeading 
+            subtitle="Asansör Modelleri" 
+            title="Araç Asansörü"
+           
+          />
+          <div class="prose prose-lg text-gray-600 max-w-none space-y-6">
+            <p>
+              Araç asansörleri, sınırlı alanlarda araç sirkülasyonunu güvenli ve verimli şekilde yönetmek için geliştirilen; fonksiyonelliği yüksek özel taşıma sistemleridir.
+            </p>
+            <p>
+              Taşımacılık faaliyetlerinde son derece işlevsel olarak fayda sağlamaktadırlar. Güçlü makara ve hidrolik kolları ile kullanım esnasında yüksek ağırlıktaki yüklere hızlı yanıt verebildiği gibi üst düzey enerji tasarrufu da sunmaktadır. Bu doğrultuda hidrolik araç asansörü sistemleri, özellikle yoğun kullanım alanlarında uzun vadede son derece verimli ve maliyet odaklı kullanım avantajlarına sahiptir.
+            </p>
+            <p>
+              Bunun yanı sıra otoparklarda kullanılebilecek bu sistem, özellikle alan sorunu yaşayan ya da katlı otoparklarda araçların kolay bir şekilde istiflenmesine, katlar arasında taşınmasına da yardımcı olur.
+            </p>
+            <p>
+              Taşıma kapasitesi 2.500 kg ile 10.000 kg arasında değişen araç asansörleri, binaların üst ve bodrum katlarını otopark olarak kullanmaya olanak sağlar; yol ve rampa gibi alan kayıplarını yapıya geri kazandırır. Araç kabine alındıktan sonra sürücünün araçtan inmeden kat seçebilmesi kullanım kolaylığını artırır.
+            </p>
+            <p>
+              Balıkesir, Edremit ve çevresindeki konut, otopark ve ticari yapılarda araç asansörü ihtiyaçları için yerinde keşif, mühendislik planlaması ve uygulama desteği veriyoruz.
+            </p>
+
+            <div class="mt-10 bg-gray-50 p-8 rounded-xl border border-gray-100">
+              <h3 class="text-dark font-bold text-xl mb-6">Özellikler ve Avantajlar</h3>
+              <ul class="space-y-4">
+                {features.map((feature) => (
+                  <li class="flex items-start">
+                    <svg class="w-5 h-5 text-primary mt-1 mr-3 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-gray-700 leading-relaxed">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 px-4" data-animate="fadeInRight">
+          <div class="grid grid-cols-1 gap-4">
+            <div class="relative group overflow-hidden rounded-2xl shadow-xl">
+              <Image 
+                src={arac1Img} 
+                alt="Araç Asansörü Uygulaması 1" 
+                class="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="relative group overflow-hidden rounded-2xl shadow-xl">
+                <Image 
+                  src={arac2Img} 
+                  alt="Araç Asansörü Uygulaması 2" 
+                  class="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+              <div class="relative group overflow-hidden rounded-2xl shadow-xl">
+                <Image 
+                  src={arac3Img} 
+                  alt="Araç Asansörü Uygulaması 3" 
+                  class="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
+          
+          <div class="mt-12 p-8 bg-primary rounded-2xl text-white shadow-2xl relative overflow-hidden">
+            <div class="relative z-10">
+              <h3 class="text-2xl font-bold mb-4">Otopark Sorunlarına Modern Çözüm</h3>
+              <p class="text-white/80 mb-6">
+                Alan kaybını önleyen, rampa gerektirmeyen araç asansörü sistemlerimizle yapılarınıza değer katıyoruz.
+              </p>
+              <a href="/iletisim/" class="inline-flex items-center px-6 py-3 bg-white text-primary rounded font-bold hover:bg-gray-100 transition-colors">
+                Ücretsiz Keşif İsteyin
+              </a>
+            </div>
+            <svg class="absolute right-0 bottom-0 w-32 h-32 text-white/10 -mr-8 -mb-8" fill="currentColor" viewBox="0 0 24 24"><path d="M18.92 11c.05-.33.08-.67.08-1 0-4.42-3.58-8-8-8s-8 3.58-8 8c0 .33.03.67.08 1H1v10h22V11h-4.08zM11 4c3.31 0 6 2.69 6 6 0 .31-.03.61-.08.91l-1.39-4.86c-.11-.38-.45-.65-.85-.65H7.32c-.4 0-.74.27-.85.65L5.08 10.91c-.05-.3-.08-.6-.08-.91 0-3.31 2.69-6 6-6zM3 19v-6h16v6H3z"></path></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

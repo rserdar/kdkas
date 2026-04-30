@@ -1,13 +1,66 @@
 ---
-import SubpageLayout from '../../layouts/SubpageLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { Image } from 'astro:assets';
+import modernImg from '../../assets/images/servisler/modernasation.png';
+import SchemaOrg from '../../components/SchemaOrg.astro';
+
+const breadcrumb = [
+  { label: 'Anasayfa', url: '/' },
+  { label: 'Servisler', url: '/servisler' },
+  { label: 'Revizyon Hizmetleri' }
+];
 ---
-<SubpageLayout title="Revizyon Hizmetleri" category="Servisler" categoryUrl="/servisler/">
-  <p>Zamanla yıpranan, sık arıza veren, teknolojik olarak eskiyen ve güncel güvenlik standartlarını karşılamayan (kırmızı/sarı etiketli) asansörlerinizin modernizasyonu (revizyonu) hizmetidir.</p>
-  <p>Revizyon işlemi ile asansörleriniz yeni yönetmeliklere uygun hale getirilir, enerji tasarrufu sağlanır ve estetik olarak yenilenir.</p>
-  <ul>
-    <li>Güvenlik standartlarının güncel yönetmeliklere uyarlanması</li>
-    <li>Enerji verimli yeni nesil motor ve kontrol sistemleri ile değişim</li>
-    <li>Kabin içi, kapılar ve kuyu içi bileşenlerin modernizasyonu</li>
-    <li>Asansör değerinin ve bina prestijinin artırılması</li>
-  </ul>
-</SubpageLayout>
+
+<BaseLayout title="Asansör Revizyon ve Modernizasyon Hizmetleri" description="Eski asansörlerinizi güncel güvenlik standartlarına, enerji verimliliğine ve modern estetiğe kavuşturuyoruz. KDK Asansör revizyon hizmetleri, Balıkesir.">
+  <SchemaOrg slot="head" breadcrumb={breadcrumb} />
+  <PageHero title="Revizyon Hizmetleri" breadcrumb={breadcrumb} />
+
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-wrap -mx-4 items-center">
+        <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0" data-animate="fadeInLeft">
+          <SectionHeading 
+            subtitle="Servislerimiz" 
+            title="Revizyon ve Modernizasyon"
+           
+          />
+          <div class="prose prose-lg text-gray-600 max-w-none space-y-6">
+            <p>
+              Binalardaki asansörler zamanla teknik ve ekonomik ömürlerini tamamlar; bu durum hem seyir konforunu azaltır hem de yapının değerine doğrudan etki eder.
+            </p>
+            <p>
+              KDK Asansör, gelişen teknolojiye paralel şekilde güvenli, verimli, konforlu ve estetik çözümlerle mevcut sistemleri yeniler. Zamanla yıpranan mekanik aksamlar arızalara ve güvenlik risklerine yol açabildiği için modernizasyon süreci büyük önem taşır.
+            </p>
+            <p>
+              Doğru planlanmış bir modernizasyon yalnızca görsel yenilik sağlamaz; aynı zamanda güncel güvenlik standartları, daha düşük arıza oranı, daha iyi seyir konforu ve enerji tasarrufu da kazandırır.
+            </p>
+            <p>
+              Asansörler de diğer hareketli sistemler gibi zamanla deformasyona uğrar. Uzun yıllar verimli kullanım hedefleniyorsa performans düşüşü yaşanmadan önce revizyon planlaması yapılmalıdır.
+            </p>
+            <p>
+              Balıkesir, Edremit ve çevresindeki yapılarda mevcut asansörlerinizi güncel ihtiyaçlara ve mevzuata uygun hale getirmek için yerinde keşif ve revizyon desteği sağlıyoruz.
+            </p>
+          </div>
+          <div class="mt-10">
+            <a href="/iletisim/" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded font-bold hover:bg-primary-hover transition-colors shadow-lg">
+              Revizyon Teklifi Alın
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div class="w-full lg:w-1/2 px-4" data-animate="fadeInRight">
+          <div class="relative group overflow-hidden rounded-2xl shadow-2xl border-8 border-white">
+            <Image 
+              src={modernImg} 
+              alt="Asansör Revizyon ve Modernizasyon" 
+              class="w-full h-auto transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

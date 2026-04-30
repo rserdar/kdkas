@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(python3 -)",
+      "Bash(npm run *)",
+      "Bash(node -e \"const icons = require\\('./node_modules/@iconify-json/mdi/icons.json'\\); const check = ['elevator','clock-time-eight-outline','account-group-outline','hydraulic-oil-level','escalator','image-filter-hdr','medical-bag','food-fork-drink','package-variant-closed','theme-light-dark','white-balance-sunny','weather-night','map-marker','phone-outline','email-outline','chevron-right']; check.forEach\\(i => console.log\\(i, icons.icons[i] ? '✓' : '✗ NOT FOUND'\\)\\);\")"
+    ]
+  }
+}

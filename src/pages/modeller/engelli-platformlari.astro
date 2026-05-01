@@ -19,7 +19,7 @@ const breadcrumb = [
   <SchemaOrg slot="head" breadcrumb={breadcrumb} />
   <PageHero title="Engelli Platformları" breadcrumb={breadcrumb} />
 
-  <section class="py-24 bg-white">
+  <section class="py-24 bg-white dark:bg-slate-950">
     <div class="container mx-auto px-4">
       <div class="flex flex-wrap -mx-4 items-center">
         <div class="w-full lg:w-1/2 px-4 mb-12 lg:mb-0" data-animate="fadeInLeft">
@@ -28,7 +28,7 @@ const breadcrumb = [
             title="Engelli Platformları"
            
           />
-          <div class="prose prose-lg text-gray-600 max-w-none space-y-6">
+          <div class="prose prose-lg text-gray-600 dark:text-slate-300 dark:prose-invert max-w-none space-y-6">
             <p>
               Engelli platformları, engelli kişilerin merdivenleri veya benzeri yükseltileri kolayca aşabilmeleri için, merdiven şeklinde ya da platform şeklinde üretilmektedir. İç ve dış mekan tasarımı mümkün olan bu platformlar modern mimariye uygun sistemlerdir.
             </p>
@@ -45,9 +45,9 @@ const breadcrumb = [
               Hidrolik ve sonsuz vidalı olarak imal edilmektedir. Sonsuz vida ve hidrolik olması sebebiyle sessiz ve uzun süreli kullanıma uygundur.
             </p>
             
-            <div class="mt-8 bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
-              <h4 class="text-blue-900 font-bold mb-2">İlgili Standartlar</h4>
-              <p class="text-blue-800 text-sm mb-0">
+            <div class="mt-8 bg-blue-50 dark:bg-blue-950/30 p-6 rounded-lg border-l-4 border-blue-500">
+              <h4 class="text-blue-900 dark:text-blue-200 font-bold mb-2">İlgili Standartlar</h4>
+              <p class="text-blue-800 dark:text-blue-300 text-sm mb-0">
                 2006/42/EC Makine Direktifi ve EN 81-41:2010 Avrupa standartlarına tam uyumludur.
               </p>
             </div>
@@ -61,7 +61,7 @@ const breadcrumb = [
         </div>
         <div class="w-full lg:w-1/2 px-4" data-animate="fadeInRight">
           <div class="grid grid-cols-1 gap-6">
-            <div class="relative group overflow-hidden rounded-2xl shadow-xl border-4 border-white">
+            <div class="relative group overflow-hidden rounded-2xl shadow-xl border-4 border-white dark:border-slate-700">
               <Image 
                 src={engelli1Img} 
                 alt="Engelli Platformu Uygulaması 1" 
@@ -69,14 +69,14 @@ const breadcrumb = [
               />
             </div>
             <div class="grid grid-cols-2 gap-6">
-              <div class="relative group overflow-hidden rounded-2xl shadow-xl border-4 border-white">
+              <div class="relative group overflow-hidden rounded-2xl shadow-xl border-4 border-white dark:border-slate-700">
                 <Image 
                   src={engelli2Img} 
                   alt="Engelli Platformu Uygulaması 2" 
                   class="w-full h-auto transition-transform duration-700 group-hover:scale-105"
                 />
               </div>
-              <div class="relative group overflow-hidden rounded-2xl shadow-xl border-4 border-white">
+              <div class="relative group overflow-hidden rounded-2xl shadow-xl border-4 border-white dark:border-slate-700">
                 <Image 
                   src={engelli3Img} 
                   alt="Engelli Platformu Uygulaması 3" 

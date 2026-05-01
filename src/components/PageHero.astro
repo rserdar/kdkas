@@ -10,7 +10,7 @@ interface Props {
 }
 const { title, breadcrumb } = Astro.props;
 ---
-<section class="relative pt-36 pb-20 bg-dark text-white overflow-hidden bg-cover bg-center bg-blend-overlay bg-black/70" style={`background-image: url('${bgImg.src}');`}>
+<section class="relative pt-36 pb-20 bg-slate-900 text-white overflow-hidden bg-cover bg-center bg-blend-overlay" style={`background-image: url('${bgImg.src}');`}>
   <div class="container mx-auto px-4 text-center relative z-10">
     <h1 class="text-4xl lg:text-5xl font-bold font-poppins mb-6 animated fadeInUp">{title}</h1>
     <p class="mx-auto mb-5 max-w-3xl text-sm leading-7 text-gray-200 animated fadeInUp" style="--delay: 120ms; animation-delay: 120ms;">

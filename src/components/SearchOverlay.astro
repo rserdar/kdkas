@@ -1,0 +1,757 @@
+---
+import { Icon } from "astro-icon/components";
+
+const popularEntries = [
+  { title: "Bakım & Onarım",          url: "/servisler/bakim-onarim-hizmetleri/",           catKey: "servis" },
+  { title: "Montaj Hizmetleri",       url: "/servisler/montaj-hizmetleri/",                 catKey: "servis" },
+  { title: "MRL (Makine Dairesiz)",   url: "/asansor-tipleri/makine-dairesiz-mrl-asansor/", catKey: "tip"    },
+  { title: "Panoramik Asansör",       url: "/modeller/panoramik-asansor/",                  catKey: "model"  },
+  { title: "İletişim",                url: "/iletisim/",                                     catKey: "genel"  },
+  { title: "Hakkımızda",              url: "/hakkimizda/",                                   catKey: "genel"  },
+];
+
+const fallbackIndex = [
+  { title: "Anasayfa",                                   url: "/",                                                        kw: "ana başlangıç home" },
+  { title: "Hakkımızda",                                 url: "/hakkimizda/",                                             kw: "hakkında şirket kurumsal about" },
+  { title: "İletişim",                                   url: "/iletisim/",                                               kw: "iletişim telefon adres contact" },
+  { title: "Hizmetlerimiz",                              url: "/hizmetlerimiz/",                                          kw: "hizmet servis asansör" },
+  { title: "Asansör Tipleri",                            url: "/asansor-tipleri/",                                        kw: "tip türler çeşit" },
+  { title: "Makine Daireli Asansörler",                  url: "/asansor-tipleri/makine-daireli-asansorler/",              kw: "makine daireli kabin elektrik" },
+  { title: "Makine Dairesiz (MRL) Asansör",              url: "/asansor-tipleri/makine-dairesiz-mrl-asansor/",            kw: "mrl makine dairesiz modern" },
+  { title: "Hidrolik Asansör",                           url: "/asansor-tipleri/hidrolik-asansor/",                       kw: "hidrolik yağ basınç konut villa" },
+  { title: "Asansör Modelleri",                          url: "/modeller/",                                               kw: "model çeşit kabin" },
+  { title: "İnsan (Yolcu) Asansörü",                     url: "/modeller/insan-yolcu-asansoru/",                          kw: "yolcu insan bina konut" },
+  { title: "Yük Asansörü",                               url: "/modeller/yuk-asansoru/",                                  kw: "yük taşıma endüstriyel fabrika depo" },
+  { title: "Monşarj (Yemek) Asansörü",                   url: "/modeller/monsarj-yemek-asansoru/",                        kw: "monşarj yemek küçük servis" },
+  { title: "Sedye Asansörleri",                          url: "/modeller/sedye-asansorleri/",                             kw: "sedye hasta hastane sağlık" },
+  { title: "Panoramik Asansör",                          url: "/modeller/panoramik-asansor/",                             kw: "panoramik cam görsel estetik" },
+  { title: "Araç Asansörü",                              url: "/modeller/arac-asansoru/",                                 kw: "araç otomobil otopark garaj" },
+  { title: "Engelli Platformları",                       url: "/modeller/engelli-platformlari/",                          kw: "engelli erişilebilirlik platform tekerlekli" },
+  { title: "Servisler",                                  url: "/servisler/",                                              kw: "servis bakım onarım montaj" },
+  { title: "Montaj Hizmetleri",                          url: "/servisler/montaj-hizmetleri/",                            kw: "montaj kurulum yeni" },
+  { title: "Bakım & Onarım Hizmetleri",                  url: "/servisler/bakim-onarim-hizmetleri/",                      kw: "bakım onarım periyodik servis" },
+  { title: "Revizyon Hizmetleri",                        url: "/servisler/revizyon-hizmetleri/",                          kw: "revizyon yenileme modernizasyon" },
+  { title: "Yürüyen Merdiven ve Bant Sistemleri",        url: "/servisler/yuruyen-merdiven-ve-bant-sistemleri/",          kw: "yürüyen merdiven bant eskalator" },
+];
+---
+
+<dialog id="search-dialog" aria-label="Site içi arama" class="search-dialog">
+  <div id="search-backdrop" class="absolute inset-0 cursor-default" aria-hidden="true"></div>
+
+  <div class="search-panel" role="search">
+
+    <!-- Top info bar -->
+    <div class="search-topbar" aria-hidden="true">
+      <span class="search-topbar-brand">
+        <Icon name="mdi:elevator" class="w-3.5 h-3.5" />
+        KDK Asansör
+      </span>
+      <span class="search-topbar-shortcut">
+        <kbd>Ctrl</kbd><span class="sep">+</span><kbd>K</kbd>
+        <span class="hint">arama kısayolu</span>
+      </span>
+    </div>
+
+    <!-- Input Row -->
+    <div class="input-row">
+      <Icon name="mdi:magnify" class="search-icon w-5 h-5 flex-shrink-0 text-gray-400 dark:text-gray-500" aria-hidden="true" />
+      <input
+        id="search-input"
+        type="text"
+        placeholder="Asansör tipi, model veya hizmet ara…"
+        autocomplete="off"
+        spellcheck="false"
+        class="search-input"
+        aria-autocomplete="list"
+        aria-controls="search-hits"
+      />
+      <kbd class="shortcut-badge hidden lg:flex" aria-hidden="true">
+        <span>Ctrl</span><span>K</span>
+      </kbd>
+      <button id="search-close" type="button" aria-label="Kapat" class="close-btn">
+        <Icon name="mdi:close" class="w-5 h-5" />
+      </button>
+    </div>
+
+    <div class="h-px bg-gray-100 dark:bg-gray-700/60"></div>
+
+    <!-- Body -->
+    <div id="search-body" class="search-body">
+
+      <!-- Popular quick-links -->
+      <div id="search-popular">
+        <p class="section-label">Popüler Sayfalar</p>
+        <div class="popular-grid">
+          {popularEntries.map((entry) => (
+            <a href={entry.url} class="popular-item">
+              <span class={`cat-dot cat-${entry.catKey}`} aria-hidden="true"></span>
+              <span class="truncate">{entry.title}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Loading -->
+      <div id="search-loading" class="hidden loading-state" aria-live="polite">
+        <span class="loading-spinner"></span>
+      </div>
+
+      <!-- Results list -->
+      <ul id="search-hits" class="hidden hits-list" role="listbox" aria-label="Arama sonuçları"></ul>
+
+      <!-- No results -->
+      <div id="search-no-results" class="hidden no-results-state">
+        <Icon name="mdi:magnify-remove-outline" class="w-10 h-10 text-gray-300 dark:text-gray-600" aria-hidden="true" />
+        <p class="font-semibold text-[15px] text-gray-500 dark:text-gray-400">
+          Sonuç bulunamadı
+        </p>
+        <p class="text-sm text-gray-400 dark:text-gray-500">
+          Farklı bir arama terimi deneyin
+        </p>
+      </div>
+    </div>
+
+    <!-- Keyboard Hints Footer -->
+    <div class="hints-bar" id="search-hints-bar">
+      <span class="hint-item">
+        <kbd>↑</kbd><kbd>↓</kbd>
+        <span>gezin</span>
+      </span>
+      <span class="hint-item">
+        <kbd>↵</kbd>
+        <span>aç</span>
+      </span>
+      <span class="hint-item">
+        <kbd>Esc</kbd>
+        <span>kapat</span>
+      </span>
+      <span id="search-dev-notice" class="hidden hint-item dev-notice" style="margin-left:auto" aria-live="polite">
+        <Icon name="mdi:information-outline" class="w-3.5 h-3.5" />
+        <span>Dev mod: build sonrası aktif</span>
+      </span>
+    </div>
+  </div>
+</dialog>
+
+<script is:inline define:vars={{ fallbackIndex }}>
+  // ── Pagefind State ────────────────────────────────────────────────────────
+  let pagefind = null;
+  let pagefindReady = false;
+  let pagefindFailed = false;
+  let pagefindInitPromise = null;
+
+  function initPagefind() {
+    if (pagefindInitPromise) return pagefindInitPromise;
+    pagefindInitPromise = (async () => {
+      try {
+        const pf = await import("/pagefind/pagefind.js");
+        await pf.init();
+        pagefind = pf;
+        pagefindReady = true;
+      } catch {
+        pagefindFailed = true;
+        const notice = document.getElementById("search-dev-notice");
+        if (notice) {
+          notice.classList.remove("hidden");
+          notice.querySelector("span:last-child").textContent =
+            "Dev mod: tam arama build sonrası aktif";
+        }
+      }
+    })();
+    return pagefindInitPromise;
+  }
+
+  // ── Fallback search ───────────────────────────────────────────────────────
+  function fallbackSearch(query) {
+    const q = query.toLowerCase().trim();
+    return fallbackIndex
+      .map((e) => {
+        const titleL = e.title.toLowerCase();
+        const kwL = e.kw.toLowerCase();
+        let score = 0;
+        if (titleL === q)              score += 6;
+        else if (titleL.startsWith(q)) score += 4;
+        else if (titleL.includes(q))   score += 3;
+        if (kwL.includes(q))           score += 2;
+        return { ...e, score };
+      })
+      .filter((e) => e.score > 0)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 8)
+      .map((e) => ({
+        url:     e.url,
+        title:   e.title,
+        excerpt: null,
+        isNav:   true,
+      }));
+  }
+
+  // ── Pagefind search ───────────────────────────────────────────────────────
+  async function pagefindSearch(query) {
+    if (!pagefind) return null;
+    const result = await pagefind.search(query);
+    if (!result?.results?.length) return [];
+    const data = await Promise.all(result.results.slice(0, 8).map((r) => r.data()));
+    return data.map((r) => ({
+      url:     r.url,
+      title:   cleanTitle(r.meta?.title || ""),
+      excerpt: r.excerpt || null,
+      catKey:  inferCatKey(r.url),
+      isNav:   false,
+    }));
+  }
+
+  // ── Utilities ─────────────────────────────────────────────────────────────
+  function cleanTitle(raw) {
+    return raw.replace(/\s*[|–—-]+\s*KDK.*$/i, "").trim() || raw;
+  }
+
+  function escHtml(str) {
+    return str
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function inferCatKey(url) {
+    if (/\/servisler\//.test(url))        return "servis";
+    if (/\/asansor-tipleri\//.test(url))  return "tip";
+    if (/\/modeller\//.test(url))         return "model";
+    return "genel";
+  }
+
+  const catLabels = {
+    servis: "Servisler",
+    tip:    "Asansör Tipleri",
+    model:  "Modeller",
+    genel:  "",
+  };
+
+  function getCatLabel(catKey) {
+    return catLabels[catKey] || "";
+  }
+
+  // ── Rendering ─────────────────────────────────────────────────────────────
+  function renderHits(results) {
+    return results.map((r, i) => {
+      const catKey = r.catKey || inferCatKey(r.url);
+      const catLabel = getCatLabel(catKey);
+      return `
+      <li role="option" data-index="${i}" data-url="${r.url}"
+          class="result-item" aria-selected="false">
+        <span class="result-accent cat-accent-${catKey}" aria-hidden="true"></span>
+        <div class="result-info">
+          <span class="result-title">${escHtml(r.title)}</span>
+          ${r.excerpt
+            ? `<p class="result-excerpt">${r.excerpt}</p>`
+            : `<span class="result-url">${escHtml(r.url)}</span>`
+          }
+        </div>
+        <div class="result-right" aria-hidden="true">
+          ${catLabel ? `<span class="result-cat-pill">${escHtml(catLabel)}</span>` : ""}
+          <span class="result-arrow-icon">→</span>
+        </div>
+      </li>`;
+    }).join("");
+  }
+
+  // ── DOM refs ──────────────────────────────────────────────────────────────
+  let dialog, input, hitsEl, popularEl, noResultsEl, loadingEl, closeBtn, backdropEl;
+  let activeIndex = -1;
+  let debounceTimer = null;
+
+  function getItems() {
+    return hitsEl.querySelectorAll(".result-item");
+  }
+
+  function setActive(idx) {
+    const items = getItems();
+    items.forEach((el, i) => {
+      const on = i === idx;
+      el.setAttribute("aria-selected", String(on));
+      el.classList.toggle("result-item--active", on);
+    });
+    activeIndex = idx;
+  }
+
+  // ── Show / Hide states ────────────────────────────────────────────────────
+  function showPopular() {
+    popularEl.classList.remove("hidden");
+    loadingEl.classList.add("hidden");
+    hitsEl.classList.add("hidden");
+    hitsEl.innerHTML = "";
+    noResultsEl.classList.add("hidden");
+    activeIndex = -1;
+  }
+
+  function showLoading() {
+    popularEl.classList.add("hidden");
+    loadingEl.classList.remove("hidden");
+    hitsEl.classList.add("hidden");
+    noResultsEl.classList.add("hidden");
+  }
+
+  function showResults(results) {
+    loadingEl.classList.add("hidden");
+    popularEl.classList.add("hidden");
+    noResultsEl.classList.add("hidden");
+    if (!results.length) {
+      hitsEl.classList.add("hidden");
+      hitsEl.innerHTML = "";
+      noResultsEl.classList.remove("hidden");
+    } else {
+      hitsEl.innerHTML = renderHits(results);
+      hitsEl.classList.remove("hidden");
+      activeIndex = -1;
+      hitsEl.querySelectorAll(".result-item").forEach((el) => {
+        el.addEventListener("click", () => {
+          const url = el.dataset.url;
+          if (url) window.location.href = url;
+        });
+        el.addEventListener("mouseover", () => {
+          const idx = parseInt(el.dataset.index || "0");
+          setActive(idx);
+        });
+      });
+    }
+  }
+
+  // ── Search orchestration ──────────────────────────────────────────────────
+  async function runSearch(query) {
+    if (!query || query.trim().length < 2) {
+      showPopular();
+      return;
+    }
+
+    if (pagefindFailed) {
+      showResults(fallbackSearch(query));
+      return;
+    }
+
+    showLoading();
+    await initPagefind();
+
+    if (pagefindReady) {
+      const results = await pagefindSearch(query);
+      if (results !== null) {
+        showResults(results);
+        return;
+      }
+    }
+
+    showResults(fallbackSearch(query));
+  }
+
+  // ── Open / Close ──────────────────────────────────────────────────────────
+  function openDialog() {
+    if (!dialog) return;
+    dialog.showModal();
+    input.value = "";
+    showPopular();
+    initPagefind();
+    requestAnimationFrame(() => input.focus());
+  }
+
+  function closeDialog() {
+    if (!dialog?.open) return;
+    dialog.close();
+  }
+
+  // ── Keyboard navigation ───────────────────────────────────────────────────
+  function onKeydown(e) {
+    if (!dialog?.open) return;
+    const items = getItems();
+
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (!items.length) return;
+      setActive(Math.min(activeIndex + 1, items.length - 1));
+      items[activeIndex]?.scrollIntoView({ block: "nearest" });
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      if (!items.length) return;
+      setActive(Math.max(activeIndex - 1, 0));
+      items[activeIndex]?.scrollIntoView({ block: "nearest" });
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      if (activeIndex >= 0 && items[activeIndex]) {
+        const url = items[activeIndex].dataset.url;
+        if (url) window.location.href = url;
+      }
+    }
+  }
+
+  function onGlobalKeydown(e) {
+    if ((e.ctrlKey || e.metaKey) && e.key === "k") {
+      e.preventDefault();
+      dialog?.open ? closeDialog() : openDialog();
+    }
+  }
+
+  function onInput(e) {
+    const q = e.target.value;
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(() => runSearch(q), 180);
+  }
+
+  // ── Initialization ────────────────────────────────────────────────────────
+  function init() {
+    dialog      = document.getElementById("search-dialog");
+    input       = document.getElementById("search-input");
+    hitsEl      = document.getElementById("search-hits");
+    popularEl   = document.getElementById("search-popular");
+    noResultsEl = document.getElementById("search-no-results");
+    loadingEl   = document.getElementById("search-loading");
+    closeBtn    = document.getElementById("search-close");
+    backdropEl  = document.getElementById("search-backdrop");
+    const openTriggers = Array.from(
+      document.querySelectorAll("[data-search-open], #search-open-btn"),
+    );
+
+    if (!dialog || !input) return;
+
+    openTriggers.forEach((btn) => btn.addEventListener("click", openDialog));
+    closeBtn?.addEventListener("click", closeDialog);
+    backdropEl?.addEventListener("click", closeDialog);
+    input.addEventListener("input", onInput);
+    input.addEventListener("keydown", onKeydown);
+    document.addEventListener("keydown", onGlobalKeydown);
+    document.addEventListener("astro:before-preparation", closeDialog);
+  }
+
+  init();
+  document.addEventListener("astro:page-load", init);
+</script>
+
+<style>
+  .hidden { display: none !important; }
+
+  /* ── Dialog ──────────────────────────────────────────────────── */
+  .search-dialog {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+    padding: clamp(60px, 10vh, 120px) 0 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: 9999;
+  }
+  .search-dialog:not([open]) { display: none; }
+  .search-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  /* ── Panel ───────────────────────────────────────────────────── */
+  .search-panel {
+    position: relative;
+    width: min(680px, 94vw);
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.08), 0 8px 40px rgba(0,0,0,.18);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: panel-in 0.18s cubic-bezier(0.2, 0, 0, 1.1) both;
+    max-height: min(600px, 82vh);
+  }
+  :global(.dark) .search-panel {
+    background: #1a2332;
+    box-shadow: 0 0 0 1px rgba(255,255,255,.07), 0 8px 40px rgba(0,0,0,.5);
+  }
+  @keyframes panel-in {
+    from { opacity: 0; transform: scale(0.96) translateY(-8px); }
+    to   { opacity: 1; transform: scale(1)    translateY(0); }
+  }
+
+  /* ── Top Info Bar ───────────────────────────────────────────── */
+  .search-topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 7px 14px;
+    background: linear-gradient(90deg, #fff5f5 0%, #f8fafc 100%);
+    border-bottom: 1px solid #fecaca;
+    font-size: 11px; flex-shrink: 0;
+  }
+  :global(.dark) .search-topbar {
+    background: linear-gradient(90deg, rgba(204,17,17,.07) 0%, rgba(255,255,255,.02) 100%);
+    border-color: rgba(204,17,17,.2);
+  }
+  .search-topbar-brand {
+    display: flex; align-items: center; gap: 5px;
+    font-weight: 700; letter-spacing: .03em; text-transform: uppercase;
+    color: #cc1111;
+  }
+  :global(.dark) .search-topbar-brand { color: #f87171; }
+  .search-topbar-shortcut {
+    display: flex; align-items: center; gap: 3px;
+    color: #94a3b8; font-size: 11px;
+  }
+  :global(.dark) .search-topbar-shortcut { color: #64748b; }
+  .search-topbar-shortcut kbd {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 1px 5px; border-radius: 4px;
+    font-size: 10px; font-weight: 700; font-family: inherit; line-height: 1.4;
+    background: white; color: #475569; border: 1px solid #cbd5e1;
+    box-shadow: 0 1px 0 #cbd5e1;
+  }
+  :global(.dark) .search-topbar-shortcut kbd {
+    background: #1e2d3d; color: #94a3b8; border-color: #334155; box-shadow: 0 1px 0 #334155;
+  }
+  .search-topbar-shortcut .sep { color: #cbd5e1; font-size: 10px; line-height: 1; }
+  :global(.dark) .search-topbar-shortcut .sep { color: #475569; }
+  .search-topbar-shortcut .hint { margin-left: 2px; }
+
+  /* ── Input Row ───────────────────────────────────────────────── */
+  .input-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    flex-shrink: 0;
+  }
+  .search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+    color: #1a202c;
+    caret-color: #cc1111;
+    min-width: 0;
+  }
+  :global(.dark) .search-input { color: #f1f5f9; }
+  .search-input::placeholder { color: #9ca3af; font-weight: 400; }
+
+  .shortcut-badge { align-items: center; gap: 3px; flex-shrink: 0; }
+  .shortcut-badge span {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 2px 5px; border-radius: 4px;
+    font-size: 11px; font-weight: 600;
+    background: #f3f4f6; color: #6b7280; border: 1px solid #e5e7eb; line-height: 1;
+  }
+  :global(.dark) .shortcut-badge span {
+    background: #2d3748; color: #9ca3af; border-color: #4a5568;
+  }
+
+  .close-btn {
+    display: flex; align-items: center; justify-content: center;
+    width: 30px; height: 30px; border-radius: 8px;
+    color: #9ca3af; border: none; background: transparent;
+    cursor: pointer; transition: background .15s, color .15s; flex-shrink: 0;
+  }
+  .close-btn:hover { background: #f3f4f6; color: #374151; }
+  :global(.dark) .close-btn:hover { background: #2d3748; color: #e2e8f0; }
+
+  /* ── Body ────────────────────────────────────────────────────── */
+  .search-body { overflow-y: auto; flex: 1; min-height: 0; }
+
+  /* ── Popular ─────────────────────────────────────────────────── */
+  .section-label {
+    padding: 10px 16px 6px;
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .07em;
+    color: #9ca3af;
+  }
+  :global(.dark) .section-label { color: #6b7280; }
+
+  .popular-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4px; padding: 4px 12px 16px;
+  }
+  .popular-item {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 10px; border-radius: 8px;
+    font-size: 13px; font-weight: 500;
+    color: #374151; text-decoration: none;
+    transition: background .12s, color .12s;
+    border: 1px solid transparent;
+  }
+  .popular-item:hover { background: #fff5f5; color: #cc1111; border-color: #fecaca; }
+  :global(.dark) .popular-item { color: #d1d5db; }
+  :global(.dark) .popular-item:hover {
+    background: rgba(204,17,17,.12); color: #f87171; border-color: rgba(204,17,17,.2);
+  }
+
+  /* ── Loading ─────────────────────────────────────────────────── */
+  .loading-state {
+    display: flex; justify-content: center; padding: 32px;
+  }
+  .loading-spinner {
+    width: 24px; height: 24px;
+    border: 2px solid #e5e7eb;
+    border-top-color: #cc1111;
+    border-radius: 50%;
+    animation: spin .7s linear infinite;
+  }
+  :global(.dark) .loading-spinner { border-color: #374151; border-top-color: #cc1111; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── Category Dot (popular grid) ─────────────────────────────── */
+  .cat-dot {
+    width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 3px;
+  }
+  .cat-servis { background: #cc1111; }
+  .cat-tip    { background: #0891b2; }
+  .cat-model  { background: #d97706; }
+  .cat-genel  { background: #10b981; }
+
+  /* ── No Results ──────────────────────────────────────────────── */
+  .no-results-state {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 6px; padding: 40px 20px; text-align: center;
+  }
+
+  /* ── Hints Footer ────────────────────────────────────────────── */
+  .hints-bar {
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    padding: 9px 16px;
+    border-top: 1px solid #f3f4f6;
+    flex-shrink: 0;
+  }
+  :global(.dark) .hints-bar { border-color: #2d3748; }
+  .hint-item { display: flex; align-items: center; gap: 4px; font-size: 11px; color: #9ca3af; }
+  .hints-bar kbd {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 2px 5px; border-radius: 4px;
+    font-size: 11px; font-weight: 600; font-family: inherit;
+    background: #f9fafb; color: #6b7280; border: 1px solid #e5e7eb; line-height: 1;
+  }
+  :global(.dark) .hints-bar kbd { background: #2d3748; color: #9ca3af; border-color: #4a5568; }
+
+  .dev-notice { color: #f59e0b; gap: 5px; }
+  :global(.dark) .dev-notice { color: #d97706; }
+
+  /* ── Scrollbar ───────────────────────────────────────────────── */
+  .search-body::-webkit-scrollbar { width: 5px; }
+  .search-body::-webkit-scrollbar-track { background: transparent; }
+  .search-body::-webkit-scrollbar-thumb { background: #e5e7eb; border-radius: 10px; }
+  :global(.dark) .search-body::-webkit-scrollbar-thumb { background: #374151; }
+
+  /* ── Mobile ──────────────────────────────────────────────────── */
+  @media (max-width: 640px) {
+    .search-dialog {
+      padding-top: 0;
+      align-items: flex-end;
+    }
+    .search-panel {
+      width: 100%;
+      border-radius: 20px 20px 0 0;
+      max-height: 88vh;
+      animation: panel-in-mobile .22s cubic-bezier(0.2, 0, 0, 1.1) both;
+    }
+    @keyframes panel-in-mobile {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  }
+</style>
+
+<!-- Results injected via innerHTML — must be global (Astro CID scoping won't reach them) -->
+<style is:global>
+  .hits-list {
+    list-style: none; margin: 0;
+    padding: 8px 12px 12px;
+    display: flex; flex-direction: column; gap: 3px;
+  }
+
+  .result-item {
+    display: flex; align-items: stretch;
+    border-radius: 10px; overflow: hidden;
+    cursor: pointer !important; text-decoration: none;
+    user-select: none;
+    border: 1px solid transparent;
+    transition: background .12s, border-color .12s;
+  }
+  .result-item:hover, .result-item--active {
+    background: #fff5f5; border-color: #fecaca;
+  }
+  .dark .result-item:hover, .dark .result-item--active {
+    background: rgba(204,17,17,.1); border-color: rgba(204,17,17,.18);
+  }
+
+  .result-accent {
+    width: 4px; flex-shrink: 0;
+    opacity: 0.5;
+    transition: opacity .12s;
+  }
+  .result-item:hover .result-accent,
+  .result-item--active .result-accent { opacity: 1; }
+
+  .cat-accent-servis  { background: #cc1111; }
+  .cat-accent-tip     { background: #0891b2; }
+  .cat-accent-model   { background: #d97706; }
+  .cat-accent-genel   { background: #10b981; }
+  .cat-accent-general { background: #10b981; }
+
+  .result-info {
+    flex: 1; display: flex; flex-direction: column; gap: 3px;
+    min-width: 0; padding: 10px 8px 10px 12px;
+  }
+
+  .result-title {
+    font-size: 14px; font-weight: 600; color: #111827;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+  .dark .result-title { color: #f1f5f9; }
+  .result-item--active .result-title,
+  .result-item:hover   .result-title { color: #cc1111; }
+  .dark .result-item--active .result-title,
+  .dark .result-item:hover   .result-title { color: #f87171; }
+
+  .result-excerpt {
+    font-size: 12px; line-height: 1.5; color: #6b7280;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .dark .result-excerpt { color: #9ca3af; }
+  .result-excerpt mark {
+    background: #fef08a; color: #713f12;
+    border-radius: 2px; padding: 0 2px; font-weight: 600;
+  }
+  .dark .result-excerpt mark {
+    background: rgba(253,224,71,.2); color: #fde047;
+  }
+
+  .result-url {
+    font-size: 11px; color: #9ca3af;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
+
+  .result-right {
+    display: flex; flex-direction: column;
+    align-items: flex-end; justify-content: center;
+    gap: 6px; padding: 10px 12px 10px 6px; flex-shrink: 0;
+  }
+
+  .result-cat-pill {
+    font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .04em;
+    padding: 2px 7px; border-radius: 20px; white-space: nowrap;
+    background: #f3f4f6; color: #6b7280; border: 1px solid #e5e7eb;
+  }
+  .dark .result-cat-pill {
+    background: #2d3748; color: #9ca3af; border-color: #4a5568;
+  }
+
+  .result-arrow-icon {
+    font-size: 14px; color: #d1d5db;
+    transition: color .12s, transform .12s; line-height: 1;
+  }
+  .result-item:hover .result-arrow-icon,
+  .result-item--active .result-arrow-icon { color: #cc1111; transform: translateX(2px); }
+  .dark .result-item:hover .result-arrow-icon,
+  .dark .result-item--active .result-arrow-icon { color: #f87171; }
+</style>

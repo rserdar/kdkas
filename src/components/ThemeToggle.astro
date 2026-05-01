@@ -14,22 +14,22 @@ const labels = { light: 'Açık', dark: 'Koyu', system: 'Sistem' };
 ---
 
 <div class="relative theme-switcher-wrapper h-full flex items-center" data-labels={JSON.stringify(labels)} data-default-label="Tema">
-  <button type="button" class="theme-toggle-button w-full flex justify-center items-center gap-2 cursor-pointer group px-2 py-1.5 rounded-md hover:bg-gray-100 transition-colors" aria-label="Tema değiştir">
+  <button type="button" class="theme-toggle-button w-full flex justify-center items-center gap-2 cursor-pointer group px-2 py-1.5 rounded-md hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" aria-label="Tema değiştir">
     <Icon name="mdi:theme-light-dark" class="w-5 h-5 text-dark-2 group-hover:text-primary transition-colors" />
     <span class="current-theme-label text-[11px] font-bold text-dark-2 group-hover:text-primary transition-colors uppercase hidden xl:block">Tema</span>
   </button>
 
   <div class={`theme-dropdown absolute ${positioningClass} right-0 w-44 z-[60] hidden`}>
-    <div class={`bg-white shadow-2xl ${borderClass} border-primary py-2`}>
-      <button data-theme-value="light" class="theme-item w-full flex items-center px-5 py-2.5 text-[13px] font-semibold text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
+    <div class={`bg-white dark:bg-slate-900 shadow-2xl ${borderClass} border-primary py-2 ring-1 ring-black/5 dark:ring-white/10`}>
+      <button data-theme-value="light" class="theme-item w-full flex items-center px-5 py-2.5 text-[13px] font-semibold text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
         <Icon name="mdi:white-balance-sunny" class="w-[18px] h-[18px] mr-3" />
         Açık
       </button>
-      <button data-theme-value="dark" class="theme-item w-full flex items-center px-5 py-2.5 text-[13px] font-semibold text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
+      <button data-theme-value="dark" class="theme-item w-full flex items-center px-5 py-2.5 text-[13px] font-semibold text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
         <Icon name="mdi:weather-night" class="w-[18px] h-[18px] mr-3" />
         Koyu
       </button>
-      <button data-theme-value="system" class="theme-item w-full flex items-center px-5 py-2.5 text-[13px] font-semibold text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors">
+      <button data-theme-value="system" class="theme-item w-full flex items-center px-5 py-2.5 text-[13px] font-semibold text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
         <Icon name="mdi:laptop" class="w-[18px] h-[18px] mr-3" />
         Sistem
       </button>
@@ -113,5 +113,9 @@ const labels = { light: 'Açık', dark: 'Koyu', system: 'Sistem' };
   .active-theme-item {
     color: var(--primary);
     background-color: rgba(204, 17, 17, 0.05);
+  }
+
+  :global(.dark) .active-theme-item {
+    background-color: rgba(204, 17, 17, 0.12);
   }
 </style>

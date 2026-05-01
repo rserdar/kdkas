@@ -1,0 +1,33 @@
+---
+interface Props {
+  title?: string;
+  src?: string;
+  class?: string;
+}
+
+const {
+  title = 'KDK Asansör Konumu',
+  src = 'https://www.google.com/maps?q=Eroglan%20Mah.%20257%20Sok.%20Taskin%20Apt.%20No%3A2A%20Edremit%20Balikesir&output=embed',
+  class: className = '',
+} = Astro.props;
+---
+
+<section
+  id="contact-map"
+  class={`relative w-full overflow-hidden rounded-lg border border-slate-200 leading-[0] shadow-sm dark:border-slate-800 ${className}`}
+>
+  <iframe
+    loading="lazy"
+    src={src}
+    title={title}
+    class="dark-map-filter h-[380px] w-full border-0 transition-all duration-1000 md:h-[420px]"
+    sandbox="allow-scripts allow-same-origin allow-popups"
+    referrerpolicy="no-referrer-when-downgrade"
+  ></iframe>
+</section>
+
+<style>
+  :global(.dark) .dark-map-filter {
+    filter: grayscale(0.6) invert(0.9) hue-rotate(180deg) brightness(0.8) contrast(1.2);
+  }
+</style>

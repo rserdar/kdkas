@@ -9,6 +9,8 @@ import StatsCounter from '../components/StatsCounter.astro';
 import { Image } from 'astro:assets';
 
 // Import images
+import archPlanImg from '../assets/images/hero/arch-plan-1.jpg';
+import archPlanThreeImg from '../assets/images/hero/arch-plan-3.jpg';
 import mainHeroImg from '../assets/images/hero/main.webp';
 import mrlImg from '../assets/images/asansor-tipleri/makine-dairesiz.webp';
 import yukImg from '../assets/images/asansor-modelleri/yuk-asansoru-1.webp';
@@ -111,7 +113,10 @@ const testimonials = [
   <HeroSection />
 
   <section class="relative overflow-hidden bg-white py-20 md:py-24 dark:bg-slate-950">
-    <div class="absolute left-0 top-0 h-full w-full bg-[radial-gradient(circle_at_top_left,rgba(204,17,17,0.08),transparent_35%)]"></div>
+    <div
+      class="absolute left-0 top-0 h-full w-full bg-no-repeat"
+      style={`background-image: radial-gradient(circle at top left, rgba(204, 17, 17, 0.08), transparent 35%), url('${archPlanImg.src}'); background-position: top left, top right; background-size: auto, min(44vw, 620px); opacity: 0.55;`}
+    ></div>
     <div class="absolute -left-24 top-10 hidden h-72 w-72 rounded-full bg-primary/6 blur-3xl lg:block"></div>
     <div class="container relative mx-auto px-4">
       <div class="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
@@ -275,8 +280,13 @@ const testimonials = [
     </div>
   </section>
 
-  <section class="bg-white py-20 md:py-24 dark:bg-slate-950">
-    <div class="container mx-auto px-4">
+  <section class="relative overflow-hidden bg-white py-20 md:py-24 dark:bg-slate-950">
+    <div
+      class="pointer-events-none absolute bottom-0 left-0 hidden h-[320px] w-[320px] bg-contain bg-left-bottom bg-no-repeat lg:block"
+      style={`background-image: url('${archPlanThreeImg.src}'); opacity: 0.4;`}
+      aria-hidden="true"
+    ></div>
+    <div class="container relative z-10 mx-auto px-4">
       <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <ScrollAnimate animation="fadeInUp">
           <p class="mb-3 font-medium uppercase tracking-[0.35em] text-primary">Müşteri Yaklaşımı</p>

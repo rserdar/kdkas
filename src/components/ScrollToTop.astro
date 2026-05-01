@@ -4,7 +4,7 @@
 <div
   id="elevator-panel"
   aria-label="Sayfa gezinme paneli"
-  class="pointer-events-none fixed bottom-4 right-3 z-50 translate-y-4 opacity-0 transition-all duration-300 sm:bottom-5 sm:right-4"
+  class="pointer-events-none fixed bottom-4 right-3 z-50 translate-y-4 opacity-0 transition-all duration-300 hover:opacity-100 backdrop-blur-[2px] sm:bottom-5 sm:right-4"
 >
   <div class="flex flex-col items-center gap-1.5">
     <a
@@ -115,7 +115,7 @@
       panel.classList.toggle('pointer-events-none', !showPanel);
       panel.classList.toggle('opacity-0', !showPanel);
       panel.classList.toggle('translate-y-4', !showPanel);
-      panel.classList.toggle('opacity-100', showPanel);
+      panel.classList.toggle('opacity-85', showPanel);
       panel.classList.toggle('translate-y-0', showPanel);
 
       upBtn.classList.toggle('elevator-btn--active', !atTop);
@@ -213,7 +213,7 @@
     border-radius: 0.65rem;
     border: 1.5px solid #94a3b8;
     background: 
-      linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 50%, #94a3b8 100%),
+      linear-gradient(135deg, rgba(241, 245, 249, 0.9) 0%, rgba(203, 213, 225, 0.9) 50%, rgba(148, 163, 184, 0.9) 100%),
       repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px);
     background-blend-mode: overlay;
     box-shadow: 
@@ -306,7 +306,7 @@
 
   :global(.dark) .whatsapp-console {
     border-color: #334155;
-    background: linear-gradient(135deg, #334155 0%, #1e293b 50%, #0f172a 100%);
+    background: linear-gradient(135deg, rgba(51, 65, 85, 0.9) 0%, rgba(30, 41, 59, 0.9) 50%, rgba(15, 23, 42, 0.9) 100%);
     box-shadow: 
       inset 1px 1px 0 rgba(255,255,255,0.05),
       0 10px 25px -10px rgba(0,0,0,0.6);
@@ -320,7 +320,7 @@
 
   :global(.dark) .elevator-main-panel {
     border-color: #334155;
-    background: linear-gradient(135deg, #334155 0%, #1e293b 50%, #0f172a 100%);
+    background: linear-gradient(135deg, rgba(51, 65, 85, 0.9) 0%, rgba(30, 41, 59, 0.9) 50%, rgba(15, 23, 42, 0.9) 100%);
     box-shadow: 
       inset 1px 1px 0 rgba(255,255,255,0.05),
       0 12px 30px -10px rgba(0,0,0,0.7);
@@ -337,7 +337,7 @@
     border-radius: 0.75rem;
     border: 1.5px solid #94a3b8;
     background: 
-      linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 50%, #94a3b8 100%),
+      linear-gradient(135deg, rgba(241, 245, 249, 0.9) 0%, rgba(203, 213, 225, 0.9) 50%, rgba(148, 163, 184, 0.9) 100%),
       repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0,0,0,0.02) 2px, rgba(0,0,0,0.02) 4px);
     background-blend-mode: overlay;
     box-shadow: 

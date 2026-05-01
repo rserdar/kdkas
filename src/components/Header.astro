@@ -69,38 +69,69 @@ import SearchOverlay from './SearchOverlay.astro';
         <div class="ml-4"><ThemeToggle /></div>
       </div>
 
-      <!-- Mobile Menu Toggle -->
-      <button id="mobile-menu-btn" class="p-2 text-dark-2 lg:hidden">
-        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-      </button>
+      <!-- Mobile Controls -->
+      <div class="flex items-center space-x-1 lg:hidden">
+        <button 
+          id="search-open-btn-mobile" 
+          aria-label="Ara" 
+          class="p-2 text-dark-2 transition-colors hover:text-primary"
+          data-search-open
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </button>
+        <button id="mobile-menu-btn" class="p-2 text-dark-2" aria-label="Menü">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+      </div>
     </div>
   </div>
 </header>
 
 <!-- Mobile Drawer -->
-<div id="mobile-drawer" class="fixed inset-y-0 right-0 z-[60] w-80 translate-x-full bg-white shadow-2xl transition-transform duration-300 dark:bg-slate-950">
-  <div class="flex items-center justify-between border-b border-slate-100 p-6 dark:border-slate-800">
+<div id="mobile-drawer" class="fixed inset-y-0 right-0 z-[60] w-80 translate-x-full bg-white shadow-2xl transition-transform duration-300 dark:bg-slate-950 flex flex-col">
+  <div class="flex items-center justify-between border-b border-slate-100 p-6 dark:border-slate-800 flex-shrink-0">
     <Image src={logoImg} alt="KDK Asansör" class="h-8 w-auto" />
-    <button id="close-drawer-btn" class="p-2"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg></button>
+    <button id="close-drawer-btn" class="p-2 text-dark-2" aria-label="Kapat">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
   </div>
-  <div class="p-6 overflow-y-auto max-h-[calc(100vh-80px)]">
-    <ul class="space-y-6 text-sm font-bold uppercase tracking-widest">
-      <li><a href="/" class="block text-dark border-b border-slate-50 pb-2">Anasayfa</a></li>
-      <li><a href="/hakkimizda/" class="block text-dark border-b border-slate-50 pb-2">Hakkımızda</a></li>
+  <div class="p-6 overflow-y-auto flex-grow">
+    <ul class="space-y-6 text-sm font-bold uppercase tracking-widest text-dark-2">
+      <li><a href="/" class="block border-b border-slate-50 dark:border-slate-900 pb-2 hover:text-primary transition-colors">Anasayfa</a></li>
+      <li><a href="/hakkimizda/" class="block border-b border-slate-50 dark:border-slate-900 pb-2 hover:text-primary transition-colors">Hakkımızda</a></li>
       <li>
         <details class="group">
-          <summary class="flex justify-between items-center text-dark border-b border-slate-50 pb-2 cursor-pointer">Hizmetlerimiz <svg class="w-4 h-4 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></summary>
+          <summary class="flex justify-between items-center border-b border-slate-50 dark:border-slate-900 pb-2 cursor-pointer hover:text-primary transition-colors">
+            Hizmetlerimiz 
+            <svg class="w-4 h-4 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </summary>
           <div class="mt-4 pl-4 space-y-4 normal-case font-medium text-slate-600 dark:text-slate-400">
-            <a href="/asansor-tipleri/" class="block">Asansör Tipleri</a>
-            <a href="/modeller/" class="block">Modeller</a>
-            <a href="/servisler/" class="block">Servisler</a>
+            <a href="/asansor-tipleri/" class="block hover:text-primary transition-colors">• Asansör Tipleri</a>
+            <a href="/modeller/" class="block hover:text-primary transition-colors">• Modeller</a>
+            <a href="/servisler/" class="block hover:text-primary transition-colors">• Servisler</a>
           </div>
         </details>
       </li>
-      <li><a href="/iletisim/" class="block text-dark border-b border-slate-50 pb-2">İletişim</a></li>
+      <li><a href="/iletisim/" class="block border-b border-slate-50 dark:border-slate-900 pb-2 hover:text-primary transition-colors">İletişim</a></li>
     </ul>
   </div>
+  
+  <!-- Mobile Drawer Bottom Bar (Theme Toggle) -->
+  <div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 flex items-center justify-between flex-shrink-0">
+    <div class="flex items-center space-x-3 text-slate-500 dark:text-slate-400">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707M16.95 16.95l.707.707M7.05 7.05l.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+      </svg>
+      <span class="text-[10px] font-black uppercase tracking-[0.2em]">Görünüm Modu</span>
+    </div>
+    <ThemeToggle />
+  </div>
 </div>
+
 <div id="drawer-overlay" class="fixed inset-0 bg-black/50 z-[55] hidden opacity-0 transition-opacity"></div>
 
 <SearchOverlay />

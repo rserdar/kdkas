@@ -4,9 +4,9 @@
 <div
   id="elevator-panel"
   aria-label="Sayfa gezinme paneli"
-  class="pointer-events-none fixed bottom-6 right-5 z-50 translate-y-4 opacity-0 transition-all duration-300 sm:bottom-8 sm:right-8"
+  class="pointer-events-none fixed bottom-4 right-3 z-50 translate-y-4 opacity-0 transition-all duration-300 sm:bottom-5 sm:right-4"
 >
-  <div class="flex flex-col items-center gap-2.5">
+  <div class="flex flex-col items-center gap-1.5">
     <a
       href="https://api.whatsapp.com/send/?phone=905372234382&text=Merhaba%2C+Teklif+almak+istiyorum&type=phone_number&app_absent=0"
       target="_blank"
@@ -22,7 +22,7 @@
       
       <div class="whatsapp-console__grille">
         <span class="whatsapp-console__icon" aria-hidden="true">
-          <svg class="h-9 w-9" viewBox="0 0 24 24" fill="currentColor">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
             <path d="M19.05 4.94A9.9 9.9 0 0 0 12.02 2c-5.5 0-9.97 4.47-9.97 9.97 0 1.76.46 3.49 1.34 5.01L2 22l5.16-1.35a9.9 9.9 0 0 0 4.86 1.24h.01c5.49 0 9.96-4.47 9.96-9.97 0-2.66-1.04-5.16-2.94-7.02Zm-7.03 15.27h-.01a8.28 8.28 0 0 1-4.22-1.15l-.3-.18-3.06.8.82-2.98-.2-.31a8.3 8.3 0 0 1-1.28-4.42c0-4.58 3.73-8.31 8.32-8.31 2.22 0 4.3.86 5.87 2.43a8.26 8.26 0 0 1 2.43 5.88c0 4.58-3.73 8.31-8.31 8.31Zm4.56-6.19c-.25-.12-1.47-.72-1.7-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.78.96-.14.16-.28.19-.53.06-.25-.12-1.04-.38-1.98-1.2-.73-.65-1.22-1.45-1.36-1.7-.14-.25-.01-.38.11-.5.11-.11.25-.28.37-.42.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.35-.76-1.85-.2-.48-.4-.41-.56-.42h-.48c-.16 0-.42.06-.64.31s-.84.82-.84 2c0 1.18.86 2.32.98 2.48.12.16 1.68 2.56 4.07 3.59.57.25 1.01.39 1.36.5.57.18 1.09.15 1.5.09.46-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.1-.23-.16-.48-.29Z"/>
           </svg>
         </span>
@@ -36,14 +36,14 @@
       <div class="screw top-1.5 right-1.5"></div>
       <div class="screw bottom-1.5 left-1.5"></div>
       <div class="screw bottom-1.5 right-1.5"></div>
-    <div class="mb-2 px-1.5 pt-1">
+    <div class="mb-1 px-1 pt-0.5">
       <div class="elevator-display">
         <span class="elevator-display__caption">Kat</span>
         <div id="elevator-floor-indicator" class="elevator-display__value" aria-live="polite">5</div>
       </div>
     </div>
 
-    <div class="grid justify-center gap-2">
+    <div class="grid justify-center gap-1">
       <button
         id="scroll-to-top"
         type="button"
@@ -53,7 +53,7 @@
       >
         <span class="elevator-btn__inner">
           <span class="elevator-btn__arrow" aria-hidden="true">
-            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" d="M6 15l6-6 6 6" />
             </svg>
           </span>
@@ -70,7 +70,7 @@
       >
         <span class="elevator-btn__inner">
           <span class="elevator-btn__arrow" aria-hidden="true">
-            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.25" d="M6 9l6 6 6-6" />
             </svg>
           </span>
@@ -208,9 +208,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 76px;
-    height: 76px;
-    border-radius: 1.15rem;
+    width: 42px;
+    height: 42px;
+    border-radius: 0.65rem;
     border: 1.5px solid #94a3b8;
     background: 
       linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 50%, #94a3b8 100%),
@@ -245,12 +245,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 56px;
-    height: 56px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     background-color: #f1f5f9;
-    background-image: radial-gradient(#334155 1.5px, transparent 1.5px);
-    background-size: 6px 6px;
+    background-image: radial-gradient(#334155 1px, transparent 1px);
+    background-size: 4px 4px;
     box-shadow: 
       inset 0 2px 5px rgba(0,0,0,0.2),
       0 1px 1px rgba(255,255,255,0.5);
@@ -266,8 +266,8 @@
     background: rgba(241, 245, 249, 0.5);
     backdrop-filter: blur(3px);
     border-radius: 50%;
-    padding: 6px;
-    filter: drop-shadow(0 0 12px rgba(34, 197, 94, 0.6));
+    padding: 3px;
+    filter: drop-shadow(0 0 8px rgba(34, 197, 94, 0.6));
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
@@ -276,9 +276,9 @@
   }
 
   .whatsapp-console__mic-line {
-    margin-top: 6px;
-    width: 12px;
-    height: 2px;
+    margin-top: 3px;
+    width: 7px;
+    height: 1.5px;
     background: #475569;
     border-radius: 1px;
     opacity: 0.5;
@@ -286,8 +286,8 @@
 
   .screw {
     position: absolute;
-    width: 4px;
-    height: 4px;
+    width: 2.5px;
+    height: 2.5px;
     background: #64748b;
     border-radius: 50%;
     box-shadow: inset 1px 1px 1px rgba(0,0,0,0.3);
@@ -333,8 +333,8 @@
 
   .elevator-main-panel {
     position: relative;
-    padding: 0.5rem;
-    border-radius: 1.25rem;
+    padding: 0.3rem;
+    border-radius: 0.75rem;
     border: 1.5px solid #94a3b8;
     background: 
       linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 50%, #94a3b8 100%),
@@ -351,30 +351,30 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 0.65rem;
-    border-radius: 1rem;
+    gap: 0.35rem;
+    border-radius: 0.5rem;
     border: 1px solid #475569;
     background:
       linear-gradient(180deg, #0f172a, #1e293b);
-    padding: 0.6rem 0.7rem;
+    padding: 0.3rem 0.4rem;
     box-shadow:
       inset 0 2px 4px rgba(0,0,0,0.5),
       0 1px 0 rgba(255,255,255,0.1);
   }
 
   .elevator-display__caption {
-    font-size: 0.52rem;
+    font-size: 0.42rem;
     font-weight: 900;
-    letter-spacing: 0.32em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: rgba(148, 163, 184, 0.9);
   }
 
   .elevator-display__value {
-    min-width: 2.3rem;
+    min-width: 1.3rem;
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.25rem;
+    font-size: 0.75rem;
     font-weight: 800;
     line-height: 1;
     color: #f8fafc;
@@ -402,8 +402,8 @@
 
   .elevator-btn {
     display: flex;
-    width: 88px;
-    border-radius: 1.15rem;
+    width: 46px;
+    border-radius: 0.65rem;
     border: 1px solid rgba(148, 163, 184, 0.55);
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(226, 232, 240, 0.92));
@@ -423,14 +423,14 @@
 
   .elevator-btn__inner {
     display: flex;
-    min-height: 62px;
+    min-height: 34px;
     width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 0.22rem;
-    border-radius: 1rem;
-    padding: 0.5rem 0.5rem;
+    gap: 0.12rem;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
   }
 
   .elevator-btn__arrow {
@@ -441,9 +441,9 @@
   }
 
   .elevator-btn__label {
-    font-size: 0.68rem;
+    font-size: 0.42rem;
     font-weight: 800;
-    letter-spacing: 0.22em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
   }
 
@@ -547,7 +547,7 @@
   @media (max-width: 639px) {
     .elevator-display {
       justify-content: center;
-      padding: 0.55rem 0.6rem;
+      padding: 0.25rem 0.3rem;
     }
 
     .elevator-display__caption,
@@ -556,22 +556,22 @@
     }
 
     .elevator-btn {
-      width: 72px;
+      width: 38px;
     }
 
     .elevator-btn__inner {
-      min-height: 54px;
-      padding: 0.4rem;
+      min-height: 28px;
+      padding: 0.2rem;
     }
 
     .whatsapp-console {
-      width: 72px;
-      height: 72px;
+      width: 36px;
+      height: 36px;
     }
     
     .whatsapp-console__grille {
-      width: 54px;
-      height: 54px;
+      width: 26px;
+      height: 26px;
     }
   }
 </style>
